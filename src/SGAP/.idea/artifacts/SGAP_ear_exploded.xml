@@ -1,0 +1,21 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-ear" name="SGAP:ear exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/SGAP_ear_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="SGAP/javaeeApplication/javaEEApplication" />
+      <element id="directory" name="web.war">
+        <element id="artifact" artifact-name="SGAP:war exploded" />
+      </element>
+      <element id="directory" name="lib">
+        <element id="library" level="project" name="Mojarra-2.2.1 (2)" />
+        <element id="library" level="project" name="PrimeFaces-5.2" />
+        <element id="library" level="project" name="Spring-4.1.6.RELEASE" />
+        <element id="library" level="project" name="Spring Security-3.2.5" />
+        <element id="library" level="project" name="Hibernate 4.2.2-4.2.2" />
+        <element id="library" level="project" name="JPA 2.0-2.0" />
+        <element id="library" level="project" name="wicket-7.0.0-M2" />
+        <element id="library" level="project" name="Mojarra-2.2.1" />
+      </element>
+    </root>
+  </artifact>
+</component>
