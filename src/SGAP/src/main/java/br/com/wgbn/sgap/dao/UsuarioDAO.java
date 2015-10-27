@@ -6,6 +6,7 @@ import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
+import org.hibernate.metamodel.domain.Entity;
 
 /**
  *
@@ -24,28 +25,28 @@ public class UsuarioDAO implements IF_DAO {
      */
 
     @Override
-    public void salvar(UsuarioEntity usuario){
+    public void salvar(Entity usuario){
         this.sessao.save(usuario);
     }
 
     @Override
-    public void alterar(UsuarioEntity usuario){
+    public void alterar(Entity usuario){
         this.sessao.update(usuario);
     }
 
     @Override
-    public void excluir(UsuarioEntity usuario){
+    public void excluir(Entity usuario){
         this.sessao.delete(usuario);
     }
 
     @Override
-    public List<UsuarioEntity> getAll(){
+    public List<Entity> getAll(){
         return this.sessao.createCriteria(UsuarioEntity.class).list();
     }
 
     @Override
-    public UsuarioEntity getByPk(UsuarioEntity usuario){
-        return (UsuarioEntity) this.sessao.get(UsuarioEntity.class, usuario.getId());
+    public Entity getByPk(Entity usuario){
+        return (UsuarioEntity) this.sessao.get(UsuarioEntity.class, ((UsuarioEntity)usuario).getId());
     }
 
     /**

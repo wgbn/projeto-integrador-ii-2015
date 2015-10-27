@@ -1,7 +1,6 @@
 package br.com.wgbn.sgap.dao;
 
-import br.com.wgbn.sgap.entity.UsuarioEntity;
-
+import org.hibernate.metamodel.domain.Entity;
 import java.util.List;
 
 /**
@@ -9,14 +8,10 @@ import java.util.List;
  */
 public interface IF_DAO {
 
-    void salvar(Object object);
-
-    void alterar(Object object);
-
-    void excluir(Object object);
-
-    List<Object> getAll();
-
-    Object getByPk(Object object);
+    void salvar(Entity object);
+    void alterar(Entity object);
+    void excluir(Entity object);
+    List<Entity> getAll();
+    Entity getByPk(Entity object);
 
 }
