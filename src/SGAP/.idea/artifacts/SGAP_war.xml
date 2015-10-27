@@ -1,7 +1,7 @@
 <component name="ArtifactManager">
   <artifact type="war" name="SGAP:war">
     <output-path>$PROJECT_DIR$/out/artifacts/SGAP_war</output-path>
-    <root id="archive" name="SGAP_war.war">
+    <root id="archive" name="ROOT.war">
       <element id="artifact" artifact-name="SGAP:war exploded" />
       <element id="directory" name="WEB-INF">
         <element id="directory" name="lib">

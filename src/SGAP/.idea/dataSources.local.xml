@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="MySQL - pi2015@localhost" uuid="456477dc-f602-4371-9931-f4472498798e">
+      <secret-storage>master_key</secret-storage>
+      <user-name>root</user-name>
+      <schema-pattern>pi2015.*</schema-pattern>
+      <default-schemas>pi2015.*</default-schemas>
+    </data-source>
+  </component>
+</project>
