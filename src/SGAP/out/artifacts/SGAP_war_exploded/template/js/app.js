@@ -21,6 +21,7 @@ $(document).ready(function(){
         }
     });
 
+    // remove todas as classes do primefaces
     $.each($('.app').find('*'), function(){
         if ($(this).attr('class')){
             var arr = $(this).attr('class').split(' ');
@@ -33,6 +34,7 @@ $(document).ready(function(){
         }
     });
 
+    // posições absolutas
     $('.esquerda').height($(window).height());
     $('.topo').width($(window).width() - $('.esquerda').width());
 

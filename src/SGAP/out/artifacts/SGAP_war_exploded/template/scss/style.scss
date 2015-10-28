@@ -224,6 +224,14 @@
                     border-left: 0;
                 }
             }
+
+            & .usuarios-lista, & .usuarios-cadastro {
+                & h1 {
+                    display: block;
+                    color: #73879C;
+                    text-align: center;
+                }
+            }
         }
     }
 }
