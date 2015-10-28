@@ -128,9 +128,11 @@
                                 padding-left: .5em;
                             }
                             & .seta {
+                                float: right;
                                 width: 12px;
                                 height: 12px;
                                 margin-left: .4em;
+                                margin-top: .3em;
                                 -moz-transform: rotate(-90deg);
                                 -webkit-transform: rotate(-90deg);
                                 -o-transform: rotate(-90deg);
