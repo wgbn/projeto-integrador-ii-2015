@@ -10,8 +10,11 @@ import javax.faces.bean.SessionScoped;
 @SessionScoped
 public class UsuarioFacade {
 
-    public UsuarioFacade {
+    public UsuarioFacade() {
 
     }
 
+    public static boolean fazerLoginUsuario(){
+        return true;
+    }
 }

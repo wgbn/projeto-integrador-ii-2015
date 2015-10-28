@@ -37,6 +37,6 @@ public class ClienteDAO implements IF_DAO {
     }
 
     public Entity getByPk(Entity cliente) {
-        return (ClienteEntity) this.sessao.get(ClienteEntity.class, ((ClienteEntity)cliente).getId());
+        return null ;//(Entity) this.sessao.get(ClienteEntity.class, ((Entity)cliente).getId());
     }
 }

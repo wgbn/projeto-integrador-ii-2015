@@ -1,0 +1,181 @@
+@import 'css3-mixins';
+@import 'flex';
+
+$cor-app: #7fbe56;
+$cor-app-alpha: rgba(127, 190, 86, .2);
+$cor-app-escura: #305a15;
+$cor-app-escura-alpha: rgba(48, 90, 21, .2);
+$cor-app-clara: #b5ea93;
+$cor-app-clara-alpha: rgba(181, 234, 147, .15);
+$verde: #448940;
+
+.oculto {
+    display: none;
+}
+
+%flex-center-center {
+    @include flexbox;
+    @include justify-content(center);
+    @include align-items(center);
+}
+
+%flex-center-left {
+    @include flexbox;
+    @include justify-content(flex-start);
+    @include align-items(center);
+}
+
+%flex-center-right {
+    @include flexbox;
+    @include justify-content(flex-end);
+    @include align-items(center);
+}
+
+%flex-center-bottom {
+    @include flexbox;
+    @include justify-content(center);
+    @include align-items(flex-end);
+}
+
+%flex-center-top {
+    @include flexbox;
+    @include justify-content(center);
+    @include align-items(flex-start);
+}
+
+%cover {
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+%ooverlay {
+    @extend %absoluto;
+    background-color: rgba(0,0,0,.6);
+    z-index: -1;
+}
+
+%absoluto {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    min-height: 100%;
+    min-width: 100%;
+    height: auto;
+    width: auto;
+}
+
+%cards {
+    background-color: #fff;
+    @include box-shadow(0px, 1px, 3px, rgba(0,0,0,.15));
+    border: 1px solid #ddd;
+}
+
+/* loader css */
+.loaderd {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  position: relative;
+  border: 4px solid $cor-app-escura;
+  top: 50%;
+  -webkit-animation: loaderd 2s infinite ease;
+  animation: loaderd 2s infinite ease;
+}
+
+.loader-inner {
+  vertical-align: top;
+  display: inline-block;
+  width: 100%;
+  background-color: $cor-app-escura;
+  -webkit-animation: loader-inner 2s infinite ease-in;
+  animation: loader-inner 2s infinite ease-in;
+}
+
+@keyframes loaderd {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  25% {
+    transform: rotate(180deg);
+  }
+
+  50% {
+    transform: rotate(180deg);
+  }
+
+  75% {
+    transform: rotate(360deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes loaderd {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+
+  25% {
+    -webkit-transform: rotate(180deg);
+  }
+
+  50% {
+    -webkit-transform: rotate(180deg);
+  }
+
+  75% {
+    -webkit-transform: rotate(360deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes loader-inner {
+  0% {
+    height: 0%;
+  }
+
+  25% {
+    height: 0%;
+  }
+
+  50% {
+    height: 100%;
+  }
+
+  75% {
+    height: 100%;
+  }
+
+  100% {
+    height: 0%;
+  }
+}
+
+@-webkit-keyframes loader-inner {
+  0% {
+    height: 0%;
+  }
+
+  25% {
+    height: 0%;
+  }
+
+  50% {
+    height: 100%;
+  }
+
+  75% {
+    height: 100%;
+  }
+
+  100% {
+    height: 0%;
+  }
+}
