@@ -13,8 +13,7 @@ public class DashboardFacade {
     private boolean logado;
 
     public DashboardFacade(){
-        if (!this.logado)
-            this.logado = UsuarioFacade.fazerLoginUsuario();
+
     }
 
     public boolean isLogado() {

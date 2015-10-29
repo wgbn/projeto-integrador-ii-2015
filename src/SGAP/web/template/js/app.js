@@ -30,7 +30,12 @@ $(document).ready(function(){
                 if (_val.substr(0,2) != 'ui')
                     cls += _val+' ';
             });
-            $(this).attr('class', cls.trim());
+            cls = cls.trim();
+
+            if (cls.length > 0)
+                $(this).attr('class', cls);
+            else
+                $(this).removeAttr('class');
         }
     });
 
@@ -39,7 +44,8 @@ $(document).ready(function(){
     $('.topo').width($(window).width() - $('.esquerda').width());
 
     // acoes menu esquerda
-    $('.esquerda .menu .opcoes ul li a').click(function(e){
+    $('.esquerda .menu .opcoes ul li a.sup').click(function(e){
+        e.preventDefault();
         var _id = $(this).attr('id');
         $('#sub'+_id).slideToggle(150);
         if ($('#'+_id+' img')[0].classList.length > 1)

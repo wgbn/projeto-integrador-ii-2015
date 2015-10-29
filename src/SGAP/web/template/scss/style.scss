@@ -225,13 +225,98 @@
                 }
             }
 
-            & .usuarios-lista, & .usuarios-cadastro {
+            & .usuarios-lista, & .usuarios-cadastro, & .usuarios-editar {
                 & h1 {
                     display: block;
                     color: #73879C;
                     text-align: center;
+                    font: {
+                        size: 2em;
+                        weight: bold;
+                    }
                 }
             }
+
+            & .usuarios-lista {
+                & hr {
+                    margin: 1.5em 0;
+                }
+
+                & table[role=grid] {
+                    width: 90%;
+                    margin: auto;
+
+                    & thead {
+                        & tr {
+                            background-color: #73879C;
+
+                            & th[role=columnheader] {
+                                padding: .5em .3em;
+                                color: #fff;
+                            }
+                            & th:last-child {
+                                text-align: center;
+                            }
+                        }
+                    }
+
+                    & tbody {
+                        & tr {
+                            & td[role=gridcell] {
+                                color: #73879C;
+                                padding: .5em 0;
+                                border-bottom: 1px solid #73879C;
+                            }
+                            & td:first-child {
+                                padding-left: .5em;
+                            }
+                            & td:last-child {
+                                text-align: center;
+                                & a {
+                                    display: inline-block;
+                                    margin: 0 .3em;
+                                    background-color: #73879C;
+                                    color: #fff;
+                                    text: {
+                                        decoration: none;
+                                        transform: uppercase;
+                                    }
+                                    padding: .3em .5em;
+                                    font-size: .7em;
+                                    @include border-radius(2px);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            & .usuarios-editar {
+                & .painel {
+                    max-width: 75%;
+                }
+            }
+        }
+    }
+
+    & .painel {
+        border: 1px solid #9eb5cd;
+        margin: 1em auto;
+        @include border-radius(2px);
+
+        & div {
+            padding: 1em;
+        }
+        & div:first-child {
+            padding: .4em;
+            background-color: #9eb5cd;
+            color: #fff;
+            border-bottom: 1px solid #9eb5cd;
+        }
+        & div:last-child {
+            border-top: 1px solid #9eb5cd;
+            padding: .4em;
+            font-size: .8em;
         }
     }
 }

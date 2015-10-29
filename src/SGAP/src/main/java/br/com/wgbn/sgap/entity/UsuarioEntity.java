@@ -17,6 +17,7 @@ public class UsuarioEntity {
     private String agencia;
     private String conta;
     private boolean gerente;
+    private String gerenteStr;
     private Timestamp datacriacao;
     private Timestamp dataedicao;
     private String telefoneFixo;
@@ -96,6 +97,12 @@ public class UsuarioEntity {
     @Column(name = "gerente", nullable = false, insertable = true, updatable = true)
     public boolean isGerente() {
         return gerente;
+    }
+
+    @Basic
+    @Column(name = "gerenteStr", nullable = true, insertable = false, updatable = false)
+    public String getGerenteStr() {
+        return gerente ? "Sim":"Não";
     }
 
     public void setGerente(boolean gerente) {

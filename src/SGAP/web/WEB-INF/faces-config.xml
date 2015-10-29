@@ -4,4 +4,17 @@
               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
               xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd"
               version="2.0">
+
+    <!-- rotas vinda de usuarios/listar -->
+    <navigation-rule>
+        <from-view-id>/paginas/usuarios/listar.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>editarUsuario</from-outcome>
+            <to-view-id>/paginas/usuarios/editar.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>acoesUsuario</from-outcome>
+            <to-view-id>/paginas/acoes/usuario.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
 </faces-config>
