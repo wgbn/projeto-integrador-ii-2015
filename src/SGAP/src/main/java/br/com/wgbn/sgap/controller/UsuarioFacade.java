@@ -18,6 +18,7 @@ public class UsuarioFacade {
     private UsuarioEntity usuario;
 
     public UsuarioFacade() {
+        this.usuario = new UsuarioEntity();
         this.preencheUsuarios();
     }
 
@@ -70,8 +71,7 @@ public class UsuarioFacade {
         return "";
     }
 
-    public String preparaCadastro(String _path){
-        this.usuario = new UsuarioEntity();
-        return _path + "/paginas/usuarios/cadastrar.xhtml";
+    public UsuarioEntity preparaCadastro(){
+        return new UsuarioEntity();
     }
 }
