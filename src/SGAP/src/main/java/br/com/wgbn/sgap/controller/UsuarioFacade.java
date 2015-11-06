@@ -50,21 +50,28 @@ public class UsuarioFacade {
         for (int i = 1; i < 11; i++){
             usr = new UsuarioEntity();
             usr.setId(i);
-            usr.setNome("Walter Gandarella");
+            usr.setNome("Walter Gandarella "+i);
             usr.setTelefoneCelular("(71) 99205-3595");
             usr.setTelefoneFixo("(71) 3508-0443");
             usr.setEmail("walter.wgbn@gmail.com");
-            usr.setGerente(true);
+            usr.setGerente(i % 2 == 0);
 
             this.usuarios.add(usr);
         }
     }
 
-    public String editarUsuario(){
-        return "editarUsuario";
-    }
+    public String editarUsuario(){ return "editarUsuario"; }
 
     public String acoesUsuario(){
         return "acoesUsuario";
+    }
+
+    public String cadastrarUsuario(){
+        return "";
+    }
+
+    public String preparaCadastro(String _path){
+        this.usuario = new UsuarioEntity();
+        return _path + "/paginas/usuarios/cadastrar.xhtml";
     }
 }

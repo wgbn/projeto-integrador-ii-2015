@@ -13,6 +13,7 @@ public class UsuarioEntity {
     private String nome;
     private String email;
     private String senha;
+    private String resenha;
     private String banco;
     private String agencia;
     private String conta;
@@ -99,11 +100,14 @@ public class UsuarioEntity {
         return gerente;
     }
 
-    @Basic
-    @Column(name = "gerenteStr", nullable = true, insertable = false, updatable = false)
+    //@Basic
+    //@Column(name = "gerenteStr", nullable = true, insertable = false, updatable = false)
     public String getGerenteStr() {
         return gerente ? "Sim":"Não";
     }
+
+    public void setResenha(String _resenha){ this.resenha = _resenha; }
+    public String getResenha(){ return this.resenha; }
 
     public void setGerente(boolean gerente) {
         this.gerente = gerente;

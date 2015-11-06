@@ -1,4 +1,4 @@
-<div class="menu" xmlns:h="http://java.sun.com/jsf/html">
+<div class="menu" xmlns:h="http://java.sun.com/jsf/html" xmlns:jsf="http://java.sun.com/jsf">
     <div class="logo">
         <a href="#{request.contextPath}">SGAP</a>
     </div>
@@ -42,7 +42,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#{request.contextPath}/paginas/usuarios/cadastrar.xhtml">
+                        <a href="" jsf:action="#{usuarioFacade.preparaCadastro(request.contextPath)}">
                             <span class="ic-plus"></span>
                             <strong>Cadastrar</strong>
                         </a>
