@@ -254,6 +254,60 @@
 
                 & .lista-acoes {
                     width: 60%;
+
+                    & .acao {
+                        @extend %flex-center-top;
+
+                        & .esq, & .dir {
+                            min-height: 150px;
+                        }
+                        & .esq {
+                            width: 10%;
+                            border-right: 1px solid #73879C;
+                            position: relative;
+                            & .bola {
+                                position: absolute;
+                                width: 50px;
+                                height: 50px;
+                                background-color: #73879C;
+                                right: -25px;
+                                top: 10%;
+                                color: #fff;
+                                @include border-radius(50%);
+                                @extend %flex-center-center;
+
+                                & span {
+                                    display: block;
+                                }
+                                & .dia {
+                                    font-size: 1.2em;
+                                    line-height: normal;
+                                }
+                                & .semana {
+                                    text-transform: uppercase;
+                                    font-size: .7em;
+                                }
+                            }
+                        }
+                        & .dir {
+                            width: 90%;
+                            padding-top: 8%;
+
+                            & .caixa {
+                                width: 95%;
+                                border: 1px solid #73879C;
+                                padding: .6em;
+                                margin-left: 5%;
+                                cursor: pointer;
+                                @include border-radius-separate(0, 10px, 10px, 10px);
+
+                                &:hover {
+                                    background-color: #73879C;
+                                    color: #fff;
+                                }
+                            }
+                        }
+                    }
                 }
 
                 & .graficos {
