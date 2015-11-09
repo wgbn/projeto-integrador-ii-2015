@@ -7,14 +7,14 @@
 
     <!-- rotas vinda de usuarios/listar -->
     <navigation-rule>
-        <from-view-id>/paginas/usuarios/listar.xhtml</from-view-id>
+        <!--from-view-id>/paginas/usuarios/listar.usuariosListar.xhtml</from-view-id>
         <navigation-case>
             <from-outcome>editarUsuario</from-outcome>
-            <to-view-id>/paginas/usuarios/editar.xhtml</to-view-id>
+            <to-view-id>/paginas/usuarios/editar.usuariosEditar.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
             <from-outcome>acoesUsuario</from-outcome>
-            <to-view-id>/paginas/acoes/usuario.xhtml</to-view-id>
-        </navigation-case>
+            <to-view-id>/paginas/acoes/usuario.acoesUsuario.xhtml</to-view-id>
+        </navigation-case-->
     </navigation-rule>
 </faces-config>

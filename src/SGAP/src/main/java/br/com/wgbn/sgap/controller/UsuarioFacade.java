@@ -61,17 +61,18 @@ public class UsuarioFacade {
         }
     }
 
-    public String editarUsuario(){ return "editarUsuario"; }
+    public String editarUsuario(){ return "usuariosEditar"; }
 
-    public String acoesUsuario(){
-        return "acoesUsuario";
+    public String acoesUsuario(String _path){
+        return _path + "/acoes/acoesUsuario";
     }
 
     public String cadastrarUsuario(){
         return "";
     }
 
-    public UsuarioEntity preparaCadastro(){
-        return new UsuarioEntity();
+    public String preparaCadastro(){
+        this.usuario = new UsuarioEntity();
+        return "usuariosCadastrar";
     }
 }

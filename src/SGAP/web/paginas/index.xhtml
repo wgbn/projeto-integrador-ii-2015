@@ -53,43 +53,24 @@
 
             <div class="lista-acoes">
 
-                <div class="acao">
-                    <div class="esq">
-                        <div class="bola">
-                            <div>
-                                <span class="dia">04</span>
-                                <span class="semana">sex</span>
+                <ui:repeat value="#{dashboardFacade.acoes}" var="acao">
+                    <div class="acao">
+                        <div class="esq">
+                            <div class="bola">
+                                <div>
+                                    <span class="dia">#{acao.id}</span>
+                                    <span class="semana">sex</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dir">
+                            <div class="caixa">
+                                <strong style="display: block">#{acao.titulo}</strong>
+                                <p>#{acao.descricao}</p>
                             </div>
                         </div>
                     </div>
-                    <div class="dir">
-                        <div class="caixa">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque ipsam libero natus optio recusandae sint sit? Consequuntur distinctio, eveniet, ipsa laboriosam libero nihil non nostrum numquam omnis perferendis repudiandae similique?
-                        </div>
-                    </div>
-                </div>
-
-                <div class="acao">
-                    <div class="esq">
-                        <div class="bola">05</div>
-                    </div>
-                    <div class="dir">
-                        <div class="caixa">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque ipsam libero natus optio recusandae sint sit? Consequuntur distinctio, eveniet, ipsa laboriosam libero nihil non nostrum numquam omnis perferendis repudiandae similique?
-                        </div>
-                    </div>
-                </div>
-
-                <div class="acao">
-                    <div class="esq">
-                        <div class="bola">09</div>
-                    </div>
-                    <div class="dir">
-                        <div class="caixa">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque ipsam libero natus optio recusandae sint sit? Consequuntur distinctio, eveniet, ipsa laboriosam libero nihil non nostrum numquam omnis perferendis repudiandae similique?
-                        </div>
-                    </div>
-                </div>
+                </ui:repeat>
 
             </div>
 
