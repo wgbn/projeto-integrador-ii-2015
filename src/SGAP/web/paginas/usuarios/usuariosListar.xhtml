@@ -40,10 +40,10 @@
 
                 <p:column headerText="Opções">
                     <h:form>
-                        <h:commandLink action="#{usuarioFacade.editarUsuario()}" value="editar">
+                        <h:commandLink action="#{navegacaoMB.actionUsuariosEditar()}" value="editar">
                             <f:setPropertyActionListener target="#{usuarioFacade.usuario}" value="#{usr}"/>
                         </h:commandLink>
-                        <h:commandLink action="#{usuarioFacade.acoesUsuario(request.contextPath)}" value="ações" title="Listar ações que este usuário participa">
+                        <h:commandLink action="#{navegacaoMB.actionAcoesUsuario()}" value="ações" title="Listar ações que este usuário participa">
                             <f:setPropertyActionListener target="#{usuarioFacade.usuario}" value="#{usr}"/>
                         </h:commandLink>
                     </h:form>

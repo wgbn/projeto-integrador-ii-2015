@@ -60,19 +60,4 @@ public class UsuarioFacade {
             this.usuarios.add(usr);
         }
     }
-
-    public String editarUsuario(){ return "usuariosEditar"; }
-
-    public String acoesUsuario(String _path){
-        return _path + "/acoes/acoesUsuario";
-    }
-
-    public String cadastrarUsuario(){
-        return "";
-    }
-
-    public String preparaCadastro(){
-        this.usuario = new UsuarioEntity();
-        return "usuariosCadastrar";
-    }
 }

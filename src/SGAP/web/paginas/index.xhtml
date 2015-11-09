@@ -6,72 +6,21 @@
         xmlns:f="http://xmlns.jcp.org/jsf/core"
         xmlns:p="http://primefaces.org/ui"
         xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+        xmlns:wgbn="http://java.sun.com/jsf/composite/tags"
         template="/template/layout/layoutPadrao.xhtml">
     <ui:define name="tela">
 
         <div class="metricas">
-
-            <div class="bloco">
-                <div class="descricao">
-                    <span class="ic-user-tie icone"></span>
-                    <span class="desc">clientes</span>
-                </div>
-                <strong class="valor">2500</strong>
-                <span class="atual">+ 10 no último mês</span>
-            </div>
-
-            <div class="bloco">
-                <div class="descricao">
-                    <span class="ic-bullhorn icone"></span>
-                    <span class="desc">acões</span>
-                </div>
-                <strong class="valor">2500</strong>
-                <span class="atual">+ 10 no último mês</span>
-            </div>
-
-            <div class="bloco">
-                <div class="descricao">
-                    <span class="ic-coin-dollar icone"></span>
-                    <span class="desc">a receber</span>
-                </div>
-                <strong class="valor">2500</strong>
-                <span class="atual">10% a mais</span>
-            </div>
-
-            <div class="bloco">
-                <div class="descricao">
-                    <span class="ic-coin-dollar icone"></span>
-                    <span class="desc">a pagar</span>
-                </div>
-                <strong class="valor">2500</strong>
-                <span class="atual">15% a mais</span>
-            </div>
-
+            <wgbn:itemMetrica value="#{dashboardFacade.metricaCliente}" styleClass="bloco"/>
+            <wgbn:itemMetrica value="#{dashboardFacade.metricaAcao}" styleClass="bloco"/>
+            <wgbn:itemMetrica value="#{dashboardFacade.metricaReceber}" styleClass="bloco"/>
+            <wgbn:itemMetrica value="#{dashboardFacade.metricaPagar}" styleClass="bloco"/>
         </div>
 
         <div class="dashboard">
 
             <div class="lista-acoes">
-
-                <ui:repeat value="#{dashboardFacade.acoes}" var="acao">
-                    <div class="acao">
-                        <div class="esq">
-                            <div class="bola">
-                                <div>
-                                    <span class="dia">#{acao.id}</span>
-                                    <span class="semana">sex</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="dir">
-                            <div class="caixa">
-                                <strong style="display: block">#{acao.titulo}</strong>
-                                <p>#{acao.descricao}</p>
-                            </div>
-                        </div>
-                    </div>
-                </ui:repeat>
-
+                <wgbn:acoesTimeline value="#{dashboardFacade.acoes}" styleClass="acao"/>
             </div>
 
             <div class="graficos">

@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:composite="http://java.sun.com/jsf/composite"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+<head>
+    <title>Not present in rendered output</title>
+</head>
+<body>
+<composite:interface>
+    <composite:attribute name="value" required="true"></composite:attribute>
+    <composite:attribute name="styleClass"></composite:attribute>
+</composite:interface>
+
+<composite:implementation>
+    <ui:repeat value="#{cc.attrs.value}" var="acao">
+        <div class="#{cc.attrs.styleClass}">
+            <div class="esq">
+                <div class="bola">
+                    <div>
+                        <span class="dia">#{acao.id}</span>
+                        <span class="semana">sex</span>
+                    </div>
+                </div>
+            </div>
+            <div class="dir">
+                <div class="caixa">
+                    <strong style="display: block">#{acao.titulo}</strong>
+                    <p>#{acao.descricao}</p>
+                </div>
+            </div>
+        </div>
+    </ui:repeat>
+</composite:implementation>
+</body>
+</html>

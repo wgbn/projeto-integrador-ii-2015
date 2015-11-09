@@ -40,14 +40,20 @@
                         <img class="seta" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAA4klEQVRIS63WwQ2DMAwFUP8NenVOHa1s0G7STlA26AjQCapOkWPUE8dUkYIUIcAOTs7oPztxAFCD5b3viahn5nEZB2t+DidmvqxlmQApPIGHgBDCaZqmJ4DfVuVzN9VADh8AfKXw6g7mcCJ6O+eumvNTd1BU/mDmNDWqpQKOhqu2yBIuAtbwXaBF+CbgvT/HGF8Aqg5UfZNz9SOAe83EqIH0YCtkd0xbIOI9sCIiYN0uFWBB1ECJENHgnLtpXkZVwKKTDzN3ElINFEgPIEjIIWCuOn8y4x5iAhIkIWagQFZ/W/5z3KwZeypZ6gAAAABJRU5ErkJggg=="/>
                     </a>
                     <ul class="oculto sub" id="sub2">
-                        <li>
+                        <!--li>
                             <a href="#{request.contextPath}/paginas/usuarios/usuariosListar.xhtml">
+                                <span class="ic-list"></span>
+                                <strong>Listar</strong>
+                            </a>
+                        </li-->
+                        <li>
+                            <a href="" jsf:action="#{navegacaoMB.actionUsuariosListar()}">
                                 <span class="ic-list"></span>
                                 <strong>Listar</strong>
                             </a>
                         </li>
                         <li>
-                            <a href="" jsf:action="#{usuarioFacade.preparaCadastro()}">
+                            <a href="" jsf:action="#{navegacaoMB.actionUsuariosCadastrar()}">
                                 <span class="ic-plus"></span>
                                 <strong>Cadastrar</strong>
                             </a>
