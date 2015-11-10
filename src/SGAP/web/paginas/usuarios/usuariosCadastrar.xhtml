@@ -14,11 +14,10 @@
 
             <div class="formulario">
                 <h:form>
-
                     <h5>Dados Básicos</h5>
 
                     <h:outputLabel value="Nome"/>
-                    <h:inputText value="#{usuarioFacade.usuario.nome}" pt:placeholder="Nome do usuário..." rendered="true"/>
+                    <h:inputText value="#{usuarioFacade.usuario.nome}" pt:placeholder="Nome do usuário..."/>
 
                     <h:outputLabel value="E-mail"/>
                     <h:inputText value="#{usuarioFacade.usuario.email}" pt:placeholder="E-mail do usuário..."/>
@@ -59,9 +58,7 @@
                         </h:selectOneRadio>
                     </div>
 
-                    <!--h:commandButton value="cadastrar" action="#{usuarioFacade.cadastrarUsuario()}"></h:commandButton-->
                     <a jsf:action="#{usuarioFacade.cadastrarUsuario()}" class="paper-btn">Cadastrar</a>
-
                 </h:form>
             </div>
         </div>

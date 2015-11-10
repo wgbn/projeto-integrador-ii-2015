@@ -5,7 +5,7 @@ import javax.persistence.Id;
 import java.io.Serializable;
 
 /**
- * Created by vivasalute on 27/10/15.
+ * Created by Walter Gandarella
  */
 public class UsuarioAcaoEntityPK implements Serializable {
     private int usuarioId;

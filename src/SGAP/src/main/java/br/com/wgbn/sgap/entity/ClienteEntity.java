@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.sql.Timestamp;
 
 /**
- * Created by vivasalute on 27/10/15.
+ * Created by Walter Gandarella
  */
 @Entity
 @Table(name = "cliente", schema = "", catalog = "pi2015")

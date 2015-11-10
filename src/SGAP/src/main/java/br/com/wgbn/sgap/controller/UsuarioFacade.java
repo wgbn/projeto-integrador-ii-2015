@@ -1,6 +1,7 @@
 package br.com.wgbn.sgap.controller;
 
 import br.com.wgbn.sgap.entity.UsuarioEntity;
+import br.com.wgbn.sgap.util.Navegacao;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -18,7 +19,7 @@ public class UsuarioFacade {
     private UsuarioEntity usuario;
 
     public UsuarioFacade() {
-        this.usuario = new UsuarioEntity();
+        //this.usuario = new UsuarioEntity();
         this.preencheUsuarios();
     }
 
@@ -59,5 +60,10 @@ public class UsuarioFacade {
 
             this.usuarios.add(usr);
         }
+    }
+
+    public void actionUsuariosCadastrar(){
+        this.usuario = new UsuarioEntity();
+        Navegacao.navegarPara("usuarios/usuariosCadastrar.xhtml");
     }
 }

@@ -5,7 +5,7 @@ import java.math.BigDecimal;
 import java.sql.Timestamp;
 
 /**
- * Created by vivasalute on 27/10/15.
+ * Created by Walter Gandarella
  */
 @Entity
 @Table(name = "acao", schema = "", catalog = "pi2015")
