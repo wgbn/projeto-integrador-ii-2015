@@ -34,4 +34,8 @@ public class AcaoDAO implements IF_DAO {
     public Entity getByPk(Entity acao) {
         return (AcaoEntity) this.sessao.get(AcaoEntity.class, ((AcaoEntity)acao).getId());;
     }
+
+    /**
+     * ### Métodos Próprios
+     */
 }
