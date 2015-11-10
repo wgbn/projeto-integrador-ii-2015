@@ -20,6 +20,8 @@ public class UsuarioDAO implements IF_DAO {
         this.sessao = sessao;
     }
 
+    public UsuarioDAO(){}
+
     /**
      * ### Métodos da Interface
      */
@@ -46,7 +48,7 @@ public class UsuarioDAO implements IF_DAO {
 
     @Override
     public Entity getByPk(Entity usuario){
-        return null; //(UsuarioEntity) this.sessao.get(UsuarioEntity.class, ((UsuarioEntity)usuario).getId());
+        return (UsuarioEntity) this.sessao.get(UsuarioEntity.class, ((UsuarioEntity)usuario).getId());
     }
 
     /**
