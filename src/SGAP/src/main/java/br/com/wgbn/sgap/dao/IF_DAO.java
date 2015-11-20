@@ -12,6 +12,6 @@ public interface IF_DAO {
     void alterar(Entity object);
     void excluir(Entity object);
     List<Entity> getAll();
-    Entity getByPk(Entity object);
+    Object getByPk(Entity object);
 
 }

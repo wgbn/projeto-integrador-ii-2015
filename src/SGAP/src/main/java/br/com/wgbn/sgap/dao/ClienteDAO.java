@@ -38,7 +38,7 @@ public class ClienteDAO implements IF_DAO {
         return this.sessao.createCriteria(ClienteEntity.class).list();
     }
 
-    public Entity getByPk(Entity cliente) {
-        return (ClienteEntity) this.sessao.get(ClienteEntity.class, ((ClienteEntity)cliente).getId());
+    public Object getByPk(Entity cliente) {
+        return null; //return (ClienteEntity) this.sessao.get(ClienteEntity.class, ((ClienteEntity)cliente).getId());
     }
 }

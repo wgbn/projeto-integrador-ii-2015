@@ -36,4 +36,15 @@ public class NavegacaoManagedBean {
         Navegacao.navegarPara("acoes/acoesUsuario.xhtml");
     }
 
+
+    /**
+     * ### Navegação de Clientes
+     */
+    public void actionClientesListar(){
+        Navegacao.navegarPara("clientes/clientesListar.xhtml");
+    }
+
+    public void actionClientesEditar(){
+        Navegacao.navegarPara("clientes/clientesEditar.xhtml");
+    }
 }

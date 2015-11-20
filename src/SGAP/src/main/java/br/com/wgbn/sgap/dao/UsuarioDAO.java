@@ -48,7 +48,7 @@ public class UsuarioDAO implements IF_DAO {
 
     @Override
     public Entity getByPk(Entity usuario){
-        return (UsuarioEntity) this.sessao.get(UsuarioEntity.class, ((UsuarioEntity)usuario).getId());
+        return null; //return (UsuarioEntity) this.sessao.get(UsuarioEntity.class, ((UsuarioEntity)usuario).getId());
     }
 
     /**

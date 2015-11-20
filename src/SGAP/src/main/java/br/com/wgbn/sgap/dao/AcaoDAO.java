@@ -31,8 +31,8 @@ public class AcaoDAO implements IF_DAO {
 
     public List<Entity> getAll() { return this.sessao.createCriteria(AcaoEntity.class).list(); }
 
-    public Entity getByPk(Entity acao) {
-        return (AcaoEntity) this.sessao.get(AcaoEntity.class, ((AcaoEntity)acao).getId());;
+    public Object getByPk(Entity acao) {
+        return null; //return (AcaoEntity) this.sessao.get(AcaoEntity.class, ((AcaoEntity)acao).getId());;
     }
 
     /**
