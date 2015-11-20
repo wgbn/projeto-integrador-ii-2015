@@ -1,17 +1,14 @@
 package br.com.wgbn.sgap.dao;
 
-import org.hibernate.metamodel.domain.Entity;
 import java.util.List;
 
 /**
  * Created by Walter Gandarella
  */
-public interface IF_DAO {
-
-    void salvar(Entity object);
-    void alterar(Entity object);
-    void excluir(Entity object);
-    List<Entity> getAll();
-    Object getByPk(Entity object);
-
+public interface IF_DAO<T> {
+    void salvar(T object);
+    void alterar(T object);
+    void excluir(T object);
+    List<T> getTodos();
+    T getPorPk(int pk);
 }

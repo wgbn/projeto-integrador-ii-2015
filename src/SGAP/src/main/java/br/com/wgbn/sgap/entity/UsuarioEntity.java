@@ -13,12 +13,10 @@ public class UsuarioEntity {
     private String nome;
     private String email;
     private String senha;
-    private String resenha;
     private String banco;
     private String agencia;
     private String conta;
-    private boolean gerente;
-    private String gerenteStr;
+    private int gerente;
     private Timestamp datacriacao;
     private Timestamp dataedicao;
     private String telefoneFixo;
@@ -96,20 +94,11 @@ public class UsuarioEntity {
 
     @Basic
     @Column(name = "gerente", nullable = false, insertable = true, updatable = true)
-    public boolean isGerente() {
+    public int getGerente() {
         return gerente;
     }
-
-    //@Basic
-    //@Column(name = "gerenteStr", nullable = true, insertable = false, updatable = false)
-    public String getGerenteStr() {
-        return gerente ? "Sim":"Não";
-    }
-
-    public void setResenha(String _resenha){ this.resenha = _resenha; }
-    public String getResenha(){ return this.resenha; }
-
-    public void setGerente(boolean gerente) {
+    public String getGerenteStr(){ return this.gerente == 0 ? "Não" : "Sim"; }
+    public void setGerente(int gerente) {
         this.gerente = gerente;
     }
 
@@ -186,7 +175,7 @@ public class UsuarioEntity {
         result = 31 * result + (banco != null ? banco.hashCode() : 0);
         result = 31 * result + (agencia != null ? agencia.hashCode() : 0);
         result = 31 * result + (conta != null ? conta.hashCode() : 0);
-        result = 31 * result + (gerente ? 1 : 0);
+        result = 31 * result + (int) gerente;
         result = 31 * result + (datacriacao != null ? datacriacao.hashCode() : 0);
         result = 31 * result + (dataedicao != null ? dataedicao.hashCode() : 0);
         result = 31 * result + (telefoneFixo != null ? telefoneFixo.hashCode() : 0);

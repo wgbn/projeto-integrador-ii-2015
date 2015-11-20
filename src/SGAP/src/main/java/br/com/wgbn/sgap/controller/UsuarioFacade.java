@@ -1,6 +1,8 @@
 package br.com.wgbn.sgap.controller;
 
+import br.com.wgbn.sgap.dao.UsuarioDAO;
 import br.com.wgbn.sgap.entity.UsuarioEntity;
+import br.com.wgbn.sgap.util.FacadeEntityManager;
 import br.com.wgbn.sgap.util.Navegacao;
 
 import javax.faces.bean.ManagedBean;
@@ -17,10 +19,17 @@ public class UsuarioFacade {
 
     private List<UsuarioEntity> usuarios = new LinkedList<UsuarioEntity>();
     private UsuarioEntity usuario;
+    private FacadeEntityManager fEntityManager = null;
+    private UsuarioDAO usuarioDao = null;
 
     public UsuarioFacade() {
-        //this.usuario = new UsuarioEntity();
-        this.preencheUsuarios();
+        if (this.fEntityManager == null)
+            this.fEntityManager = new FacadeEntityManager("wgbn");
+
+        if (this.usuarioDao == null && this.fEntityManager != null)
+            this.usuarioDao = new UsuarioDAO(this.fEntityManager.getEntityManager());
+
+        //this.preencheUsuarios();
     }
 
     /**
@@ -36,6 +45,7 @@ public class UsuarioFacade {
     }
 
     public List<UsuarioEntity> getUsuarios() {
+        this.usuarios = this.usuarioDao.getTodos();
         return this.usuarios;
     }
 
@@ -56,7 +66,7 @@ public class UsuarioFacade {
             usr.setTelefoneCelular("(71) 99205-3595");
             usr.setTelefoneFixo("(71) 3508-0443");
             usr.setEmail("walter.wgbn@gmail.com");
-            usr.setGerente(i % 2 == 0);
+            usr.setGerente(1);
 
             this.usuarios.add(usr);
         }
