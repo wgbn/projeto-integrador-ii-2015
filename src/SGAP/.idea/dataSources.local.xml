@@ -7,5 +7,11 @@
       <schema-pattern>pi2015.*</schema-pattern>
       <default-schemas>pi2015.*</default-schemas>
     </data-source>
+    <data-source name="local-laptop" uuid="2f359801-be29-4223-afc7-e6668b4c34bf">
+      <secret-storage>master_key</secret-storage>
+      <user-name>root</user-name>
+      <schema-pattern>acoesdb.*</schema-pattern>
+      <default-schemas>acoesdb.*</default-schemas>
+    </data-source>
   </component>
 </project>

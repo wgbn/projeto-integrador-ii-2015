@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:composite="http://java.sun.com/jsf/composite"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+<head>
+    <title>Not present in rendered output</title>
+</head>
+<body>
+<composite:interface>
+    <composite:attribute name="value" required="true"></composite:attribute>
+    <composite:attribute name="displayText" default="DefaultValue"></composite:attribute>
+    <composite:attribute name="estilo"></composite:attribute>
+</composite:interface>
+<composite:implementation>
+    <input type="button" onclick="alert('#{cc.attrs.displayText}');" value="#{cc.attrs.value}" style="#{cc.attrs.estilo}">
+
+    </input>
+</composite:implementation>
+</body>
+</html>
