@@ -1,6 +1,6 @@
 package br.com.wgbn.sgap.controller;
 
-//import br.com.wgbn.sgap.entity.AcaoEntity;
+import br.com.wgbn.sgap.entity.AcaoEntity;
 import br.com.wgbn.sgap.entity.MetricaEntity;
 
 import javax.faces.bean.ManagedBean;
@@ -17,7 +17,7 @@ import java.util.List;
 public class DashboardFacade {
 
     private boolean logado;
-    //private List<AcaoEntity> acoes = new LinkedList<AcaoEntity>();
+    private List<AcaoEntity> acoes = new LinkedList<AcaoEntity>();
     private MetricaEntity metricaCliente;
     private MetricaEntity metricaAcao;
     private MetricaEntity metricaReceber;
@@ -56,18 +56,18 @@ public class DashboardFacade {
     }
 
     public DashboardFacade(){
-        //this.preencheTimeline();
+        this.preencheTimeline();
         this.preencheMetricas();
 
     }
 
-    /*public List<AcaoEntity> getAcoes() {
+    public List<AcaoEntity> getAcoes() {
         return acoes;
     }
 
     public void setAcoes(List<AcaoEntity> acoes) {
         this.acoes = acoes;
-    }*/
+    }
 
     public boolean isLogado() {
         return logado;
@@ -77,7 +77,7 @@ public class DashboardFacade {
         this.logado = logado;
     }
 
-    /*private void preencheTimeline(){
+    private void preencheTimeline(){
         AcaoEntity acao;
 
         for (int i = 1; i < 11; i++){
@@ -90,7 +90,7 @@ public class DashboardFacade {
             acao.setTitulo("Bem vindo Theo!");
             this.acoes.add(acao);
         }
-    }*/
+    }
 
     private void preencheMetricas(){
         this.metricaAcao = new MetricaEntity("ic-bullhorn", "ações", 300, "+ 80 no último mês");

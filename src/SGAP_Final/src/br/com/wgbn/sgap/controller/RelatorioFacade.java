@@ -1,7 +1,7 @@
 package br.com.wgbn.sgap.controller;
 
-//import br.com.wgbn.sgap.entity.AcaoEntity;
-//import br.com.wgbn.sgap.entity.ClienteEntity;
+import br.com.wgbn.sgap.entity.AcaoEntity;
+import br.com.wgbn.sgap.entity.ClienteEntity;
 import br.com.wgbn.sgap.entity.UsuarioEntity;
 
 import javax.faces.bean.ManagedBean;
@@ -16,19 +16,19 @@ import java.util.List;
 @SessionScoped
 public class RelatorioFacade {
 
-    //private List<ClienteEntity> clientes = new LinkedList<ClienteEntity>();
+    private List<ClienteEntity> clientes = new LinkedList<ClienteEntity>();
     private List<UsuarioEntity> usuarios = new LinkedList<UsuarioEntity>();
-    //private List<AcaoEntity>    acoes    = new LinkedList<AcaoEntity>();
+    private List<AcaoEntity>    acoes    = new LinkedList<AcaoEntity>();
 
-    /*public List<ClienteEntity> getClientes() {
+    public List<ClienteEntity> getClientes() {
         return clientes;
-    }*/
+    }
 
     public List<UsuarioEntity> getUsuarios() {
         return usuarios;
     }
 
-    /*public List<AcaoEntity> getAcoes() {
+    public List<AcaoEntity> getAcoes() {
         return acoes;
-    }*/
+    }
 }

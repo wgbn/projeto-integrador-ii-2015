@@ -1,6 +1,6 @@
 package br.com.wgbn.sgap.controller;
 
-//import br.com.wgbn.sgap.entity.ClienteEntity;
+import br.com.wgbn.sgap.entity.ClienteEntity;
 import br.com.wgbn.sgap.util.Navegacao;
 
 import javax.faces.bean.ManagedBean;
@@ -15,7 +15,7 @@ import java.util.List;
 @SessionScoped
 public class ClienteFacade {
 
-    /*private ClienteEntity cliente;
+    private ClienteEntity cliente;
     private List<ClienteEntity> clientes = new LinkedList<ClienteEntity>();
 
     public ClienteFacade(){
@@ -32,13 +32,13 @@ public class ClienteFacade {
 
     public List<ClienteEntity> getClientes() {
         return clientes;
-    }*/
+    }
 
     /**
      * ### Funções do facade
      */
 
-    /*private void preencheClientes(){
+    private void preencheClientes(){
         ClienteEntity cli;
         for (int i = 1; i < 11; i++){
             cli = new ClienteEntity();
@@ -52,14 +52,14 @@ public class ClienteFacade {
 
             this.clientes.add(cli);
         }
-    }*/
+    }
 
     public String cadastrarCliente(){
         return "";
     }
 
-    /*public void actionClientesCadastrar(){
+    public void actionClientesCadastrar(){
         this.cliente = new ClienteEntity();
         Navegacao.navegarPara("clientes/clientesCadastrar.xhtml");
-    }*/
+    }
 }

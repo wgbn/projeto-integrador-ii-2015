@@ -19,15 +19,15 @@ public class UsuarioFacade {
 
     private List<UsuarioEntity> usuarios = new LinkedList<UsuarioEntity>();
     private UsuarioEntity usuario;
-    private FacadeEntityManager fEntityManager = null;
+    //private FacadeEntityManager fEntityManager = null;
     private UsuarioDAO usuarioDao = null;
 
     public UsuarioFacade() {
-        if (this.fEntityManager == null)
-            this.fEntityManager = new FacadeEntityManager("wgbn");
+        /*if (this.fEntityManager == null)
+            this.fEntityManager = new FacadeEntityManager("wgbn");*/
 
-        if (this.usuarioDao == null && this.fEntityManager != null)
-            this.usuarioDao = new UsuarioDAO(this.fEntityManager.getEntityManager());
+        if (this.usuarioDao == null && MainApp.getFacadeEntityManager() != null)
+            this.usuarioDao = new UsuarioDAO(MainApp.getFacadeEntityManager().getEntityManager());
 
         //this.preencheUsuarios();
     }
