@@ -56,7 +56,7 @@ public abstract class GenericoDAO<T> implements IF_DAO<T> {
     }
 
     public List<T> getTodos() {
-        return this.entityManager.createQuery(("FROM " + getTypeClass().getName())).getResultList();
+        return this.entityManager.createQuery("FROM " + getTypeClass().getName()).getResultList();
     }
 
     public T getPorPk(int pk) {

@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.sql.Timestamp;
 
 /**
- * Created by walter on 20/11/15.
+ * Created by walter on 21/11/15.
  */
 @Entity
 @Table(name = "usuario", schema = "", catalog = "acoesdb")
@@ -21,6 +21,7 @@ public class UsuarioEntity {
     private Timestamp dataedicao;
     private String telefoneFixo;
     private String telefoneCelular;
+    private UsuarioAcaoEntity usuarioId;
 
     @Id
     @Column(name = "id", nullable = false, insertable = true, updatable = true)
@@ -175,11 +176,20 @@ public class UsuarioEntity {
         result = 31 * result + (banco != null ? banco.hashCode() : 0);
         result = 31 * result + (agencia != null ? agencia.hashCode() : 0);
         result = 31 * result + (conta != null ? conta.hashCode() : 0);
-        result = 31 * result + (int) gerente;
+        result = 31 * result + gerente;
         result = 31 * result + (datacriacao != null ? datacriacao.hashCode() : 0);
         result = 31 * result + (dataedicao != null ? dataedicao.hashCode() : 0);
         result = 31 * result + (telefoneFixo != null ? telefoneFixo.hashCode() : 0);
         result = 31 * result + (telefoneCelular != null ? telefoneCelular.hashCode() : 0);
         return result;
+    }
+
+    @OneToOne(mappedBy = "usuario")
+    public UsuarioAcaoEntity getUsuarioId() {
+        return usuarioId;
+    }
+
+    public void setUsuarioId(UsuarioAcaoEntity usuarioId) {
+        this.usuarioId = usuarioId;
     }
 }

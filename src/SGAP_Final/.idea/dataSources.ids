@@ -44,12 +44,6 @@
       <primary-key name="PRIMARY" columns="id"/>
       <exported-key name="fk_acao_cliente1" table="acao" schema="" catalog="acoesdb" columns="cliente_id"/>
     </table>
-    <table name="pessoas" schema="" catalog="acoesdb" type="TABLE">
-      <column name="pessoas_id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
-      <column name="pessoas_idade" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
-      <column name="pessoas_nome" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
-      <primary-key name="PRIMARY" columns="pessoas_id"/>
-    </table>
     <table name="tipoacao" schema="" catalog="acoesdb" type="TABLE">
       <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
       <column name="tipo" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
@@ -76,13 +70,14 @@
       <exported-key name="fk_usuario_has_acao_usuario1" table="usuario_acao" schema="" catalog="acoesdb" columns="usuario_id"/>
     </table>
     <table name="usuario_acao" schema="" catalog="acoesdb" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
       <column name="usuario_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
       <column name="acao_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
       <column name="confirmado" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6" def="MA=="/>
       <column name="lider" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6" def="MA=="/>
       <column name="datacadastro" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
       <column name="dataedicao" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" version="true"/>
-      <primary-key name="PRIMARY" columns="usuario_id,acao_id"/>
+      <primary-key name="PRIMARY" columns="id"/>
       <foreign-key name="fk_usuario_has_acao_acao1" columns="acao_id" ref-table="acao" ref-schema="" ref-catalog="acoesdb" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
       <foreign-key name="fk_usuario_has_acao_usuario1" columns="usuario_id" ref-table="usuario" ref-schema="" ref-catalog="acoesdb" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
       <index name="fk_usuario_has_acao_acao1_idx" unique="false" columns="acao_id"/>

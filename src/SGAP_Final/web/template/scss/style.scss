@@ -383,6 +383,9 @@
                                     @include border-radius(2px);
                                 }
                             }
+                            &:hover {
+                                background-color: rgba(115, 135, 156, .2);
+                            }
                         }
                     }
                 }

@@ -28,7 +28,7 @@
                     <h:inputText value="#{usuarioFacade.usuario.senha}" pt:placeholder="Senha..."/>
 
                     <h:outputLabel value="Repita a senha"/>
-                    <h:inputText value="#{usuarioFacade.usuario.resenha}" pt:placeholder="Repita a senha..."/>
+                    <h:inputText value="" pt:placeholder="Repita a senha..."/>
 
                     <h5>Dados Financeiros</h5>
 
@@ -53,8 +53,8 @@
 
                     <div class="radio">
                         <h:selectOneRadio id="gerente" value="#{usuarioFacade.usuario.gerente}">
-                            <f:selectItem id="gerente1" itemLabel="Promotor" itemValue="false" />
-                            <f:selectItem id="gerente2" itemLabel="Gerente" itemValue="true" />
+                            <f:selectItem id="gerente1" itemLabel="Promotor" itemValue="0" />
+                            <f:selectItem id="gerente2" itemLabel="Gerente" itemValue="1" />
                         </h:selectOneRadio>
                     </div>
 

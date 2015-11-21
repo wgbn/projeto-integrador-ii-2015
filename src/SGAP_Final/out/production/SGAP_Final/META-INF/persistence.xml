@@ -6,8 +6,8 @@
         <class>br.com.wgbn.sgap.entity.AcaoEntity</class>
         <class>br.com.wgbn.sgap.entity.ClienteEntity</class>
         <class>br.com.wgbn.sgap.entity.TipoacaoEntity</class>
-        <!--class>br.com.wgbn.sgap.entity.UsuarioAcaoEntity</class-->
         <class>br.com.wgbn.sgap.entity.UsuarioEntity</class>
+        <class>br.com.wgbn.sgap.entity.UsuarioAcaoEntity</class>
         <properties>
             <!--property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect" /-->
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
@@ -27,6 +27,10 @@
             <property name="hibernate.jdbc.wrap_result_sets" value="false" />
             <property name="hibernate.hibernate.cache.use_query_cache" value="true" />
             <property name="hibernate.hbm2ddl.auto" value="update" />
+            <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/acoesdb"/>
+            <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>
+            <property name="hibernate.connection.username"/>
+            <property name="hibernate.connection.password"/>
             <!--property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/acoesdb"/>
             <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>
             <property name="hibernate.connection.username"/>

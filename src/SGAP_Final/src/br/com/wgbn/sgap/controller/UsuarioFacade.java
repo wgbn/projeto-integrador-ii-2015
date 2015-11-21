@@ -2,11 +2,14 @@ package br.com.wgbn.sgap.controller;
 
 import br.com.wgbn.sgap.dao.UsuarioDAO;
 import br.com.wgbn.sgap.entity.UsuarioEntity;
+import br.com.wgbn.sgap.model.UsuarioModel;
 import br.com.wgbn.sgap.util.FacadeEntityManager;
 import br.com.wgbn.sgap.util.Navegacao;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import java.sql.Timestamp;
+import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -18,34 +21,33 @@ import java.util.List;
 public class UsuarioFacade {
 
     private List<UsuarioEntity> usuarios = new LinkedList<UsuarioEntity>();
-    private UsuarioEntity usuario;
-    //private FacadeEntityManager fEntityManager = null;
-    private UsuarioDAO usuarioDao = null;
+    private UsuarioModel model;
+    private UsuarioDAO dao;
 
-    public UsuarioFacade() {
-        /*if (this.fEntityManager == null)
-            this.fEntityManager = new FacadeEntityManager("wgbn");*/
-
-        if (this.usuarioDao == null && MainApp.getFacadeEntityManager() != null)
-            this.usuarioDao = new UsuarioDAO(MainApp.getFacadeEntityManager().getEntityManager());
-
-        //this.preencheUsuarios();
+    public UsuarioFacade(){
+        if (this.dao == null && MainApp.getFacadeEntityManager() != null)
+            this.dao = new UsuarioDAO(MainApp.getFacadeEntityManager().getEntityManager());
+        model = new UsuarioModel(dao);
     }
 
     /**
      * ### Getters & Setters
      */
 
-    public UsuarioEntity getUsuario() {
-        return usuario;
+    public UsuarioModel getModel() {
+        return this.model;
     }
 
     public void setUsuario(UsuarioEntity usuario) {
-        this.usuario = usuario;
+        this.model.setEntity(usuario);
+    }
+
+    public UsuarioEntity getUsuario(){
+        return this.model.getEntity();
     }
 
     public List<UsuarioEntity> getUsuarios() {
-        this.usuarios = (List<UsuarioEntity>) this.usuarioDao.getTodos();
+        this.usuarios = this.model.getDao().getTodos();
         return this.usuarios;
     }
 
@@ -57,23 +59,14 @@ public class UsuarioFacade {
      * ### Funções do facade
      */
 
-    private void preencheUsuarios(){
-        UsuarioEntity usr;
-        for (int i = 1; i < 11; i++){
-            usr = new UsuarioEntity();
-            usr.setId(i);
-            usr.setNome("Walter Gandarella "+i);
-            usr.setTelefoneCelular("(71) 99205-3595");
-            usr.setTelefoneFixo("(71) 3508-0443");
-            usr.setEmail("walter.wgbn@gmail.com");
-            usr.setGerente(1);
-
-            this.usuarios.add(usr);
-        }
+    public void actionUsuariosCadastrar(){
+        this.model.setEntity(new UsuarioEntity());
+        this.model.getEntity().setDatacriacao(new Timestamp(new Date().getTime()));
+        Navegacao.navegarPara("usuarios/usuariosCadastrar.xhtml");
     }
 
-    public void actionUsuariosCadastrar(){
-        this.usuario = new UsuarioEntity();
-        Navegacao.navegarPara("usuarios/usuariosCadastrar.xhtml");
+    public void cadastrarUsuario(){
+        this.model.getDao().salvar(this.model.getEntity());
+        Navegacao.navegarPara("usuarios/usuariosListar.xhtml");
     }
 }
