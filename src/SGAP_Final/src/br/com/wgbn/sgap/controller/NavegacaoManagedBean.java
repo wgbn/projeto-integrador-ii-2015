@@ -25,8 +25,7 @@ public class NavegacaoManagedBean {
     }
 
     public void actionUsuariosEditar(){
-        Navegacao.navegarPara("usuarios/usuariosCadastrar.xhtml");
-        //Navegacao.navegarPara("usuarios/usuariosEditar.xhtml");
+        Navegacao.navegarPara("usuarios/usuariosEditar.xhtml");
     }
 
     /**

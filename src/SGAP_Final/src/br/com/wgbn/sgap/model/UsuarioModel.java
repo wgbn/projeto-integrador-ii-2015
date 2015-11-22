@@ -26,6 +26,6 @@ public class UsuarioModel extends GenericoModel<UsuarioEntity, UsuarioDAO> {
     }
 
     public boolean validarSenha(){
-        return this.resenha == this.entity.getSenha();
+        return this.resenha.equals(this.entity.getSenha());
     }
 }

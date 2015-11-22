@@ -6,8 +6,10 @@ import br.com.wgbn.sgap.model.UsuarioModel;
 import br.com.wgbn.sgap.util.FacadeEntityManager;
 import br.com.wgbn.sgap.util.Navegacao;
 
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 import java.sql.Timestamp;
 import java.util.Date;
 import java.util.LinkedList;
@@ -61,12 +63,23 @@ public class UsuarioFacade {
 
     public void actionUsuariosCadastrar(){
         this.model.setEntity(new UsuarioEntity());
+        this.model.setResenha(new String());
         this.model.getEntity().setDatacriacao(new Timestamp(new Date().getTime()));
         Navegacao.navegarPara("usuarios/usuariosCadastrar.xhtml");
     }
 
     public void cadastrarUsuario(){
-        this.model.getDao().salvar(this.model.getEntity());
+        if (this.model.validarSenha()) {
+            this.model.getDao().salvar(this.model.getEntity());
+            Navegacao.navegarPara("usuarios/usuariosListar.xhtml");
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Sucesso!", "O usuário foi cadstrado com sucesso!"));
+        } else {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Atenção!", "As senhas não conferem"));
+        }
+    }
+
+    public void atualizarUsuario(){
+        this.model.getDao().alterar(this.model.getEntity());
         Navegacao.navegarPara("usuarios/usuariosListar.xhtml");
     }
 }

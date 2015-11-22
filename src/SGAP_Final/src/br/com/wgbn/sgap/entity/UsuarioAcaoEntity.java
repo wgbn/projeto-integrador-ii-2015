@@ -14,8 +14,6 @@ public class UsuarioAcaoEntity {
     private int lider;
     private Timestamp datacadastro;
     private Timestamp dataedicao;
-    private UsuarioEntity usuario;
-    private AcaoEntity acao;
 
     @Id
     @Column(name = "id", nullable = false, insertable = true, updatable = true)
@@ -91,25 +89,5 @@ public class UsuarioAcaoEntity {
         result = 31 * result + (datacadastro != null ? datacadastro.hashCode() : 0);
         result = 31 * result + (dataedicao != null ? dataedicao.hashCode() : 0);
         return result;
-    }
-
-    @OneToOne
-    @JoinColumn(name = "usuario_id", referencedColumnName = "id", nullable = false)
-    public UsuarioEntity getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(UsuarioEntity usuario) {
-        this.usuario = usuario;
-    }
-
-    @OneToOne
-    @JoinColumn(name = "acao_id", referencedColumnName = "id", nullable = false)
-    public AcaoEntity getAcao() {
-        return acao;
-    }
-
-    public void setAcao(AcaoEntity acao) {
-        this.acao = acao;
     }
 }

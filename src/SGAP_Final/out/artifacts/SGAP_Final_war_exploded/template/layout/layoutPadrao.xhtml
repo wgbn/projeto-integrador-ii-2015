@@ -24,45 +24,33 @@
 
     <h:body styleClass="app">
 
-        <!-- exibição do loading ajax -->
-        <!--p:ajaxStatus>
+        <p:ajaxStatus>
+
             <f:facet name="start">
-                <div class="ajax-status-msg"></div>
-                <p:graphicImage styleClass="ajax-status-img" value="/templates/css/images/loadproject.gif" />
+                <div class="pAjax">
+                    <img src="#{request.contextPath}/template/img/loadingwin.gif"/>
+                </div>
+
             </f:facet>
 
             <f:facet name="complete">
                 <h:outputText value="" />
             </f:facet>
-        </p:ajaxStatus-->
+        </p:ajaxStatus>
 
-        <!-- exibição das mensagens -->
-        <p:growl id="growl" sticky="false" autoUpdate="true" showSummary="true"/>
+        <p:growl id="msg" sticky="false" showSummary="true" showDetail="true" life="5000" severity="info, warn" />
 
-        <!-- layout da aplicação -->
-        <p:layout fullPage="true">
-            <p:layoutUnit position="center">
-                <p:layout>
-
-                    <p:layoutUnit position="north" styleClass="topo">
-                        <ui:include src="../../template/layout/topo.xhtml"/>
-                    </p:layoutUnit>
-
-                    <p:layoutUnit position="west" styleClass="esquerda">
-                        <ui:include src="../../template/layout/menu.xhtml"/>
-                    </p:layoutUnit>
-
-                    <!--p:layoutUnit position="east" styleClass="direita"></p:layoutUnit-->
-
-                    <p:layoutUnit position="center" styleClass="tela">
-                        <div class="area">
-                            <ui:insert name="tela"></ui:insert>
-                        </div>
-                    </p:layoutUnit>
-
-                </p:layout>
-            </p:layoutUnit>
-        </p:layout>
+        <div class="layout-menu esquerda">
+            <ui:include src="../../template/layout/menu.xhtml"/>
+        </div>
+        <div class="layout-topo topo">
+            <ui:include src="../../template/layout/topo.xhtml"/>
+        </div>
+        <div class="layout-area tela">
+            <div class="area">
+                <ui:insert name="tela"></ui:insert>
+            </div>
+        </div>
 
     </h:body>
 </f:view>

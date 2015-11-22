@@ -35,12 +35,12 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="JPA 2.0-2.0" level="project" />
+    <orderEntry type="library" exported="" name="JPA 2.0-2.0" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="GlassFish 4.1.0" level="application_server_libraries" />
-    <orderEntry type="library" name="Hibernate 4.2.2-4.2.2" level="project" />
-    <orderEntry type="library" name="Mojarra-2.2.1" level="project" />
-    <orderEntry type="library" name="PrimeFaces-5.2" level="project" />
-    <orderEntry type="library" name="org.hibernate:hibernate-entitymanager:4.2.2.Final" level="project" />
-    <orderEntry type="library" name="com.mysql.jdbc:com.springsource.com.mysql.jdbc:5.1.6" level="project" />
+    <orderEntry type="library" exported="" name="Hibernate 4.2.2-4.2.2" level="project" />
+    <orderEntry type="library" exported="" name="Mojarra-2.2.1" level="project" />
+    <orderEntry type="library" exported="" name="PrimeFaces-5.2" level="project" />
+    <orderEntry type="library" exported="" name="org.hibernate:hibernate-entitymanager:4.2.2.Final" level="project" />
+    <orderEntry type="library" exported="" name="com.mysql.jdbc:com.springsource.com.mysql.jdbc:5.1.6" level="project" />
   </component>
 </module>

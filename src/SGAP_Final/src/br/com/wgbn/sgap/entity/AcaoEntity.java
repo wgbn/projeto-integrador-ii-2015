@@ -21,8 +21,6 @@ public class AcaoEntity {
     private String titulo;
     private Timestamp datacriacao;
     private Timestamp dataedicao;
-    private ClienteEntity clienteByClienteId;
-    private UsuarioAcaoEntity acaoId;
 
     @Id
     @Column(name = "id", nullable = false, insertable = true, updatable = true)
@@ -170,24 +168,5 @@ public class AcaoEntity {
         result = 31 * result + (datacriacao != null ? datacriacao.hashCode() : 0);
         result = 31 * result + (dataedicao != null ? dataedicao.hashCode() : 0);
         return result;
-    }
-
-    @ManyToOne
-    @JoinColumn(name = "cliente_id", referencedColumnName = "id", nullable = false)
-    public ClienteEntity getClienteByClienteId() {
-        return clienteByClienteId;
-    }
-
-    public void setClienteByClienteId(ClienteEntity clienteByClienteId) {
-        this.clienteByClienteId = clienteByClienteId;
-    }
-
-    @OneToOne(mappedBy = "acao")
-    public UsuarioAcaoEntity getAcaoId() {
-        return acaoId;
-    }
-
-    public void setAcaoId(UsuarioAcaoEntity acaoId) {
-        this.acaoId = acaoId;
     }
 }

@@ -14,51 +14,55 @@
 
             <div class="formulario">
                 <h:form>
-                    <h5>Dados Básicos</h5>
+                    <p:outputPanel autoUpdate="true">
+                        <h5>Dados Básicos</h5>
 
-                    <h:outputLabel value="Nome"/>
-                    <h:inputText value="#{usuarioFacade.usuario.nome}" pt:placeholder="Nome do usuário..."/>
+                        <p:messages severity="error" id="messages" showDetail="true" autoUpdate="true" closable="true" />
 
-                    <h:outputLabel value="E-mail"/>
-                    <h:inputText value="#{usuarioFacade.usuario.email}" pt:placeholder="E-mail do usuário..."/>
+                        <h:outputLabel value="Nome"/>
+                        <h:inputText value="#{usuarioFacade.usuario.nome}" pt:placeholder="Nome do usuário..."/>
 
-                    <h5>Segurança</h5>
+                        <h:outputLabel value="E-mail"/>
+                        <h:inputText value="#{usuarioFacade.usuario.email}" pt:placeholder="E-mail do usuário..."/>
 
-                    <h:outputLabel value="Senha"/>
-                    <h:inputText value="#{usuarioFacade.usuario.senha}" pt:placeholder="Senha..."/>
+                        <h5>Segurança</h5>
 
-                    <h:outputLabel value="Repita a senha"/>
-                    <h:inputText value="" pt:placeholder="Repita a senha..."/>
+                        <h:outputLabel value="Senha"/>
+                        <h:inputText value="#{usuarioFacade.usuario.senha}" pt:placeholder="Senha..."/>
 
-                    <h5>Dados Financeiros</h5>
+                        <h:outputLabel value="Repita a senha"/>
+                        <h:inputText value="#{usuarioFacade.model.resenha}" pt:placeholder="Repita a senha..."/>
 
-                    <h:outputLabel value="Banco"/>
-                    <h:inputText value="#{usuarioFacade.usuario.banco}" pt:placeholder="Nome do banco..."/>
+                        <h5>Dados Financeiros</h5>
 
-                    <h:outputLabel value="Agência"/>
-                    <h:inputText value="#{usuarioFacade.usuario.agencia}" pt:placeholder="Agência que possui conta..."/>
+                        <h:outputLabel value="Banco"/>
+                        <h:inputText value="#{usuarioFacade.usuario.banco}" pt:placeholder="Nome do banco..."/>
 
-                    <h:outputLabel value="Conta"/>
-                    <h:inputText value="#{usuarioFacade.usuario.conta}" pt:placeholder="Número da conta..."/>
+                        <h:outputLabel value="Agência"/>
+                        <h:inputText value="#{usuarioFacade.usuario.agencia}" pt:placeholder="Agência que possui conta..."/>
 
-                    <h5>Contato</h5>
+                        <h:outputLabel value="Conta"/>
+                        <h:inputText value="#{usuarioFacade.usuario.conta}" pt:placeholder="Número da conta..."/>
 
-                    <h:outputLabel value="Telefone fixo"/>
-                    <h:inputText value="#{usuarioFacade.usuario.telefoneFixo}" pt:placeholder="Telefone fixo..."/>
+                        <h5>Contato</h5>
 
-                    <h:outputLabel value="telefone Celular"/>
-                    <h:inputText value="#{usuarioFacade.usuario.telefoneCelular}" pt:placeholder="Telefone celular..."/>
+                        <p:outputLabel for="telfixo" value="Telefone fixo"/>
+                        <p:inputMask id="telfixo" value="#{usuarioFacade.usuario.telefoneFixo}" pt:placeholder="Telefone fixo..." mask="(99) 99999-9999"/>
 
-                    <h5>Tipo de Usuário</h5>
+                        <p:outputLabel for="cel" value="telefone Celular"/>
+                        <p:inputMask id="cel" value="#{usuarioFacade.usuario.telefoneCelular}" pt:placeholder="Telefone celular..." mask="(99) 99999-9999"/>
 
-                    <div class="radio">
-                        <h:selectOneRadio id="gerente" value="#{usuarioFacade.usuario.gerente}">
-                            <f:selectItem id="gerente1" itemLabel="Promotor" itemValue="0" />
-                            <f:selectItem id="gerente2" itemLabel="Gerente" itemValue="1" />
-                        </h:selectOneRadio>
-                    </div>
+                        <h5>Tipo de Usuário</h5>
 
-                    <a jsf:action="#{usuarioFacade.cadastrarUsuario()}" class="paper-btn">Cadastrar</a>
+                        <div class="radio">
+                            <h:selectOneRadio id="gerente" value="#{usuarioFacade.usuario.gerente}">
+                                <f:selectItem id="gerente1" itemLabel="Promotor" itemValue="0" />
+                                <f:selectItem id="gerente2" itemLabel="Gerente" itemValue="1" />
+                            </h:selectOneRadio>
+                        </div>
+
+                        <a jsf:action="#{usuarioFacade.cadastrarUsuario()}" class="paper-btn">Cadastrar</a>
+                    </p:outputPanel>
                 </h:form>
             </div>
         </div>

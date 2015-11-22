@@ -1,7 +1,7 @@
 $(document).ready(function(){
 
     // remove css do primefaces
-    $.each($('head').find('link'), function(_key,_val){
+    /*$.each($('head').find('link'), function(_key,_val){
         if ($(this).attr('href').search(new RegExp("primefaces.css.xhtml","g")) > -1)
             $(this).remove();
         if ($(this).attr('href').search(new RegExp("layout.css.xhtml","g")) > -1)
@@ -37,7 +37,7 @@ $(document).ready(function(){
             else
                 $(this).removeAttr('class');
         }
-    });
+    });*/
 
     // posições absolutas
     $('.esquerda').height($(window).height());

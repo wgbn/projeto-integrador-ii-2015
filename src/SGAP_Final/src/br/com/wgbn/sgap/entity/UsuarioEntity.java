@@ -21,7 +21,6 @@ public class UsuarioEntity {
     private Timestamp dataedicao;
     private String telefoneFixo;
     private String telefoneCelular;
-    private UsuarioAcaoEntity usuarioId;
 
     @Id
     @Column(name = "id", nullable = false, insertable = true, updatable = true)
@@ -182,14 +181,5 @@ public class UsuarioEntity {
         result = 31 * result + (telefoneFixo != null ? telefoneFixo.hashCode() : 0);
         result = 31 * result + (telefoneCelular != null ? telefoneCelular.hashCode() : 0);
         return result;
-    }
-
-    @OneToOne(mappedBy = "usuario")
-    public UsuarioAcaoEntity getUsuarioId() {
-        return usuarioId;
-    }
-
-    public void setUsuarioId(UsuarioAcaoEntity usuarioId) {
-        this.usuarioId = usuarioId;
     }
 }

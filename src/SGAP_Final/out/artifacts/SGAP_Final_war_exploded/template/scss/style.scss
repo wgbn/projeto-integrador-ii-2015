@@ -5,28 +5,6 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
 @import url(https://fonts.googleapis.com/css?family=Raleway:400,100);
 
-.ajax-status-msg {
-    width:100%;
-    height:100%;
-    position: fixed;
-    background: #fff;
-    z-index:50;
-    top: 0px;
-    left: 0px;
-    filter: Alpha(Opacity=30);
-    opacity: .30;
-}
-.ajax-status-img {
-    width:64px;
-    height:64px;
-    position:fixed;
-    top: 50%;
-    left: 50%;
-    z-index:51;
-    margin-top: -64px;
-    margin-right: -64px;
-}
-
 .paper-btn {
     background-color: #73879C;
     text-decoration: none;
@@ -52,19 +30,37 @@
     position: relative;
     font-family: "Raleway", serif;
 
+    & .layout-menu, & .layout-topo, & .layout-area {
+        margin: 0;
+    }
+    & .layout-menu, & .layout-topo {
+        position: fixed;
+        top: 0;
+        left: 0;
+    }
+    & .layout-menu {
+        width: 230px;
+        background: #2A3F54;
+        color: #E7E7E7;
+        height: 100vh;
+        z-index: 10;
+    }
+    & .layout-topo {
+        width: 100%;
+        padding-left: 230px;
+        background: #EDEDED;
+        border-bottom: 1px solid #D9DEE4;
+        z-index: 9;
+    }
+    & .layout-area {
+        padding: 55px 0 0 235px;
+    }
+
     & .topo, & .esquerda, & .tela {
         margin: 0;
     }
 
     & .topo { // barra de topo
-        position: fixed;
-        top: 0;
-        left: 230px;
-        width: 100%;
-        background: #EDEDED;
-        border: 0;
-        border-bottom: 1px solid #D9DEE4;
-
         & .barra {
             @extend %flex-center-right;
             color: #333;
@@ -115,14 +111,6 @@
     }
 
     & .esquerda { // area do menu
-        position: fixed;
-        top: 0px !important;
-        left: 0;
-        width: 230px !important;
-        background: #2A3F54;
-        color: #E7E7E7;
-        border: 0;
-
         & .menu {
             & .logo {
                 text-align: center;
@@ -199,9 +187,6 @@
     }
 
     & .tela { // area de exibicao
-        padding: 55px 0 0 235px;
-        border: 0;
-
         & .area {
             padding: 1em;
 
@@ -339,9 +324,22 @@
                     margin: 1.5em 0;
                 }
 
-                & table[role=grid] {
+                & .tabela {
                     width: 90%;
                     margin: auto;
+
+                    & .linha-id {
+                        width: 5%;
+                    }
+                    & .linha-tel {
+                        width: 15%;
+                    }
+                    & .linha-gerente {
+                        width: 8%;
+                    }
+                    & .linha-opc {
+                        width: 12%;
+                    }
 
                     & thead {
                         & tr {
@@ -363,6 +361,8 @@
                                 color: #73879C;
                                 padding: .5em 0;
                                 border-bottom: 1px solid #73879C;
+                                font-size: .9em;
+                                vertical-align: middle;
                             }
                             & td:first-child {
                                 padding-left: .5em;
@@ -461,6 +461,71 @@
             border-top: 1px solid #9eb5cd;
             padding: .4em;
             font-size: .8em;
+        }
+    }
+
+    /* components UI */
+
+    & .pAjax {
+        width:100%;
+        height:100%;
+        position: fixed;
+        background-color: rgba(255,255,255, .8); //rgba(42, 63, 84, .7);
+        z-index:50;
+        top: 0px;
+        left: 0px;
+        @extend %flex-center-center;
+    }
+    & .pAjaxImg {
+        width:64px;
+        height:64px;
+        position:fixed;
+        top: 50%;
+        left: 50%;
+        z-index:51;
+        margin-top: -64px;
+        margin-right: -64px;
+    }
+
+    & .ui-growl-item-container {
+        background-color: rgba(63, 101, 139, .93) !important;
+        color: #fff !important;
+        @include border-radius(2px);
+    }
+    & .ui-shadow {
+        //@include box-shadow(1px, 1px, 3px, rgba(0,0,0,.3));
+        box-shadow: 1px 1px 3px rgba(0,0,0,.3) !important;
+    }
+    & .ui-growl {
+        top: 70px !important;
+        right: 10px !important;
+    }
+
+    & .ui-datatable, .ui-datatable thead th, .ui-datatable tbody td, .ui-datatable tfoot td, .ui-datatable tfoot th {
+        padding: 0;
+        margin: 0;
+        font-size: 1em;
+        background-color: transparent;
+        border-style: inherit;
+        border-width: 0;
+        border-color: inherit;
+        overflow: inherit;
+        text-align: left;
+    }
+
+    & .ui-paginator-pages {
+        & .ui-paginator-page {
+            display: inline-block;
+            background-color: rgba(42, 63, 84, .6);
+            color: #fff;
+            padding: .1em .3em;
+            @include border-radius(2px);
+            &:hover {
+                background-color: rgba(42, 63, 84, .95);
+            }
+        }
+        & .ui-state-active {
+            background-color: rgba(42, 63, 84, 1);
         }
     }
 }
