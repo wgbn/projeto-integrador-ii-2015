@@ -10,4 +10,8 @@ public class ClienteModel extends GenericoModel<ClienteEntity, ClienteDAO> {
 
     public ClienteModel(ClienteDAO dao) { super(dao); }
 
+    @Override
+    public void resetEntity() {
+        this.entity = new ClienteEntity();
+    }
 }

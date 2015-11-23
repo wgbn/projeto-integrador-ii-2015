@@ -2,8 +2,10 @@ package br.com.wgbn.sgap.model;
 
 import br.com.wgbn.sgap.controller.MainApp;
 
+import java.lang.reflect.ParameterizedType;
+
 /**
- * Created by walter on 21/11/15.
+ * Created by Walter Gandarella
  */
 public abstract class GenericoModel<T, D> {
     private D dao = null;
@@ -28,4 +30,6 @@ public abstract class GenericoModel<T, D> {
     public void setEntity(T entity) {
         this.entity = entity;
     }
+
+    public abstract void resetEntity();
 }

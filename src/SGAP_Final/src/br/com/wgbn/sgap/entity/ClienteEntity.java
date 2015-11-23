@@ -20,6 +20,7 @@ public class ClienteEntity {
     private String fax;
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false, insertable = true, updatable = true)
     public int getId() {
         return id;

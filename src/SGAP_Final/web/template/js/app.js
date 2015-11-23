@@ -53,4 +53,18 @@ $(document).ready(function(){
         else
             $('#'+_id+' img').addClass('seta-baixo');
     });
+
+    $(".btnDelCliente").click(function(e){
+        e.preventDefault();
+        UIkit.modal.confirm("Tem certeza que deseja excluir este cliente?", function(){
+            $('.btnDelClienteOculto').click();
+        });
+    });
+
+    $(".btnDelUsuario").click(function(e){
+        e.preventDefault();
+        UIkit.modal.confirm("Tem certeza que deseja excluir este usuário?", function(){
+            $('.btnDelUsuarioOculto').click();
+        });
+    });
 });

@@ -31,9 +31,11 @@ public class NavegacaoManagedBean {
     /**
      * ### Navegação de Ações
      */
-    public void actionAcoesUsuario(){
-        Navegacao.navegarPara("acoes/acoesUsuario.xhtml");
-    }
+    public void actionAcoesUsuario(){ Navegacao.navegarPara("acoes/acoesUsuario.xhtml"); }
+
+    public void actionAcoesCadastrar(){ Navegacao.navegarPara("acoes/acoesCadastrar.xhtml"); }
+
+    public void actionAcoesListar() { Navegacao.navegarPara("acoes/acoesListar.xhtml"); }
 
 
     /**

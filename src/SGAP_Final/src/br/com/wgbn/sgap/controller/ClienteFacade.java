@@ -59,15 +59,16 @@ public class ClienteFacade {
      * ### Métodos do facade
      */
 
-    public void aoCarregarCriarCliente(ComponentSystemEvent event){
+    public void aoCarregarCriarCliente(ComponentSystemEvent event) throws InstantiationException, IllegalAccessException {
         if (Utilidades.isNewRequest()){
-            this.model.setEntity(new ClienteEntity());
+            this.model.resetEntity();
             this.model.getEntity().setDatacriacao(new Timestamp(new Date().getTime()));
         }
     }
 
-    public void cadastrarCliente(){
+    public void cadastrarCliente() throws InstantiationException, IllegalAccessException {
         this.model.getDao().salvar(this.model.getEntity());
+        this.model.resetEntity();
         Navegacao.navegarPara("clientes/clientesListar.xhtml");
     }
 

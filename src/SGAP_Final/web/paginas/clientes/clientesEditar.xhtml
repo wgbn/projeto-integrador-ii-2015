@@ -37,7 +37,8 @@
                     <p:inputMask value="#{clienteFacade.cliente.fax}" pt:placeholder="número do fax..." mask="(99) 99999999?9"/>
 
                     <a jsf:action="#{clienteFacade.alterarCliente()}" class="paper-btn">Salvar</a>
-                    <a href="" jsf:action="#{clienteFacade.apagarCliente()}" class="paper-btn paper-cancel">Apagar Cliente</a>
+                    <a href="#" class="paper-btn paper-cancel btnDelCliente">Excluir Cliente</a>
+                    <a href="" jsf:action="#{clienteFacade.apagarCliente()}" class="oculto btnDelClienteOculto">oculto</a>
 
                 </h:form>
             </div>

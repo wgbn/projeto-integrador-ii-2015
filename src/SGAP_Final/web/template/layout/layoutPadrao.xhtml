@@ -10,15 +10,17 @@
 
 <f:view contentType="text/html">
     <head jsf:id="head">
-        <script type="text/javascript" language="JavaScript" src="#{request.contextPath}/template/js/app.js"></script>
-
         <title>SGAP - Sistema de Gerenciamento de Ações e Promoções - WGBN Software House, inc.</title>
         <meta content="text/html;charset=UTF-8" http-equiv="Content-Type"/>
 
+        <link type="text/css" rel="stylesheet" href="#{request.contextPath}/template/css/uikit.almost-flat.min.css"/>
         <link type="text/css" rel="stylesheet" href="#{request.contextPath}/template/css/mixins.css"/>
         <link type="text/css" rel="stylesheet" href="#{request.contextPath}/template/css/reset.css"/>
         <link type="text/css" rel="stylesheet" href="#{request.contextPath}/template/css/fonts.css"/>
         <link type="text/css" rel="stylesheet" href="#{request.contextPath}/template/css/style.css"/>
+
+        <script type="text/javascript" language="JavaScript" src="#{request.contextPath}/template/js/app.js"></script>
+        <script type="text/javascript" language="JavaScript" src="#{request.contextPath}/template/js/uikit.min.js"></script>
     </head>
 
     <f:event listener="#{usuarioFacade.verificaLogado}" type="preRenderView" />

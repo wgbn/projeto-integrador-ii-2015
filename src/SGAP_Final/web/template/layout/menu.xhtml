@@ -21,17 +21,21 @@
                     </a>
                     <ul class="oculto sub" id="sub1">
                         <li>
-                            <a href="#">
+                            <a href="" jsf:action="#{navegacaoMB.actionAcoesListar()}">
                                 <span class="ic-list"></span>
                                 <strong>Listar</strong>
                             </a>
                         </li>
-                        <li>
-                            <a href="#">
-                                <span class="ic-plus"></span>
-                                <strong>Cadastrar</strong>
-                            </a>
-                        </li>
+
+                        <c:if test="#{usuarioFacade.usuarioLogado.gerente == 1}">
+                            <li>
+                                <a href="" jsf:action="#{navegacaoMB.actionAcoesCadastrar()}">
+                                    <span class="ic-plus"></span>
+                                    <strong>Cadastrar</strong>
+                                </a>
+                            </li>
+                        </c:if>
+
                     </ul>
                 </li>
 

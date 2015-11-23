@@ -23,6 +23,7 @@ public class AcaoEntity {
     private Timestamp dataedicao;
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false, insertable = true, updatable = true)
     public int getId() {
         return id;

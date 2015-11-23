@@ -22,7 +22,8 @@
 
     &:hover {
         background-color: #1565C0; //rgba(115, 135, 156, .95);
-        //color: #424c5b;
+        color: #fff;
+        text-decoration: none;
         @include box-shadow(2px, 2px, 3px, rgba(0,0,0,.3));
     }
 }
@@ -564,6 +565,7 @@
             background-color: #fff;
             padding: 1.5em 1em;
             border: 1px solid #ccc;
+            width: 100%;
             max-width: 450px;
             @include border-radius(2px);
             @include box-shadow(1px, 1px, 3px, rgba(0,0,0,.2));
@@ -598,7 +600,7 @@
                 margin-bottom: 1em;
                 border: 0;
                 border-bottom: 2px solid #73879C;
-                font-size: 1.1em;
+                font-size: 1em;
             }
 
             & a {

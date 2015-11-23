@@ -54,7 +54,8 @@
                         </div>
 
                         <a jsf:action="#{usuarioFacade.atualizarUsuario()}" class="paper-btn">Salvar</a>
-                        <a jsf:action="#{usuarioFacade.apagarUsuario()}" class="paper-btn paper-cancel">Apagar Usuário</a>
+                        <a href="#" class="paper-btn paper-cancel btnDelUsuario">Excluir Usuário</a>
+                        <a href="" jsf:action="#{usuarioFacade.apagarUsuario()}" class="oculto btnDelUsuarioOculto">oculto</a>
                     </p:outputPanel>
                 </h:form>
             </div>

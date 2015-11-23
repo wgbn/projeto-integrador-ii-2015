@@ -55,6 +55,7 @@ public class UsuarioModel extends GenericoModel<UsuarioEntity, UsuarioDAO> {
     public void inserirUsuario() throws NoSuchAlgorithmException, UnsupportedEncodingException {
         this.getEntity().setSenha(this.gerarHash(this.getEntity().getSenha()));
         this.getDao().salvar(this.getEntity());
+        this.setEntity(null);
     }
 
     public boolean validarLogin() throws NoSuchAlgorithmException, UnsupportedEncodingException {
@@ -66,5 +67,10 @@ public class UsuarioModel extends GenericoModel<UsuarioEntity, UsuarioDAO> {
             return true;
         }
         return false;
+    }
+
+    @Override
+    public void resetEntity() {
+        this.entity = new UsuarioEntity();
     }
 }
