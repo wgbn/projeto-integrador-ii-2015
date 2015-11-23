@@ -16,3 +16,4 @@ src/SGAP/out/**/*
 
 #idea
 src/SGAP/.idea/**/*
+src/SGAP_Final/.idea/workspace.xml
