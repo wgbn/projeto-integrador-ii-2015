@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="javaee:javaee-api:5" type="repository">
+    <properties maven-id="javaee:javaee-api:5" />
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/javaee-api-5.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

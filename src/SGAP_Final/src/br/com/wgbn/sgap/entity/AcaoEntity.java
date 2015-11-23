@@ -8,7 +8,7 @@ import java.sql.Timestamp;
  * Created by walter on 21/11/15.
  */
 @Entity
-@Table(name = "acao", schema = "", catalog = "acoesdb")
+@Table(name = "acao")
 public class AcaoEntity {
     private int id;
     private Timestamp datainicio;

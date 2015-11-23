@@ -9,14 +9,11 @@
         template="/template/layout/layoutPadrao.xhtml">
     <ui:define name="tela">
 
-        <f:event listener="#{clienteFacade.aoCarregarCriarCliente}" type="preRenderView" />
-
         <div class="usuarios-cadastro">
-            <h1>Cadastro de Cliente</h1>
+            <h1>Editar Cliente</h1>
 
             <div class="formulario">
                 <h:form>
-
                     <h5>Dados Básicos</h5>
 
                     <h:outputLabel value="Nome"/>
@@ -39,7 +36,8 @@
                     <h:outputLabel value="fax"/>
                     <p:inputMask value="#{clienteFacade.cliente.fax}" pt:placeholder="número do fax..." mask="(99) 99999999?9"/>
 
-                    <a jsf:action="#{clienteFacade.cadastrarCliente()}" class="paper-btn">Cadastrar</a>
+                    <a jsf:action="#{clienteFacade.alterarCliente()}" class="paper-btn">Salvar</a>
+                    <a href="" jsf:action="#{clienteFacade.apagarCliente()}" class="paper-btn paper-cancel">Apagar Cliente</a>
 
                 </h:form>
             </div>

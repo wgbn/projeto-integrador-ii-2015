@@ -1,7 +1,8 @@
 <div class="menu"
      xmlns:h="http://xmlns.jcp.org/jsf/html"
      xmlns:f="http://xmlns.jcp.org/jsf/core"
-     xmlns:jsf="http://xmlns.jcp.org/jsf">
+     xmlns:jsf="http://xmlns.jcp.org/jsf"
+     xmlns:c="http://java.sun.com/jstl/core">
 
     <div class="logo">
         <a href="#{request.contextPath}">SGAP</a>
@@ -11,6 +12,7 @@
         <h:form>
             <ul>
 
+                <!-- ações -->
                 <li>
                     <a href="#" id="1" class="sup">
                         <span class="ic-bullhorn"></span>
@@ -33,95 +35,103 @@
                     </ul>
                 </li>
 
-                <li>
-                    <a href="#" id="2" class="sup">
-                        <span class="ic-users"></span>
-                        <strong>Usuários</strong>
-                        <img class="seta" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAA4klEQVRIS63WwQ2DMAwFUP8NenVOHa1s0G7STlA26AjQCapOkWPUE8dUkYIUIcAOTs7oPztxAFCD5b3viahn5nEZB2t+DidmvqxlmQApPIGHgBDCaZqmJ4DfVuVzN9VADh8AfKXw6g7mcCJ6O+eumvNTd1BU/mDmNDWqpQKOhqu2yBIuAtbwXaBF+CbgvT/HGF8Aqg5UfZNz9SOAe83EqIH0YCtkd0xbIOI9sCIiYN0uFWBB1ECJENHgnLtpXkZVwKKTDzN3ElINFEgPIEjIIWCuOn8y4x5iAhIkIWagQFZ/W/5z3KwZeypZ6gAAAABJRU5ErkJggg=="/>
-                    </a>
-                    <ul class="oculto sub" id="sub2">
-                        <li>
-                            <a href="" jsf:action="#{navegacaoMB.actionUsuariosListar()}">
-                                <span class="ic-list"></span>
-                                <strong>Listar</strong>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="" jsf:action="#{usuarioFacade.actionUsuariosCadastrar()}">
-                                <span class="ic-plus"></span>
-                                <strong>Cadastrar</strong>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
+                <!-- usuarios -->
+                <c:if test="#{usuarioFacade.usuarioLogado.gerente == 1}">
+                    <li>
+                        <a href="#" id="2" class="sup">
+                            <span class="ic-users"></span>
+                            <strong>Usuários</strong>
+                            <img class="seta" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAA4klEQVRIS63WwQ2DMAwFUP8NenVOHa1s0G7STlA26AjQCapOkWPUE8dUkYIUIcAOTs7oPztxAFCD5b3viahn5nEZB2t+DidmvqxlmQApPIGHgBDCaZqmJ4DfVuVzN9VADh8AfKXw6g7mcCJ6O+eumvNTd1BU/mDmNDWqpQKOhqu2yBIuAtbwXaBF+CbgvT/HGF8Aqg5UfZNz9SOAe83EqIH0YCtkd0xbIOI9sCIiYN0uFWBB1ECJENHgnLtpXkZVwKKTDzN3ElINFEgPIEjIIWCuOn8y4x5iAhIkIWagQFZ/W/5z3KwZeypZ6gAAAABJRU5ErkJggg=="/>
+                        </a>
+                        <ul class="oculto sub" id="sub2">
+                            <li>
+                                <a href="" jsf:action="#{navegacaoMB.actionUsuariosListar()}">
+                                    <span class="ic-list"></span>
+                                    <strong>Listar</strong>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="" jsf:action="#{navegacaoMB.actionUsuariosCadastrar()}">
+                                    <span class="ic-plus"></span>
+                                    <strong>Cadastrar</strong>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </c:if>
+
+                <!-- clientes -->
+                <c:if test="#{usuarioFacade.usuarioLogado.gerente == 1}">
+                    <li>
+                        <a href="#" id="3" class="sup">
+                            <span class="ic-user-tie"></span>
+                            <strong>Clientes</strong>
+                            <img class="seta" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAA4klEQVRIS63WwQ2DMAwFUP8NenVOHa1s0G7STlA26AjQCapOkWPUE8dUkYIUIcAOTs7oPztxAFCD5b3viahn5nEZB2t+DidmvqxlmQApPIGHgBDCaZqmJ4DfVuVzN9VADh8AfKXw6g7mcCJ6O+eumvNTd1BU/mDmNDWqpQKOhqu2yBIuAtbwXaBF+CbgvT/HGF8Aqg5UfZNz9SOAe83EqIH0YCtkd0xbIOI9sCIiYN0uFWBB1ECJENHgnLtpXkZVwKKTDzN3ElINFEgPIEjIIWCuOn8y4x5iAhIkIWagQFZ/W/5z3KwZeypZ6gAAAABJRU5ErkJggg=="/>
+                        </a>
+                        <ul class="oculto sub" id="sub3">
+                            <li>
+                                <a href="" jsf:action="#{navegacaoMB.actionClientesListar()}">
+                                    <span class="ic-list"></span>
+                                    <strong>Listar</strong>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="" jsf:action="#{navegacaoMB.actionClientesCadastrar()}">
+                                    <span class="ic-plus"></span>
+                                    <strong>Cadastrar</strong>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </c:if>
+
+                <!-- relatorios -->
+                <c:if test="#{usuarioFacade.usuarioLogado.gerente == 1}">
+                    <li>
+                        <a href="#" id="4" class="sup">
+                            <span class="ic-stack"></span>
+                            <strong>Relatórios</strong>
+                            <img class="seta" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAA4klEQVRIS63WwQ2DMAwFUP8NenVOHa1s0G7STlA26AjQCapOkWPUE8dUkYIUIcAOTs7oPztxAFCD5b3viahn5nEZB2t+DidmvqxlmQApPIGHgBDCaZqmJ4DfVuVzN9VADh8AfKXw6g7mcCJ6O+eumvNTd1BU/mDmNDWqpQKOhqu2yBIuAtbwXaBF+CbgvT/HGF8Aqg5UfZNz9SOAe83EqIH0YCtkd0xbIOI9sCIiYN0uFWBB1ECJENHgnLtpXkZVwKKTDzN3ElINFEgPIEjIIWCuOn8y4x5iAhIkIWagQFZ/W/5z3KwZeypZ6gAAAABJRU5ErkJggg=="/>
+                        </a>
+                        <ul class="oculto sub" id="sub4">
+                            <li>
+                                <a href="#">
+                                    <span class="ic-upload"></span>
+                                    <strong>À pagar</strong>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="ic-download"></span>
+                                    <strong>À receber</strong>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="ic-bullhorn"></span>
+                                    <strong>Ações</strong>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="ic-user-tie"></span>
+                                    <strong>Clientes</strong>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="ic-man-woman"></span>
+                                    <strong>Promotores</strong>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </c:if>
 
                 <li>
-                    <a href="#" id="3" class="sup">
-                        <span class="ic-user-tie"></span>
-                        <strong>Clientes</strong>
-                        <img class="seta" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAA4klEQVRIS63WwQ2DMAwFUP8NenVOHa1s0G7STlA26AjQCapOkWPUE8dUkYIUIcAOTs7oPztxAFCD5b3viahn5nEZB2t+DidmvqxlmQApPIGHgBDCaZqmJ4DfVuVzN9VADh8AfKXw6g7mcCJ6O+eumvNTd1BU/mDmNDWqpQKOhqu2yBIuAtbwXaBF+CbgvT/HGF8Aqg5UfZNz9SOAe83EqIH0YCtkd0xbIOI9sCIiYN0uFWBB1ECJENHgnLtpXkZVwKKTDzN3ElINFEgPIEjIIWCuOn8y4x5iAhIkIWagQFZ/W/5z3KwZeypZ6gAAAABJRU5ErkJggg=="/>
-                    </a>
-                    <ul class="oculto sub" id="sub3">
-                        <li>
-                            <a href="#">
-                                <span class="ic-list"></span>
-                                <strong>Listar</strong>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="" jsf:action="#{clienteFacade.actionClientesCadastrar()}">
-                                <span class="ic-plus"></span>
-                                <strong>Cadastrar</strong>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-
-                <li>
-                    <a href="#" id="4" class="sup">
-                        <span class="ic-stack"></span>
-                        <strong>Relatórios</strong>
-                        <img class="seta" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAA4klEQVRIS63WwQ2DMAwFUP8NenVOHa1s0G7STlA26AjQCapOkWPUE8dUkYIUIcAOTs7oPztxAFCD5b3viahn5nEZB2t+DidmvqxlmQApPIGHgBDCaZqmJ4DfVuVzN9VADh8AfKXw6g7mcCJ6O+eumvNTd1BU/mDmNDWqpQKOhqu2yBIuAtbwXaBF+CbgvT/HGF8Aqg5UfZNz9SOAe83EqIH0YCtkd0xbIOI9sCIiYN0uFWBB1ECJENHgnLtpXkZVwKKTDzN3ElINFEgPIEjIIWCuOn8y4x5iAhIkIWagQFZ/W/5z3KwZeypZ6gAAAABJRU5ErkJggg=="/>
-                    </a>
-                    <ul class="oculto sub" id="sub4">
-                        <li>
-                            <a href="#">
-                                <span class="ic-upload"></span>
-                                <strong>À pagar</strong>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <span class="ic-download"></span>
-                                <strong>À receber</strong>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <span class="ic-bullhorn"></span>
-                                <strong>Ações</strong>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <span class="ic-user-tie"></span>
-                                <strong>Clientes</strong>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <span class="ic-man-woman"></span>
-                                <strong>Promotores</strong>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-
-                <li>
-                    <a href="#" jsf:action="#{usuarioFacade.showMsg()}" id="8">
-                        <span class="ic-chat"></span>
-                        <strong>Msg</strong>
-                        <img class="seta" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAA4klEQVRIS63WwQ2DMAwFUP8NenVOHa1s0G7STlA26AjQCapOkWPUE8dUkYIUIcAOTs7oPztxAFCD5b3viahn5nEZB2t+DidmvqxlmQApPIGHgBDCaZqmJ4DfVuVzN9VADh8AfKXw6g7mcCJ6O+eumvNTd1BU/mDmNDWqpQKOhqu2yBIuAtbwXaBF+CbgvT/HGF8Aqg5UfZNz9SOAe83EqIH0YCtkd0xbIOI9sCIiYN0uFWBB1ECJENHgnLtpXkZVwKKTDzN3ElINFEgPIEjIIWCuOn8y4x5iAhIkIWagQFZ/W/5z3KwZeypZ6gAAAABJRU5ErkJggg=="/>
+                    <a href="#" jsf:action="#{usuarioFacade.logOut()}" id="8">
+                        <span class="ic-exit"></span>
+                        <strong>Sair</strong>
                     </a>
                 </li>
 

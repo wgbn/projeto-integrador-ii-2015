@@ -39,10 +39,10 @@
                         <h5>Contato</h5>
 
                         <h:outputLabel value="Telefone fixo"/>
-                        <h:inputText value="#{usuarioFacade.usuario.telefoneFixo}" pt:placeholder="Telefone fixo..."/>
+                        <p:inputMask value="#{usuarioFacade.usuario.telefoneFixo}" pt:placeholder="Telefone fixo..." mask="(99) 99999999?9" />
 
                         <h:outputLabel value="telefone Celular"/>
-                        <h:inputText value="#{usuarioFacade.usuario.telefoneCelular}" pt:placeholder="Telefone celular..."/>
+                        <p:inputMask value="#{usuarioFacade.usuario.telefoneCelular}" pt:placeholder="Telefone celular..." mask="(99) 99999999?9" />
 
                         <h5>Tipo de Usuário</h5>
 
@@ -54,6 +54,7 @@
                         </div>
 
                         <a jsf:action="#{usuarioFacade.atualizarUsuario()}" class="paper-btn">Salvar</a>
+                        <a jsf:action="#{usuarioFacade.apagarUsuario()}" class="paper-btn paper-cancel">Apagar Usuário</a>
                     </p:outputPanel>
                 </h:form>
             </div>

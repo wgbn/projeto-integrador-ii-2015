@@ -7,15 +7,26 @@
         xmlns:p="http://primefaces.org/ui"
         xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
         xmlns:wgbn="http://java.sun.com/jsf/composite/tags"
+        xmlns:c="http://java.sun.com/jstl/core"
         template="/template/layout/layoutPadrao.xhtml">
     <ui:define name="tela">
 
-        <div class="metricas">
-            <wgbn:itemMetrica value="#{dashboardFacade.metricaCliente}" styleClass="bloco"/>
-            <wgbn:itemMetrica value="#{dashboardFacade.metricaAcao}" styleClass="bloco"/>
-            <wgbn:itemMetrica value="#{dashboardFacade.metricaReceber}" styleClass="bloco"/>
-            <wgbn:itemMetrica value="#{dashboardFacade.metricaPagar}" styleClass="bloco"/>
-        </div>
+        <c:if test="#{usuarioFacade.usuarioLogado.gerente == 1}">
+            <div class="metricas">
+                <wgbn:itemMetrica value="#{dashboardFacade.metricaCliente}" styleClass="bloco"/>
+                <wgbn:itemMetrica value="#{dashboardFacade.metricaAcao}" styleClass="bloco"/>
+                <wgbn:itemMetrica value="#{dashboardFacade.metricaReceber}" styleClass="bloco"/>
+                <wgbn:itemMetrica value="#{dashboardFacade.metricaPagar}" styleClass="bloco"/>
+            </div>
+        </c:if>
+
+        <c:if test="#{usuarioFacade.usuarioLogado.gerente == 1}">
+            <h1>Próximas Ações</h1>
+        </c:if>
+
+        <c:if test="#{usuarioFacade.usuarioLogado.gerente == 0}">
+            <h1>Suas Próximas Ações</h1>
+        </c:if>
 
         <div class="dashboard">
 

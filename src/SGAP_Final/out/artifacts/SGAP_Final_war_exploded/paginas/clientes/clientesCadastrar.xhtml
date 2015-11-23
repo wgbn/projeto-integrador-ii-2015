@@ -9,6 +9,8 @@
         template="/template/layout/layoutPadrao.xhtml">
     <ui:define name="tela">
 
+        <f:event listener="#{clienteFacade.aoCarregarCriarCliente}" type="preRenderView" />
+
         <div class="usuarios-cadastro">
             <h1>Cadastro de Cliente</h1>
 
@@ -29,12 +31,13 @@
                     <h5>Contato</h5>
 
                     <h:outputLabel value="Telefone fixo"/>
-                    <h:inputText value="#{clienteFacade.cliente.telefoneFixo}" pt:placeholder="Telefone fixo..."/>
+                    <p:inputMask value="#{clienteFacade.cliente.telefoneFixo}" pt:placeholder="Telefone fixo..." mask="(99) 99999999?9"/>
 
                     <h:outputLabel value="telefone Celular"/>
-                    <h:inputText value="#{clienteFacade.cliente.telefoneCelular}" pt:placeholder="Telefone celular..."/>
+                    <p:inputMask value="#{clienteFacade.cliente.telefoneCelular}" pt:placeholder="Telefone celular..." mask="(99) 99999999?9"/>
 
                     <h:outputLabel value="fax"/>
+                    <p:inputMask value="#{clienteFacade.cliente.fax}" pt:placeholder="número do fax..." mask="(99) 99999999?9"/>
 
                     <a jsf:action="#{clienteFacade.cadastrarCliente()}" class="paper-btn">Cadastrar</a>
 

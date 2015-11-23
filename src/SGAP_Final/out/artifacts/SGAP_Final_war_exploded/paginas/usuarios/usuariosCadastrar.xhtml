@@ -9,6 +9,8 @@
         template="/template/layout/layoutPadrao.xhtml">
     <ui:define name="tela">
 
+        <f:event listener="#{usuarioFacade.aoCarregarCriarUsuario}" type="preRenderView" />
+
         <div class="usuarios-cadastro">
             <h1>Cadastro de Usuário</h1>
 
@@ -28,10 +30,10 @@
                         <h5>Segurança</h5>
 
                         <h:outputLabel value="Senha"/>
-                        <h:inputText value="#{usuarioFacade.usuario.senha}" pt:placeholder="Senha..."/>
+                        <h:inputSecret value="#{usuarioFacade.usuario.senha}" pt:placeholder="Senha..."/>
 
                         <h:outputLabel value="Repita a senha"/>
-                        <h:inputText value="#{usuarioFacade.model.resenha}" pt:placeholder="Repita a senha..."/>
+                        <h:inputSecret value="#{usuarioFacade.resenha}" pt:placeholder="Repita a senha..."/>
 
                         <h5>Dados Financeiros</h5>
 
@@ -47,10 +49,10 @@
                         <h5>Contato</h5>
 
                         <p:outputLabel for="telfixo" value="Telefone fixo"/>
-                        <p:inputMask id="telfixo" value="#{usuarioFacade.usuario.telefoneFixo}" pt:placeholder="Telefone fixo..." mask="(99) 99999-9999"/>
+                        <p:inputMask id="telfixo" value="#{usuarioFacade.usuario.telefoneFixo}" pt:placeholder="Telefone fixo..." mask="(99) 99999999?9"/>
 
                         <p:outputLabel for="cel" value="telefone Celular"/>
-                        <p:inputMask id="cel" value="#{usuarioFacade.usuario.telefoneCelular}" pt:placeholder="Telefone celular..." mask="(99) 99999-9999"/>
+                        <p:inputMask id="cel" value="#{usuarioFacade.usuario.telefoneCelular}" pt:placeholder="Telefone celular..." mask="(99) 99999999?9"/>
 
                         <h5>Tipo de Usuário</h5>
 

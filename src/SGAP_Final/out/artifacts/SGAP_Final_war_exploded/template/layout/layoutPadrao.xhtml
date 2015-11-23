@@ -11,7 +11,6 @@
 <f:view contentType="text/html">
     <head jsf:id="head">
         <script type="text/javascript" language="JavaScript" src="#{request.contextPath}/template/js/app.js"></script>
-        <script type="text/javascript" language="JavaScript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 
         <title>SGAP - Sistema de Gerenciamento de Ações e Promoções - WGBN Software House, inc.</title>
         <meta content="text/html;charset=UTF-8" http-equiv="Content-Type"/>
@@ -21,6 +20,8 @@
         <link type="text/css" rel="stylesheet" href="#{request.contextPath}/template/css/fonts.css"/>
         <link type="text/css" rel="stylesheet" href="#{request.contextPath}/template/css/style.css"/>
     </head>
+
+    <f:event listener="#{usuarioFacade.verificaLogado}" type="preRenderView" />
 
     <h:body styleClass="app">
 

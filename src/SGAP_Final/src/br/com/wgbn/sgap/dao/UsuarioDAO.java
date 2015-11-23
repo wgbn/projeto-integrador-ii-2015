@@ -20,6 +20,11 @@ public class UsuarioDAO extends GenericoDAO<UsuarioEntity> {
         return (UsuarioEntity) this.entityManager.createQuery(query).getSingleResult();
     }
 
+    public UsuarioEntity getPorEmail(String email){
+        String query = "FROM " + getTypeClass().getName() + " WHERE email = '" + email + "'";
+        return (UsuarioEntity) this.entityManager.createQuery(query).getSingleResult();
+    }
+
     public List<UsuarioEntity> getTodosPorNome(String nome){
         String query = "FROM " + getTypeClass().getName() + " WHERE nome LIKE '%" + nome + "%' ORDER BY nome";
         return this.entityManager.createQuery(query).getResultList();

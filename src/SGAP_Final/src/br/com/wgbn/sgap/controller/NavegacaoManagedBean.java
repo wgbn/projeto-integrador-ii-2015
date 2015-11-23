@@ -24,9 +24,9 @@ public class NavegacaoManagedBean {
         Navegacao.navegarPara("usuarios/usuariosListar.xhtml");
     }
 
-    public void actionUsuariosEditar(){
-        Navegacao.navegarPara("usuarios/usuariosEditar.xhtml");
-    }
+    public void actionUsuariosEditar(){ Navegacao.navegarPara("usuarios/usuariosEditar.xhtml"); }
+
+    public void actionUsuariosCadastrar(){ Navegacao.navegarPara("usuarios/usuariosCadastrar.xhtml"); }
 
     /**
      * ### Navegação de Ações
@@ -46,4 +46,6 @@ public class NavegacaoManagedBean {
     public void actionClientesEditar(){
         Navegacao.navegarPara("clientes/clientesEditar.xhtml");
     }
+
+    public void actionClientesCadastrar(){ Navegacao.navegarPara("clientes/clientesCadastrar.xhtml"); }
 }

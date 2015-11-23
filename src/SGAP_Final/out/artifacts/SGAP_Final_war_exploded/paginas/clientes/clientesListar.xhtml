@@ -12,9 +12,15 @@
 
             <hr />
 
-            <p:dataTable var="usr" value="#{clienteFacade.clientes}">
+            <p:dataTable var="usr"
+                         value="#{clienteFacade.clientes}"
+                         styleClass="tabela"
+                         rows="3"
+                         paginator="true"
+                         paginatorTemplate="{PageLinks}"
+                         paginatorPosition="bottom">
 
-                <p:column headerText="#ID">
+                <p:column headerText="#ID" styleClass="linha-id">
                     <h:outputText value="#{usr.id}"/>
                 </p:column>
 
@@ -30,15 +36,15 @@
                     <h:outputText value="#{usr.email}"/>
                 </p:column>
 
-                <p:column headerText="Celular">
+                <p:column headerText="Celular" styleClass="linha-tel">
                     <h:outputText value="#{usr.telefoneCelular}"/>
                 </p:column>
 
-                <p:column headerText="Fixo">
+                <p:column headerText="Fixo" styleClass="linha-tel">
                     <h:outputText value="#{usr.telefoneFixo}"/>
                 </p:column>
 
-                <p:column headerText="Opções">
+                <p:column headerText="Opções" styleClass="linha-opc">
                     <h:form>
                         <h:commandLink action="#{navegacaoMB.actionClientesEditar()}" value="editar">
                             <f:setPropertyActionListener target="#{clienteFacade.cliente}" value="#{usr}"/>

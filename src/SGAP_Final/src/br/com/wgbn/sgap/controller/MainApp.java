@@ -16,6 +16,7 @@ public class MainApp {
 
     public MainApp(){
         MainApp.initEntityManager();
+        System.out.println("##-> MainApp iniciado");
     }
 
     private static void initEntityManager(){
