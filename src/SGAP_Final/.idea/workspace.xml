@@ -1,43 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ede1e609-0f6f-489e-a69b-44b26b9923ad" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../hot-sneaks-1.0.10.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/template/img/loading.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/template/img/loadingwin.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/template/css/default.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/paginas/teste.xhtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/template/.sass-cache/ccfb9c5403db773329e5fbcab96de6597653610c/style.scssc" afterPath="$PROJECT_DIR$/web/template/.sass-cache/ccfb9c5403db773329e5fbcab96de6597653610c/style.scssc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/br/com/wgbn/sgap/entity/AcaoEntity.java" afterPath="$PROJECT_DIR$/src/br/com/wgbn/sgap/entity/AcaoEntity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/br/com/wgbn/sgap/controller/NavegacaoManagedBean.java" afterPath="$PROJECT_DIR$/src/br/com/wgbn/sgap/controller/NavegacaoManagedBean.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SGAP_Final.iml" afterPath="$PROJECT_DIR$/SGAP_Final.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/br/com/wgbn/sgap/entity/UsuarioAcaoEntity.java" afterPath="$PROJECT_DIR$/src/br/com/wgbn/sgap/entity/UsuarioAcaoEntity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/br/com/wgbn/sgap/entity/UsuarioEntity.java" afterPath="$PROJECT_DIR$/src/br/com/wgbn/sgap/entity/UsuarioEntity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/br/com/wgbn/sgap/controller/UsuarioFacade.java" afterPath="$PROJECT_DIR$/src/br/com/wgbn/sgap/controller/UsuarioFacade.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/br/com/wgbn/sgap/model/UsuarioModel.java" afterPath="$PROJECT_DIR$/src/br/com/wgbn/sgap/model/UsuarioModel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/SGAP_Final_war_exploded/template/js/app.js" afterPath="$PROJECT_DIR$/out/artifacts/SGAP_Final_war_exploded/template/js/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/template/js/app.js" afterPath="$PROJECT_DIR$/web/template/js/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/SGAP_Final_war_exploded/template/layout/layoutPadrao.xhtml" afterPath="$PROJECT_DIR$/out/artifacts/SGAP_Final_war_exploded/template/layout/layoutPadrao.xhtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/template/layout/layoutPadrao.xhtml" afterPath="$PROJECT_DIR$/web/template/layout/layoutPadrao.xhtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/SGAP_Final_war_exploded/template/layout/menu.xhtml" afterPath="$PROJECT_DIR$/out/artifacts/SGAP_Final_war_exploded/template/layout/menu.xhtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/template/layout/menu.xhtml" afterPath="$PROJECT_DIR$/web/template/layout/menu.xhtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/SGAP_Final_war_exploded/WEB-INF/classes/META-INF/persistence.xml" afterPath="$PROJECT_DIR$/out/artifacts/SGAP_Final_war_exploded/WEB-INF/classes/META-INF/persistence.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SGAP_Final/META-INF/persistence.xml" afterPath="$PROJECT_DIR$/out/production/SGAP_Final/META-INF/persistence.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/META-INF/persistence.xml" afterPath="$PROJECT_DIR$/src/META-INF/persistence.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/SGAP_Final_war_exploded/template/css/style.css.map" afterPath="$PROJECT_DIR$/out/artifacts/SGAP_Final_war_exploded/template/css/style.css.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/template/css/style.css.map" afterPath="$PROJECT_DIR$/web/template/css/style.css.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/SGAP_Final_war_exploded/template/css/style.css" afterPath="$PROJECT_DIR$/out/artifacts/SGAP_Final_war_exploded/template/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/template/css/style.css" afterPath="$PROJECT_DIR$/web/template/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/SGAP_Final_war_exploded/template/scss/style.scss" afterPath="$PROJECT_DIR$/out/artifacts/SGAP_Final_war_exploded/template/scss/style.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/template/scss/style.scss" afterPath="$PROJECT_DIR$/web/template/scss/style.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/SGAP_Final_war_exploded/paginas/usuarios/usuariosCadastrar.xhtml" afterPath="$PROJECT_DIR$/out/artifacts/SGAP_Final_war_exploded/paginas/usuarios/usuariosCadastrar.xhtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/paginas/usuarios/usuariosCadastrar.xhtml" afterPath="$PROJECT_DIR$/web/paginas/usuarios/usuariosCadastrar.xhtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/SGAP_Final_war_exploded/paginas/usuarios/usuariosEditar.xhtml" afterPath="$PROJECT_DIR$/out/artifacts/SGAP_Final_war_exploded/paginas/usuarios/usuariosEditar.xhtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/paginas/usuarios/usuariosEditar.xhtml" afterPath="$PROJECT_DIR$/web/paginas/usuarios/usuariosEditar.xhtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/SGAP_Final_war_exploded/paginas/usuarios/usuariosListar.xhtml" afterPath="$PROJECT_DIR$/out/artifacts/SGAP_Final_war_exploded/paginas/usuarios/usuariosListar.xhtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/paginas/usuarios/usuariosListar.xhtml" afterPath="$PROJECT_DIR$/web/paginas/usuarios/usuariosListar.xhtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="ede1e609-0f6f-489e-a69b-44b26b9923ad" name="Default" comment="" />
     <ignored path="SGAP_Final.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -115,7 +79,7 @@
       <file leaf-file-name="NavegacaoManagedBean.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/br/com/wgbn/sgap/controller/NavegacaoManagedBean.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.45">
+            <state vertical-scroll-proportion="0.29454544">
               <caret line="27" column="8" selection-start-line="27" selection-start-column="8" selection-end-line="27" selection-end-column="8" />
               <folding>
                 <element signature="e#676#677#0" expanded="true" />
@@ -935,7 +899,7 @@
       <workItem from="1448150350405" duration="5484000" />
       <workItem from="1448191864450" duration="103000" />
       <workItem from="1448192174930" duration="1219000" />
-      <workItem from="1448196288319" duration="15514000" />
+      <workItem from="1448196288319" duration="15609000" />
     </task>
     <task id="LOCAL-00001" summary="Facades">
       <created>1448066351274</created>
@@ -955,15 +919,21 @@
       <option name="project" value="LOCAL" />
       <updated>1448117277065</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Crud usuario 80% implementado">
+      <created>1448219841998</created>
+      <option name="number" value="00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1448219841998</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="42095000" />
+    <option name="totallyTimeSpent" value="42190000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="1366" height="718" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -973,7 +943,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5389948" sideWeight="0.5030211" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32928944" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32928944" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32928944" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24956672" sideWeight="0.49697885" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21223564" sideWeight="0.5338346" order="2" side_tool="true" content_ui="tabs" />
@@ -1011,7 +981,8 @@
     <MESSAGE value="Facades" />
     <MESSAGE value="configs" />
     <MESSAGE value="Crud usuario 50% implementado" />
-    <option name="LAST_COMMIT_MESSAGE" value="Crud usuario 50% implementado" />
+    <MESSAGE value="Crud usuario 80% implementado" />
+    <option name="LAST_COMMIT_MESSAGE" value="Crud usuario 80% implementado" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1408,7 +1379,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/br/com/wgbn/sgap/controller/NavegacaoManagedBean.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.45">
+        <state vertical-scroll-proportion="0.29454544">
           <caret line="27" column="8" selection-start-line="27" selection-start-column="8" selection-end-line="27" selection-end-column="8" />
           <folding>
             <element signature="e#676#677#0" expanded="true" />
