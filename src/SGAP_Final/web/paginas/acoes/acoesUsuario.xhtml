@@ -11,6 +11,11 @@
         <div class="usuarios-cadastro">
             <h1>Açoes do Usuário</h1>
             <p>#{usuarioFacade.usuario.nome}</p>
+
+            <ui:repeat value="#{acoesFacade.acoesNaoRealizadas}" var="acao">
+                <p>#{acao.titulo}</p>
+            </ui:repeat>
+
         </div>
 
     </ui:define>
