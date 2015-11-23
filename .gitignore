@@ -13,6 +13,7 @@ hs_err_pid*
 
 #deploy
 src/SGAP/out/**/*
+src/SGAP_Final/out/**/*
 
 #idea
 src/SGAP/.idea/**/*
