@@ -1,1 +1,0 @@
-Neste local armazena-se todas as interfaces do sistema
