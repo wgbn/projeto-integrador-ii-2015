@@ -5,6 +5,8 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.sql.Timestamp;
 import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Created by Walter Gandarella
@@ -26,9 +28,14 @@ public class AcaoEntity implements Serializable {
     private ClienteEntity cliente;
     private TipoacaoEntity tipoacao;
     private UsuarioEntity usuario;
-    private Collection<UsuarioAcaoEntity> usuarios;
+    private Set<UsuarioAcaoEntity> usuarios;
+
+    public AcaoEntity() {
+        this.usuarios = new HashSet<UsuarioAcaoEntity>();
+    }
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false, insertable = true, updatable = true)
     public int getId() {
         return id;
@@ -129,7 +136,7 @@ public class AcaoEntity implements Serializable {
     }
 
     @Basic
-    @Column(name = "dataedicao", nullable = false, insertable = true, updatable = true)
+    @Column(name = "dataedicao", nullable = true, insertable = true, updatable = true)
     public Timestamp getDataedicao() {
         return dataedicao;
     }
@@ -206,12 +213,12 @@ public class AcaoEntity implements Serializable {
         this.usuario = usuario;
     }
 
-    @OneToMany(mappedBy = "acao")
-    public Collection<UsuarioAcaoEntity> getUsuarios() {
+    @OneToMany(mappedBy = "acao", fetch = FetchType.LAZY)
+    public Set<UsuarioAcaoEntity> getUsuarios() {
         return usuarios;
     }
 
-    public void setUsuarios(Collection<UsuarioAcaoEntity> usuarios) {
+    public void setUsuarios(Set<UsuarioAcaoEntity> usuarios) {
         this.usuarios = usuarios;
     }
 }

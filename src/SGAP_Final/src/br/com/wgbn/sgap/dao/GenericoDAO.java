@@ -13,6 +13,8 @@ public abstract class GenericoDAO<T> implements IF_DAO<T> {
 
     protected EntityManager entityManager;
 
+    public EntityManager getEntityManager() { return entityManager; }
+
     protected Class<?> getTypeClass() {
         Class<?> clazz = (Class<?>) ((ParameterizedType) this.getClass().getGenericSuperclass()).getActualTypeArguments()[0];
         return clazz;
@@ -22,14 +24,16 @@ public abstract class GenericoDAO<T> implements IF_DAO<T> {
         this.entityManager = em;
     }
 
-    public void salvar(T object) {
+    public T salvar(T object) {
         try {
             this.entityManager.getTransaction().begin();
             this.entityManager.persist(object);
             this.entityManager.getTransaction().commit();
+            return object;
         } catch (Exception ex) {
             ex.printStackTrace();
             this.entityManager.getTransaction().rollback();
+            return null;
         }
     }
 

@@ -27,6 +27,7 @@ public class UsuarioEntity implements Serializable {
     private Collection<UsuarioAcaoEntity> acoes;
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false, insertable = true, updatable = true)
     public int getId() {
         return id;
@@ -117,7 +118,7 @@ public class UsuarioEntity implements Serializable {
     }
 
     @Basic
-    @Column(name = "dataedicao", nullable = false, insertable = true, updatable = true)
+    @Column(name = "dataedicao", nullable = true, insertable = true, updatable = true)
     public Timestamp getDataedicao() {
         return dataedicao;
     }

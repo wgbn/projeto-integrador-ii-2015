@@ -1,7 +1,9 @@
 package br.com.wgbn.sgap.model;
 
 import br.com.wgbn.sgap.dao.AcaoDAO;
+import br.com.wgbn.sgap.dao.UsuarioAcaoDAO;
 import br.com.wgbn.sgap.entity.AcaoEntity;
+import br.com.wgbn.sgap.entity.UsuarioAcaoEntity;
 
 import java.util.List;
 
@@ -9,8 +11,14 @@ import java.util.List;
  * Created by Walter Gandarella
  */
 public class AcaoModel extends GenericoModel<AcaoEntity, AcaoDAO> {
+    
+    private UsuarioAcaoModel    usuarioAcaoModel;
+    private UsuarioAcaoDAO      uaDAO;
 
-    public AcaoModel(AcaoDAO dao) { super(dao); }
+    public AcaoModel(AcaoDAO dao) {
+        super(dao);
+        usuarioAcaoModel = new UsuarioAcaoModel(new UsuarioAcaoDAO(dao.getEntityManager()));
+    }
 
     @Override
     public void resetEntity() {
@@ -22,5 +30,11 @@ public class AcaoModel extends GenericoModel<AcaoEntity, AcaoDAO> {
             return this.getDao().getTodosNaoRealizadosGerente();
         else
             return this.getDao().getTodosNaoRealizadosPromotor(UsuarioModel.getLogado().getId());
+    }
+
+    public UsuarioAcaoEntity setPromotor(UsuarioAcaoEntity usuarioAcao){
+        usuarioAcao = this.usuarioAcaoModel.getDao().salvar(usuarioAcao);
+        this.entity.getUsuarios().add(usuarioAcao);
+        return usuarioAcao;
     }
 }
