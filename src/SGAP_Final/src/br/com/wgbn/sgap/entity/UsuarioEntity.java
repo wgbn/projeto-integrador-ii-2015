@@ -1,14 +1,16 @@
 package br.com.wgbn.sgap.entity;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.sql.Timestamp;
+import java.util.Collection;
 
 /**
- * Created by walter on 21/11/15.
+ * Created by Walter Gandarella
  */
 @Entity
 @Table(name = "usuario")
-public class UsuarioEntity {
+public class UsuarioEntity implements Serializable {
     private int id;
     private String nome;
     private String email;
@@ -21,9 +23,10 @@ public class UsuarioEntity {
     private Timestamp dataedicao;
     private String telefoneFixo;
     private String telefoneCelular;
+    //private Collection<AcaoEntity> acoes;
+    private Collection<UsuarioAcaoEntity> acoes;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false, insertable = true, updatable = true)
     public int getId() {
         return id;
@@ -182,5 +185,23 @@ public class UsuarioEntity {
         result = 31 * result + (telefoneFixo != null ? telefoneFixo.hashCode() : 0);
         result = 31 * result + (telefoneCelular != null ? telefoneCelular.hashCode() : 0);
         return result;
+    }
+
+    /*@OneToMany(mappedBy = "usuario")
+    public Collection<AcaoEntity> getAcoes() {
+        return acoes;
+    }
+
+    public void setAcoes(Collection<AcaoEntity> acoes) {
+        this.acoes = acoes;
+    }*/
+
+    @OneToMany(mappedBy = "usuario")
+    public Collection<UsuarioAcaoEntity> getAcoes() {
+        return acoes;
+    }
+
+    public void setAcoes(Collection<UsuarioAcaoEntity> acoes) {
+        this.acoes = acoes;
     }
 }

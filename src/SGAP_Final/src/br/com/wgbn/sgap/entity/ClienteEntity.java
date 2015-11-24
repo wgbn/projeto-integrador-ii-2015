@@ -1,14 +1,16 @@
 package br.com.wgbn.sgap.entity;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.sql.Timestamp;
+import java.util.Collection;
 
 /**
- * Created by walter on 21/11/15.
+ * Created by Walter Gandarella
  */
 @Entity
 @Table(name = "cliente")
-public class ClienteEntity {
+public class ClienteEntity implements Serializable {
     private int id;
     private String nome;
     private String contato;
@@ -18,9 +20,9 @@ public class ClienteEntity {
     private String telefoneFixo;
     private String telefoneCelular;
     private String fax;
+    private Collection<AcaoEntity> acoes;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false, insertable = true, updatable = true)
     public int getId() {
         return id;
@@ -143,5 +145,14 @@ public class ClienteEntity {
         result = 31 * result + (telefoneCelular != null ? telefoneCelular.hashCode() : 0);
         result = 31 * result + (fax != null ? fax.hashCode() : 0);
         return result;
+    }
+
+    @OneToMany(mappedBy = "cliente")
+    public Collection<AcaoEntity> getAcoes() {
+        return acoes;
+    }
+
+    public void setAcoes(Collection<AcaoEntity> acoes) {
+        this.acoes = acoes;
     }
 }

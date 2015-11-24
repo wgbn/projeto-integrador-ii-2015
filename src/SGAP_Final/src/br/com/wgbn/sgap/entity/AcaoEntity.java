@@ -1,15 +1,17 @@
 package br.com.wgbn.sgap.entity;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.sql.Timestamp;
+import java.util.Collection;
 
 /**
- * Created by walter on 21/11/15.
+ * Created by Walter Gandarella
  */
 @Entity
 @Table(name = "acao")
-public class AcaoEntity {
+public class AcaoEntity implements Serializable {
     private int id;
     private Timestamp datainicio;
     private Timestamp datafim;
@@ -21,9 +23,12 @@ public class AcaoEntity {
     private String titulo;
     private Timestamp datacriacao;
     private Timestamp dataedicao;
+    private ClienteEntity cliente;
+    private TipoacaoEntity tipoacao;
+    private UsuarioEntity usuario;
+    private Collection<UsuarioAcaoEntity> usuarios;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false, insertable = true, updatable = true)
     public int getId() {
         return id;
@@ -169,5 +174,44 @@ public class AcaoEntity {
         result = 31 * result + (datacriacao != null ? datacriacao.hashCode() : 0);
         result = 31 * result + (dataedicao != null ? dataedicao.hashCode() : 0);
         return result;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "cliente_id", referencedColumnName = "id", nullable = false)
+    public ClienteEntity getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(ClienteEntity cliente) {
+        this.cliente = cliente;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "tipoacao_id", referencedColumnName = "id", nullable = false)
+    public TipoacaoEntity getTipoacao() {
+        return tipoacao;
+    }
+
+    public void setTipoacao(TipoacaoEntity tipoacao) {
+        this.tipoacao = tipoacao;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "usuario_id", referencedColumnName = "id", nullable = false)
+    public UsuarioEntity getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(UsuarioEntity usuario) {
+        this.usuario = usuario;
+    }
+
+    @OneToMany(mappedBy = "acao")
+    public Collection<UsuarioAcaoEntity> getUsuarios() {
+        return usuarios;
+    }
+
+    public void setUsuarios(Collection<UsuarioAcaoEntity> usuarios) {
+        this.usuarios = usuarios;
     }
 }

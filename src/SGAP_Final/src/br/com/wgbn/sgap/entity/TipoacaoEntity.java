@@ -1,21 +1,23 @@
 package br.com.wgbn.sgap.entity;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.sql.Timestamp;
+import java.util.Collection;
 
 /**
- * Created by walter on 21/11/15.
+ * Created by Walter Gandarella
  */
 @Entity
 @Table(name = "tipoacao")
-public class TipoacaoEntity {
+public class TipoacaoEntity implements Serializable {
     private int id;
     private String tipo;
     private Timestamp datacriacao;
     private Timestamp dataedicao;
+    private Collection<AcaoEntity> acoes;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false, insertable = true, updatable = true)
     public int getId() {
         return id;
@@ -77,5 +79,14 @@ public class TipoacaoEntity {
         result = 31 * result + (datacriacao != null ? datacriacao.hashCode() : 0);
         result = 31 * result + (dataedicao != null ? dataedicao.hashCode() : 0);
         return result;
+    }
+
+    @OneToMany(mappedBy = "tipoacao")
+    public Collection<AcaoEntity> getAcoes() {
+        return acoes;
+    }
+
+    public void setAcoes(Collection<AcaoEntity> acoes) {
+        this.acoes = acoes;
     }
 }
