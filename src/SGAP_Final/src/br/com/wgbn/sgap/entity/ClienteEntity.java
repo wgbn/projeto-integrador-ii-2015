@@ -28,7 +28,6 @@ public class ClienteEntity implements Serializable {
     public int getId() {
         return id;
     }
-
     public void setId(int id) {
         this.id = id;
     }
@@ -38,7 +37,6 @@ public class ClienteEntity implements Serializable {
     public String getNome() {
         return nome;
     }
-
     public void setNome(String nome) {
         this.nome = nome;
     }
@@ -48,7 +46,6 @@ public class ClienteEntity implements Serializable {
     public String getContato() {
         return contato;
     }
-
     public void setContato(String contato) {
         this.contato = contato;
     }
@@ -58,27 +55,24 @@ public class ClienteEntity implements Serializable {
     public String getEmail() {
         return email;
     }
-
     public void setEmail(String email) {
         this.email = email;
     }
 
     @Basic
-    @Column(name = "datacriacao", nullable = false, insertable = true, updatable = true)
+    @Column(name = "datacriacao", nullable = false, insertable = true, updatable = false)
     public Timestamp getDatacriacao() {
         return datacriacao;
     }
-
     public void setDatacriacao(Timestamp datacriacao) {
         this.datacriacao = datacriacao;
     }
 
     @Basic
-    @Column(name = "dataedicao", nullable = true, insertable = true, updatable = true)
+    @Column(name = "dataedicao", nullable = true, insertable = false, updatable = true)
     public Timestamp getDataedicao() {
         return dataedicao;
     }
-
     public void setDataedicao(Timestamp dataedicao) {
         this.dataedicao = dataedicao;
     }
@@ -88,7 +82,6 @@ public class ClienteEntity implements Serializable {
     public String getTelefoneFixo() {
         return telefoneFixo;
     }
-
     public void setTelefoneFixo(String telefoneFixo) {
         this.telefoneFixo = telefoneFixo;
     }
@@ -98,7 +91,6 @@ public class ClienteEntity implements Serializable {
     public String getTelefoneCelular() {
         return telefoneCelular;
     }
-
     public void setTelefoneCelular(String telefoneCelular) {
         this.telefoneCelular = telefoneCelular;
     }
@@ -108,7 +100,6 @@ public class ClienteEntity implements Serializable {
     public String getFax() {
         return fax;
     }
-
     public void setFax(String fax) {
         this.fax = fax;
     }
@@ -152,7 +143,6 @@ public class ClienteEntity implements Serializable {
     public Collection<AcaoEntity> getAcoes() {
         return acoes;
     }
-
     public void setAcoes(Collection<AcaoEntity> acoes) {
         this.acoes = acoes;
     }

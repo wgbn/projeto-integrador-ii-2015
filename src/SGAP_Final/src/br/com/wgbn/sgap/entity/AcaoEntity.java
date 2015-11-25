@@ -40,7 +40,6 @@ public class AcaoEntity implements Serializable {
     public int getId() {
         return id;
     }
-
     public void setId(int id) {
         this.id = id;
     }
@@ -50,7 +49,6 @@ public class AcaoEntity implements Serializable {
     public Timestamp getDatainicio() {
         return datainicio;
     }
-
     public void setDatainicio(Timestamp datainicio) {
         this.datainicio = datainicio;
     }
@@ -60,7 +58,6 @@ public class AcaoEntity implements Serializable {
     public Timestamp getDatafim() {
         return datafim;
     }
-
     public void setDatafim(Timestamp datafim) {
         this.datafim = datafim;
     }
@@ -70,7 +67,6 @@ public class AcaoEntity implements Serializable {
     public String getDescricao() {
         return descricao;
     }
-
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
@@ -80,7 +76,6 @@ public class AcaoEntity implements Serializable {
     public String getLocal() {
         return local;
     }
-
     public void setLocal(String local) {
         this.local = local;
     }
@@ -90,7 +85,6 @@ public class AcaoEntity implements Serializable {
     public BigDecimal getLatitude() {
         return latitude;
     }
-
     public void setLatitude(BigDecimal latitude) {
         this.latitude = latitude;
     }
@@ -100,7 +94,6 @@ public class AcaoEntity implements Serializable {
     public BigDecimal getLongitude() {
         return longitude;
     }
-
     public void setLongitude(BigDecimal longitude) {
         this.longitude = longitude;
     }
@@ -110,7 +103,6 @@ public class AcaoEntity implements Serializable {
     public float getValor() {
         return valor;
     }
-
     public void setValor(float valor) {
         this.valor = valor;
     }
@@ -120,27 +112,24 @@ public class AcaoEntity implements Serializable {
     public String getTitulo() {
         return titulo;
     }
-
     public void setTitulo(String titulo) {
         this.titulo = titulo;
     }
 
     @Basic
-    @Column(name = "datacriacao", nullable = false, insertable = true, updatable = true)
+    @Column(name = "datacriacao", nullable = false, insertable = true, updatable = false)
     public Timestamp getDatacriacao() {
         return datacriacao;
     }
-
     public void setDatacriacao(Timestamp datacriacao) {
         this.datacriacao = datacriacao;
     }
 
     @Basic
-    @Column(name = "dataedicao", nullable = true, insertable = true, updatable = true)
+    @Column(name = "dataedicao", nullable = true, insertable = false, updatable = true)
     public Timestamp getDataedicao() {
         return dataedicao;
     }
-
     public void setDataedicao(Timestamp dataedicao) {
         this.dataedicao = dataedicao;
     }
@@ -188,7 +177,6 @@ public class AcaoEntity implements Serializable {
     public ClienteEntity getCliente() {
         return cliente;
     }
-
     public void setCliente(ClienteEntity cliente) {
         this.cliente = cliente;
     }
@@ -198,7 +186,6 @@ public class AcaoEntity implements Serializable {
     public TipoacaoEntity getTipoacao() {
         return tipoacao;
     }
-
     public void setTipoacao(TipoacaoEntity tipoacao) {
         this.tipoacao = tipoacao;
     }
@@ -208,7 +195,6 @@ public class AcaoEntity implements Serializable {
     public UsuarioEntity getUsuario() {
         return usuario;
     }
-
     public void setUsuario(UsuarioEntity usuario) {
         this.usuario = usuario;
     }
@@ -217,7 +203,6 @@ public class AcaoEntity implements Serializable {
     public Set<UsuarioAcaoEntity> getUsuarios() {
         return usuarios;
     }
-
     public void setUsuarios(Set<UsuarioAcaoEntity> usuarios) {
         this.usuarios = usuarios;
     }

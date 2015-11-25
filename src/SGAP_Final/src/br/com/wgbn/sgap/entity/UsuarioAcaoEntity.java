@@ -24,7 +24,6 @@ public class UsuarioAcaoEntity implements Serializable {
     public int getId() {
         return id;
     }
-
     public void setId(int id) {
         this.id = id;
     }
@@ -34,7 +33,6 @@ public class UsuarioAcaoEntity implements Serializable {
     public int getConfirmado() {
         return confirmado;
     }
-
     public void setConfirmado(int confirmado) {
         this.confirmado = confirmado;
     }
@@ -44,27 +42,24 @@ public class UsuarioAcaoEntity implements Serializable {
     public int getLider() {
         return lider;
     }
-
     public void setLider(int lider) {
         this.lider = lider;
     }
 
     @Basic
-    @Column(name = "datacadastro", nullable = false, insertable = true, updatable = true)
+    @Column(name = "datacadastro", nullable = false, insertable = true, updatable = false)
     public Timestamp getDatacadastro() {
         return datacadastro;
     }
-
     public void setDatacadastro(Timestamp datacadastro) {
         this.datacadastro = datacadastro;
     }
 
     @Basic
-    @Column(name = "dataedicao", nullable = true, insertable = true, updatable = true)
+    @Column(name = "dataedicao", nullable = true, insertable = false, updatable = true)
     public Timestamp getDataedicao() {
         return dataedicao;
     }
-
     public void setDataedicao(Timestamp dataedicao) {
         this.dataedicao = dataedicao;
     }
@@ -100,7 +95,6 @@ public class UsuarioAcaoEntity implements Serializable {
     public AcaoEntity getAcao() {
         return acao;
     }
-
     public void setAcao(AcaoEntity acao) {
         this.acao = acao;
     }
@@ -110,7 +104,6 @@ public class UsuarioAcaoEntity implements Serializable {
     public UsuarioEntity getUsuario() {
         return usuario;
     }
-
     public void setUsuario(UsuarioEntity usuario) {
         this.usuario = usuario;
     }

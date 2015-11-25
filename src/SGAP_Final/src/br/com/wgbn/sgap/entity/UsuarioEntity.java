@@ -3,7 +3,8 @@ package br.com.wgbn.sgap.entity;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Timestamp;
-import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Created by Walter Gandarella
@@ -23,8 +24,9 @@ public class UsuarioEntity implements Serializable {
     private Timestamp dataedicao;
     private String telefoneFixo;
     private String telefoneCelular;
-    //private Collection<AcaoEntity> acoes;
-    private Collection<UsuarioAcaoEntity> acoes;
+    private Set<UsuarioAcaoEntity> acoes;
+
+    public UsuarioEntity() { this.acoes = new HashSet<UsuarioAcaoEntity>(); }
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -32,7 +34,6 @@ public class UsuarioEntity implements Serializable {
     public int getId() {
         return id;
     }
-
     public void setId(int id) {
         this.id = id;
     }
@@ -42,7 +43,6 @@ public class UsuarioEntity implements Serializable {
     public String getNome() {
         return nome;
     }
-
     public void setNome(String nome) {
         this.nome = nome;
     }
@@ -52,7 +52,6 @@ public class UsuarioEntity implements Serializable {
     public String getEmail() {
         return email;
     }
-
     public void setEmail(String email) {
         this.email = email;
     }
@@ -62,7 +61,6 @@ public class UsuarioEntity implements Serializable {
     public String getSenha() {
         return senha;
     }
-
     public void setSenha(String senha) {
         this.senha = senha;
     }
@@ -72,7 +70,6 @@ public class UsuarioEntity implements Serializable {
     public String getBanco() {
         return banco;
     }
-
     public void setBanco(String banco) {
         this.banco = banco;
     }
@@ -82,7 +79,6 @@ public class UsuarioEntity implements Serializable {
     public String getAgencia() {
         return agencia;
     }
-
     public void setAgencia(String agencia) {
         this.agencia = agencia;
     }
@@ -92,7 +88,6 @@ public class UsuarioEntity implements Serializable {
     public String getConta() {
         return conta;
     }
-
     public void setConta(String conta) {
         this.conta = conta;
     }
@@ -102,27 +97,24 @@ public class UsuarioEntity implements Serializable {
     public int getGerente() {
         return gerente;
     }
-
     public void setGerente(int gerente) {
         this.gerente = gerente;
     }
 
     @Basic
-    @Column(name = "datacriacao", nullable = false, insertable = true, updatable = true)
+    @Column(name = "datacriacao", nullable = false, insertable = true, updatable = false)
     public Timestamp getDatacriacao() {
         return datacriacao;
     }
-
     public void setDatacriacao(Timestamp datacriacao) {
         this.datacriacao = datacriacao;
     }
 
     @Basic
-    @Column(name = "dataedicao", nullable = true, insertable = true, updatable = true)
+    @Column(name = "dataedicao", nullable = true, insertable = false, updatable = true)
     public Timestamp getDataedicao() {
         return dataedicao;
     }
-
     public void setDataedicao(Timestamp dataedicao) {
         this.dataedicao = dataedicao;
     }
@@ -132,7 +124,6 @@ public class UsuarioEntity implements Serializable {
     public String getTelefoneFixo() {
         return telefoneFixo;
     }
-
     public void setTelefoneFixo(String telefoneFixo) {
         this.telefoneFixo = telefoneFixo;
     }
@@ -142,7 +133,6 @@ public class UsuarioEntity implements Serializable {
     public String getTelefoneCelular() {
         return telefoneCelular;
     }
-
     public void setTelefoneCelular(String telefoneCelular) {
         this.telefoneCelular = telefoneCelular;
     }
@@ -188,21 +178,11 @@ public class UsuarioEntity implements Serializable {
         return result;
     }
 
-    /*@OneToMany(mappedBy = "usuario")
-    public Collection<AcaoEntity> getAcoes() {
-        return acoes;
-    }
-
-    public void setAcoes(Collection<AcaoEntity> acoes) {
-        this.acoes = acoes;
-    }*/
-
     @OneToMany(mappedBy = "usuario")
-    public Collection<UsuarioAcaoEntity> getAcoes() {
+    public Set<UsuarioAcaoEntity> getAcoes() {
         return acoes;
     }
-
-    public void setAcoes(Collection<UsuarioAcaoEntity> acoes) {
+    public void setAcoes(Set<UsuarioAcaoEntity> acoes) {
         this.acoes = acoes;
     }
 }

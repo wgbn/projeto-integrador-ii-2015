@@ -23,7 +23,6 @@ public class TipoacaoEntity implements Serializable {
     public int getId() {
         return id;
     }
-
     public void setId(int id) {
         this.id = id;
     }
@@ -33,27 +32,24 @@ public class TipoacaoEntity implements Serializable {
     public String getTipo() {
         return tipo;
     }
-
     public void setTipo(String tipo) {
         this.tipo = tipo;
     }
 
     @Basic
-    @Column(name = "datacriacao", nullable = false, insertable = true, updatable = true)
+    @Column(name = "datacriacao", nullable = false, insertable = true, updatable = false)
     public Timestamp getDatacriacao() {
         return datacriacao;
     }
-
     public void setDatacriacao(Timestamp datacriacao) {
         this.datacriacao = datacriacao;
     }
 
     @Basic
-    @Column(name = "dataedicao", nullable = true, insertable = true, updatable = true)
+    @Column(name = "dataedicao", nullable = true, insertable = false, updatable = true)
     public Timestamp getDataedicao() {
         return dataedicao;
     }
-
     public void setDataedicao(Timestamp dataedicao) {
         this.dataedicao = dataedicao;
     }
@@ -86,7 +82,6 @@ public class TipoacaoEntity implements Serializable {
     public Collection<AcaoEntity> getAcoes() {
         return acoes;
     }
-
     public void setAcoes(Collection<AcaoEntity> acoes) {
         this.acoes = acoes;
     }
