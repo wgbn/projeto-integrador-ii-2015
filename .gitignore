@@ -12,9 +12,7 @@
 hs_err_pid*
 
 #deploy
-src/SGAP/out/**/*
 src/SGAP_Final/out/**/*
 
 #idea
-#src/SGAP/.idea/**/*
-#src/SGAP_Final/.idea/workspace.xml
+src/SGAP_Final/.idea/workspace.xml
