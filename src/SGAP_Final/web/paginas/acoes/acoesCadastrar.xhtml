@@ -1,0 +1,71 @@
+<ui:composition
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:jsf="http://xmlns.jcp.org/jsf"
+        xmlns:h="http://xmlns.jcp.org/jsf/html"
+        xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+        xmlns:f="http://xmlns.jcp.org/jsf/core"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+        template="/template/layout/layoutPadrao.xhtml">
+    <ui:define name="tela">
+
+        <f:event listener="#{acoesFacade.aoCarregarCriarAcao}" type="preRenderView" />
+
+        <div class="usuarios-cadastro">
+            <h1>Cadastro de Ação</h1>
+
+            <div class="formulario">
+                <h:form styleClass="uk-form">
+                    <p:outputPanel autoUpdate="true">
+                        <p:messages severity="error" id="messages" showDetail="true" autoUpdate="true" closable="true" />
+
+                        <h5>Dados Básicos</h5>
+
+                        <p:outputLabel for="datainicio" value="Data de início" />
+                        <p:calendar id="datainicio" value="#{acoesFacade.acao.datainicioDate}" pattern="dd/MM/yyyy HH:mm:ss" required="true" pt:editable="false" pt:placeholder="Quando inicia a ação...">
+                            <f:convertDateTime pattern="dd/MM/yyyy" type="both" dateType="short"></f:convertDateTime>
+                        </p:calendar>
+
+                        <p:outputLabel for="datafim" value="Data de término" />
+                        <p:calendar id="datafim" value="#{acoesFacade.acao.datafimDate}" pattern="dd/MM/yyyy HH:mm:ss" required="true" pt:editable="false" pt:placeholder="Quando termina a ação...">
+                            <f:convertDateTime pattern="dd/MM/yyyy" type="both" dateType="short"></f:convertDateTime>
+                        </p:calendar>
+
+                        <p:outputLabel for="titulo" value="Título/nome"/>
+                        <p:inputText id="titulo" value="#{acoesFacade.acao.titulo}" pt:placeholder="Dê um nome a esta ação..." required="true"/>
+
+                        <p:outputLabel for="descricao">descrição</p:outputLabel>
+                        <p:inputTextarea id="descricao" value="#{acoesFacade.acao.descricao}" required="true" pt:placeholder="Faça uma descrição sobre esta ação..."/>
+
+                        <p:outputLabel for="tipo">Tipo da ação</p:outputLabel>
+                        <h:selectOneMenu id="tipo" value="#{acoesFacade.acao.tipoacao.id}">
+                            <f:selectItem itemLabel="Escolha..." itemValue=""/>
+                            <f:selectItems value="#{acoesFacade.tipos}" var="tipo" itemLabel="#{tipo.tipo}" itemValue="#{tipo.id}"/>
+                        </h:selectOneMenu>
+
+                        <h5>Cliente Desta Ação</h5>
+
+                        <p:outputLabel for="cliente">Cliente</p:outputLabel>
+                        <h:selectOneMenu id="cliente" value="#{acoesFacade.acao.cliente.id}">
+                            <f:selectItem itemLabel="Escolha..." itemValue=""/>
+                            <f:selectItems value="#{acoesFacade.clientes}" var="cliente" itemLabel="#{cliente.nome}" itemValue="#{cliente.id}"/>
+                        </h:selectOneMenu>
+
+                        <h5>Local da Ação</h5>
+
+                        <p:outputLabel for="local" value="Endereço"/>
+                        <p:inputText id="local" value="#{acoesFacade.acao.local}" pt:placeholder="Endereço desta ação..." required="true"/>
+
+                        <h5>Financeiro</h5>
+
+                        <p:outputLabel for="valor" value="Valor da ação"/>
+                        <p:inputText id="valor" value="#{acoesFacade.acao.valor}" pt:placeholder="Orçamento para esta ação..."/>
+
+                        <a jsf:action="#{acoesFacade.cadastrarAcao()}" class="paper-btn">Cadastrar</a>
+                    </p:outputPanel>
+                </h:form>
+            </div>
+        </div>
+
+    </ui:define>
+</ui:composition>

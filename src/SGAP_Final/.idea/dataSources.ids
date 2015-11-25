@@ -1998,12 +1998,14 @@
       <column name="datacriacao" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
       <column name="dataedicao" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" version="true"/>
       <column name="usuario_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
-      <column name="tipoacao_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="tipoacao_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
       <column name="cliente_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="datafimDate" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="datainicioDate" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
       <primary-key name="PRIMARY" columns="id"/>
-      <foreign-key name="fk_acao_cliente1" columns="cliente_id" ref-table="cliente" ref-schema="" ref-catalog="pi2015" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
-      <foreign-key name="fk_acao_tipoacao1" columns="tipoacao_id" ref-table="tipoacao" ref-schema="" ref-catalog="pi2015" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
-      <foreign-key name="fk_acao_usuario1" columns="usuario_id" ref-table="usuario" ref-schema="" ref-catalog="pi2015" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="fk_acao_cliente1" columns="cliente_id" ref-table="cliente" ref-schema="" ref-catalog="pi2015" ref-columns="id" update-rule="3" delete-rule="0" deferrability="2"/>
+      <foreign-key name="fk_acao_tipoacao1" columns="tipoacao_id" ref-table="tipoacao" ref-schema="" ref-catalog="pi2015" ref-columns="id" update-rule="3" delete-rule="2" deferrability="2"/>
+      <foreign-key name="fk_acao_usuario1" columns="usuario_id" ref-table="usuario" ref-schema="" ref-catalog="pi2015" ref-columns="id" update-rule="3" delete-rule="0" deferrability="2"/>
       <exported-key name="fk_usuario_has_acao_acao1" table="usuario_acao" schema="" catalog="pi2015" columns="acao_id"/>
       <index name="fk_acao_cliente1_idx" unique="false" columns="cliente_id"/>
       <index name="fk_acao_tipoacao1_idx" unique="false" columns="tipoacao_id"/>
@@ -2056,8 +2058,8 @@
       <column name="datacadastro" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
       <column name="dataedicao" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" version="true"/>
       <primary-key name="PRIMARY" columns="id"/>
-      <foreign-key name="fk_usuario_has_acao_acao1" columns="acao_id" ref-table="acao" ref-schema="" ref-catalog="pi2015" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
-      <foreign-key name="fk_usuario_has_acao_usuario1" columns="usuario_id" ref-table="usuario" ref-schema="" ref-catalog="pi2015" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="fk_usuario_has_acao_acao1" columns="acao_id" ref-table="acao" ref-schema="" ref-catalog="pi2015" ref-columns="id" update-rule="3" delete-rule="0" deferrability="2"/>
+      <foreign-key name="fk_usuario_has_acao_usuario1" columns="usuario_id" ref-table="usuario" ref-schema="" ref-catalog="pi2015" ref-columns="id" update-rule="3" delete-rule="0" deferrability="2"/>
       <index name="fk_usuario_has_acao_acao1_idx" unique="false" columns="acao_id"/>
       <index name="fk_usuario_has_acao_usuario1_idx" unique="false" columns="usuario_id"/>
     </table>

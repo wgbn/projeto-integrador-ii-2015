@@ -441,7 +441,7 @@
                         margin-bottom: .3em;
                     }
 
-                    & input[type=text], & input[type=password] {
+                    & input[type=text], & input[type=password], & textarea {
                         margin-bottom: 1em;
                         width: 100%;
                         box-sizing: border-box;
@@ -449,6 +449,10 @@
                         border: 0;
                         border-bottom: 3px solid #73879C;
                         background-color: transparent;
+                        @include border-radius(0);
+                    }
+                    & select {
+                        width: 100%;
                     }
 
                     & .radio {
@@ -618,6 +622,48 @@
                 }
                 & .ui-messages-error-icon {
                     display: none;
+                }
+            }
+        }
+    }
+    & .ui-datepicker {
+        background-color: #fff;
+        @include box-shadow(0, 0, 10px, rgba(0,0,0,.6));
+        @include border-radius(2px);
+        padding: 0;
+        & .ui-datepicker-header {
+            @include border-radius-separate(2px, 2px, 0, 0);
+            background-color: #73879C;
+            color: #fff;
+            & .ui-datepicker-prev, & .ui-datepicker-next {
+                & .ui-icon {
+                    background-color: #fff;
+                }
+            }
+        }
+        & .ui-datepicker-calendar {
+            & .ui-state-hover {
+                background-color: rgba(115, 135, 156, 0.23);
+            }
+            & .ui-state-highlight {
+                color: #900;
+            }
+        }
+        & .ui-state-active {
+            background-color: #73879C;
+            color: #fff;
+        }
+        & .ui-timepicker-div {
+            margin-top: .5em;
+            font-size: .8em;
+            padding: .3em;
+            border-top: 1px solid #73879C;
+            & .ui-slider-horizontal {
+                background-color: rgba(115, 135, 156, 0.38);
+                & span {
+                    @include border-radius(50%);
+                    background-color: #73879C;
+                    @include box-shadow(1px, 1px, 4px, rgba(0,0,0,.4));
                 }
             }
         }

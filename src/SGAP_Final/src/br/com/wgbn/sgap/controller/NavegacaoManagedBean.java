@@ -23,18 +23,14 @@ public class NavegacaoManagedBean {
     public void actionUsuariosListar(){
         Navegacao.navegarPara("usuarios/usuariosListar.xhtml");
     }
-
     public void actionUsuariosEditar(){ Navegacao.navegarPara("usuarios/usuariosEditar.xhtml"); }
-
     public void actionUsuariosCadastrar(){ Navegacao.navegarPara("usuarios/usuariosCadastrar.xhtml"); }
 
     /**
      * ### Navegação de Ações
      */
     public void actionAcoesUsuario(){ Navegacao.navegarPara("acoes/acoesUsuario.xhtml"); }
-
     public void actionAcoesCadastrar(){ Navegacao.navegarPara("acoes/acoesCadastrar.xhtml"); }
-
     public void actionAcoesListar() { Navegacao.navegarPara("acoes/acoesListar.xhtml"); }
 
 
@@ -44,10 +40,8 @@ public class NavegacaoManagedBean {
     public void actionClientesListar(){
         Navegacao.navegarPara("clientes/clientesListar.xhtml");
     }
-
     public void actionClientesEditar(){
         Navegacao.navegarPara("clientes/clientesEditar.xhtml");
     }
-
     public void actionClientesCadastrar(){ Navegacao.navegarPara("clientes/clientesCadastrar.xhtml"); }
 }

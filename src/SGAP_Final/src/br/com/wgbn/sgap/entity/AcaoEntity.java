@@ -5,6 +5,7 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.sql.Timestamp;
 import java.util.Collection;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -30,8 +31,17 @@ public class AcaoEntity implements Serializable {
     private UsuarioEntity usuario;
     private Set<UsuarioAcaoEntity> usuarios;
 
+    @Transient
+    private Date datainicioDate;
+
+    @Transient
+    private Date datafimDate;
+
     public AcaoEntity() {
-        this.usuarios = new HashSet<UsuarioAcaoEntity>();
+        this.tipoacao   = new TipoacaoEntity();
+        this.cliente    = new ClienteEntity();
+        this.usuario    = new UsuarioEntity();
+        this.usuarios   = new HashSet<UsuarioAcaoEntity>();
     }
 
     @Id
@@ -49,18 +59,22 @@ public class AcaoEntity implements Serializable {
     public Timestamp getDatainicio() {
         return datainicio;
     }
-    public void setDatainicio(Timestamp datainicio) {
-        this.datainicio = datainicio;
-    }
+    public void setDatainicio(Timestamp datainicio) { this.datainicio = datainicio; }
+
+    @Transient
+    public void setDatainicioDate(Date _dt){ this.datainicio = new Timestamp(_dt.getTime()); }
+    public Date getDatainicioDate(){ return this.datainicioDate; }
 
     @Basic
     @Column(name = "datafim", nullable = false, insertable = true, updatable = true)
     public Timestamp getDatafim() {
         return datafim;
     }
-    public void setDatafim(Timestamp datafim) {
-        this.datafim = datafim;
-    }
+    public void setDatafim(Timestamp datafim) {this.datafim = datafim; }
+
+    @Transient
+    public void setDatafimDate(Date _dt){ this.datafim = new Timestamp(_dt.getTime()); }
+    public Date getDatafimDate(){ return this.datafimDate; }
 
     @Basic
     @Column(name = "descricao", nullable = true, insertable = true, updatable = true, length = 500)
