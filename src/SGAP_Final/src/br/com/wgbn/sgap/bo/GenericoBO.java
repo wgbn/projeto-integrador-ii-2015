@@ -3,11 +3,11 @@ package br.com.wgbn.sgap.bo;
 /**
  * Created by Walter Gandarella
  */
-public abstract class GenericoModel<T, D> {
+public abstract class GenericoBO<T, D> {
     private D dao = null;
     protected T entity;
 
-    public GenericoModel(D dao){
+    public GenericoBO(D dao){
         this.dao = dao;
     }
 

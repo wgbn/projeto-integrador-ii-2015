@@ -10,11 +10,11 @@ import java.security.NoSuchAlgorithmException;
 /**
  * Created by Walter Gandarella
  */
-public class UsuarioModel extends GenericoModel<UsuarioEntity, UsuarioDAO> {
+public class UsuarioBO extends GenericoBO<UsuarioEntity, UsuarioDAO> {
     private String resenha;
     private static UsuarioEntity usuarioLogado = null;
 
-    public UsuarioModel(UsuarioDAO dao){
+    public UsuarioBO(UsuarioDAO dao){
         super(dao);
     }
 

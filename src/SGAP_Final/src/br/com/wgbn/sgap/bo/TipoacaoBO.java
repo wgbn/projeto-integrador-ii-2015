@@ -6,8 +6,8 @@ import br.com.wgbn.sgap.entity.TipoacaoEntity;
 /**
  * Created by Walter Gandarella
  */
-public class TipoacaoModel extends GenericoModel<TipoacaoEntity, TipoacaoDAO> {
-    public TipoacaoModel(TipoacaoDAO dao) { super(dao); }
+public class TipoacaoBO extends GenericoBO<TipoacaoEntity, TipoacaoDAO> {
+    public TipoacaoBO(TipoacaoDAO dao) { super(dao); }
 
     @Override
     public void resetEntity() {

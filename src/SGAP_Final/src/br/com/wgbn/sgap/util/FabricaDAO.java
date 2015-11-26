@@ -18,8 +18,7 @@ public class FabricaDAO {
         return ourInstance;
     }
 
-    private FabricaDAO() {
-    }
+    private FabricaDAO() {}
 
     public AcaoDAO getAcaoDAO(){
         if (this.acaodao == null)
@@ -48,6 +47,6 @@ public class FabricaDAO {
     public UsuarioDAO getUsuarioDAO(){
         if (this.usuariodao == null)
             this.usuariodao = new UsuarioDAO(MainApp.getFacadeEntityManager().getEntityManager());
-        return this.usuariodao
+        return this.usuariodao;
     }
 }

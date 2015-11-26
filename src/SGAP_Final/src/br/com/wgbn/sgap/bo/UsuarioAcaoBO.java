@@ -6,8 +6,8 @@ import br.com.wgbn.sgap.entity.UsuarioAcaoEntity;
 /**
  * Created by Walter Gandarella
  */
-public class UsuarioAcaoModel extends GenericoModel<UsuarioAcaoEntity, UsuarioAcaoDAO> {
-    public UsuarioAcaoModel(UsuarioAcaoDAO dao) { super(dao); }
+public class UsuarioAcaoBO extends GenericoBO<UsuarioAcaoEntity, UsuarioAcaoDAO> {
+    public UsuarioAcaoBO(UsuarioAcaoDAO dao) { super(dao); }
 
     @Override
     public void resetEntity() {

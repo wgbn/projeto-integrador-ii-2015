@@ -6,9 +6,9 @@ import br.com.wgbn.sgap.entity.ClienteEntity;
 /**
  * Created by Walter Gandarella
  */
-public class ClienteModel extends GenericoModel<ClienteEntity, ClienteDAO> {
+public class ClienteBO extends GenericoBO<ClienteEntity, ClienteDAO> {
 
-    public ClienteModel(ClienteDAO dao) { super(dao); }
+    public ClienteBO(ClienteDAO dao) { super(dao); }
 
     @Override
     public void resetEntity() {

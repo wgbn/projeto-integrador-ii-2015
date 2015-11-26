@@ -16,7 +16,7 @@ import java.util.List;
 /**
  * Created by Walter Gandarella
  */
-public class AcaoModel extends GenericoModel<AcaoEntity, AcaoDAO> {
+public class AcaoBO extends GenericoBO<AcaoEntity, AcaoDAO> {
     
     private UsuarioAcaoModel    usuarioAcaoModel;
     private TipoacaoModel       tipoAcaoModel;
@@ -25,7 +25,7 @@ public class AcaoModel extends GenericoModel<AcaoEntity, AcaoDAO> {
     private Date            dataInicio;
     private Date            dataFim;
 
-    public AcaoModel(AcaoDAO dao) {
+    public AcaoBO(AcaoDAO dao) {
         super(dao);
         usuarioAcaoModel    = new UsuarioAcaoModel(new UsuarioAcaoDAO(dao.getEntityManager()));
         tipoAcaoModel       = new TipoacaoModel(new TipoacaoDAO(dao.getEntityManager()));
