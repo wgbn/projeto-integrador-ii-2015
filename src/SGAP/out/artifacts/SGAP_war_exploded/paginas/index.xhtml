@@ -1,0 +1,33 @@
+<ui:composition
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:jsf="http://xmlns.jcp.org/jsf"
+        xmlns:h="http://xmlns.jcp.org/jsf/html"
+        xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+        xmlns:f="http://xmlns.jcp.org/jsf/core"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+        xmlns:wgbn="http://java.sun.com/jsf/composite/tags"
+        template="/template/layout/layoutPadrao.xhtml">
+    <ui:define name="tela">
+
+        <div class="metricas">
+            <wgbn:itemMetrica value="#{dashboardFacade.metricaCliente}" styleClass="bloco"/>
+            <wgbn:itemMetrica value="#{dashboardFacade.metricaAcao}" styleClass="bloco"/>
+            <wgbn:itemMetrica value="#{dashboardFacade.metricaReceber}" styleClass="bloco"/>
+            <wgbn:itemMetrica value="#{dashboardFacade.metricaPagar}" styleClass="bloco"/>
+        </div>
+
+        <div class="dashboard">
+
+            <div class="lista-acoes">
+                <wgbn:acoesTimeline value="#{dashboardFacade.acoes}" styleClass="acao"/>
+            </div>
+
+            <div class="graficos">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam autem corporis cupiditate doloribus, eius eligendi eum ex exercitationem ipsam iste laboriosam, laudantium molestias nihil numquam quaerat quia repellat saepe tenetur.
+            </div>
+
+        </div>
+
+    </ui:define>
+</ui:composition>
