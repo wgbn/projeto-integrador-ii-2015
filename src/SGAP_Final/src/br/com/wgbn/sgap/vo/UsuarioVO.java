@@ -5,6 +5,7 @@ import br.com.wgbn.sgap.entity.UsuarioEntity;
 
 import java.sql.Timestamp;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -42,7 +43,7 @@ public class UsuarioVO {
         this.dataedicao     = usuario.getDataedicao();
         this.telefoneFixo   = usuario.getTelefoneFixo();
         this.telefoneCelular = usuario.getTelefoneCelular();
-        this.acoes          = usuario.getAcoes();
+        this.acoes          = new HashSet<UsuarioAcaoVO>();
     }
 
     public UsuarioVO(int id, String nome, String email, String senha, String banco, String agencia, String conta, int gerente, Timestamp datacriacao, Timestamp dataedicao, String telefoneFixo, String telefoneCelular, Set<UsuarioAcaoVO> acoes) {

@@ -51,7 +51,8 @@ public abstract class GenericoDAO<T> implements IF_DAO<T> {
     public void excluir(T object) {
         try {
             this.entityManager.getTransaction().begin();
-            this.entityManager.remove(object);
+            //em.remove(em.contains(entity) ? entity : em.merge(entity));
+            this.entityManager.remove(this.entityManager.contains(object) ? object : this.entityManager.merge(object));
             this.entityManager.getTransaction().commit();
         } catch (Exception ex) {
             ex.printStackTrace();

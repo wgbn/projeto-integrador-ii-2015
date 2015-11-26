@@ -29,8 +29,8 @@ public class UsuarioAcaoVO {
         this.lider          = ua.getLider();
         this.datacadastro   = ua.getDatacadastro();
         this.dataedicao     = ua.getDataedicao();
-        this.acao           = ua.getAcao();
-        this.usuario        = ua.getUsuario();
+        this.acao           = new AcaoVO(ua.getAcao());
+        this.usuario        = new UsuarioVO(ua.getUsuario());
     }
 
     public UsuarioAcaoVO(int id, int confirmado, int lider, Timestamp datacadastro, Timestamp dataedicao, AcaoVO acao, UsuarioVO usuario) {

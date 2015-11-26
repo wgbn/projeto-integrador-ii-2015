@@ -4,7 +4,9 @@ import br.com.wgbn.sgap.entity.AcaoEntity;
 
 import java.math.BigDecimal;
 import java.sql.Timestamp;
+import java.util.Date;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -12,8 +14,8 @@ import java.util.Set;
  */
 public class AcaoVO {
     private int         id;
-    private Timestamp   datainicio;
-    private Timestamp   datafim;
+    private Date        datainicio;
+    private Date        datafim;
     private String      descricao;
     private String      local;
     private BigDecimal  latitude;
@@ -46,10 +48,10 @@ public class AcaoVO {
         this.titulo     = acao.getTitulo();
         this.datacriacao = acao.getDatacriacao();
         this.dataedicao = acao.getDataedicao();
-        this.cliente    = acao.getCliente();
-        this.tipoacao   = acao.getTipoacao();
-        this.usuario    = acao.getUsuario();
-        this.usuarios   = acao.getUsuarios();
+        this.cliente    = new ClienteVO(acao.getCliente());
+        this.tipoacao   = new TipoacaoVO(acao.getTipoacao());
+        this.usuario    = new UsuarioVO(acao.getUsuario());
+        this.usuarios   = new HashSet<UsuarioAcaoVO>();
     }
 
     public AcaoVO(int id, Timestamp datainicio, Timestamp datafim, String descricao, String local, BigDecimal latitude, BigDecimal longitude, float valor, String titulo, Timestamp datacriacao, Timestamp dataedicao, ClienteVO cliente, TipoacaoVO tipoacao, UsuarioVO usuario, Set<UsuarioAcaoVO> usuarios) {
@@ -78,19 +80,19 @@ public class AcaoVO {
         this.id = id;
     }
 
-    public Timestamp getDatainicio() {
+    public Date getDatainicio() {
         return datainicio;
     }
 
-    public void setDatainicio(Timestamp datainicio) {
+    public void setDatainicio(Date datainicio) {
         this.datainicio = datainicio;
     }
 
-    public Timestamp getDatafim() {
+    public Date getDatafim() {
         return datafim;
     }
 
-    public void setDatafim(Timestamp datafim) {
+    public void setDatafim(Date datafim) {
         this.datafim = datafim;
     }
 

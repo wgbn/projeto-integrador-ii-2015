@@ -1,5 +1,7 @@
 package br.com.wgbn.sgap.entity;
 
+import br.com.wgbn.sgap.vo.UsuarioVO;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Timestamp;
@@ -27,6 +29,22 @@ public class UsuarioEntity implements Serializable {
     private Set<UsuarioAcaoEntity> acoes;
 
     public UsuarioEntity() { this.acoes = new HashSet<UsuarioAcaoEntity>(); }
+
+    public UsuarioEntity(UsuarioVO usuario) {
+        this.id             = usuario.getId();
+        this.nome           = usuario.getNome();
+        this.email          = usuario.getEmail();
+        this.senha          = usuario.getSenha();
+        this.banco          = usuario.getBanco();
+        this.agencia        = usuario.getAgencia();
+        this.conta          = usuario.getConta();
+        this.gerente        = usuario.getGerente();
+        this.datacriacao    = usuario.getDatacriacao();
+        this.dataedicao     = usuario.getDataedicao();
+        this.telefoneFixo   = usuario.getTelefoneFixo();
+        this.telefoneCelular = usuario.getTelefoneCelular();
+        this.acoes          = new HashSet<UsuarioAcaoEntity>();
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

@@ -26,7 +26,7 @@ public class TipoacaoVO {
         this.tipo       = tipo.getTipo();
         this.datacriacao = tipo.getDatacriacao();
         this.dataedicao = tipo.getDataedicao();
-        this.acoes      = tipo.getAcoes();
+        this.acoes      = new HashSet<AcaoVO>();
     }
 
     public TipoacaoVO(int id, String tipo, Timestamp datacriacao, Timestamp dataedicao, Set<AcaoVO> acoes) {

@@ -35,7 +35,7 @@ public class ClienteVO {
         this.telefoneFixo   = cliente.getTelefoneFixo();
         this.telefoneCelular = cliente.getTelefoneCelular();
         this.fax            = cliente.getFax();
-        this.acoes          = cliente.getAcoes();
+        this.acoes          = new HashSet<AcaoVO>();
     }
 
     public ClienteVO(int id, String nome, String contato, String email, Timestamp datacriacao, Timestamp dataedicao, String telefoneFixo, String telefoneCelular, String fax, Set<AcaoVO> acoes) {

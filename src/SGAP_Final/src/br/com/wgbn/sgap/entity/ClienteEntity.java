@@ -1,9 +1,13 @@
 package br.com.wgbn.sgap.entity;
 
+import br.com.wgbn.sgap.vo.ClienteVO;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Created by Walter Gandarella
@@ -20,7 +24,22 @@ public class ClienteEntity implements Serializable {
     private String telefoneFixo;
     private String telefoneCelular;
     private String fax;
-    private Collection<AcaoEntity> acoes;
+    private Set<AcaoEntity> acoes;
+
+    public ClienteEntity(){}
+
+    public ClienteEntity(ClienteVO cliente){
+        this.id             = cliente.getId();
+        this.nome           = cliente.getNome();
+        this.contato        = cliente.getContato();
+        this.email          = cliente.getEmail();
+        this.datacriacao    = cliente.getDatacriacao();
+        this.dataedicao     = cliente.getDataedicao();
+        this.telefoneFixo   = cliente.getTelefoneFixo();
+        this.telefoneCelular = cliente.getTelefoneCelular();
+        this.fax            = cliente.getFax();
+        this.acoes          = new HashSet<AcaoEntity>();
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -140,10 +159,10 @@ public class ClienteEntity implements Serializable {
     }
 
     @OneToMany(mappedBy = "cliente")
-    public Collection<AcaoEntity> getAcoes() {
+    public Set<AcaoEntity> getAcoes() {
         return acoes;
     }
-    public void setAcoes(Collection<AcaoEntity> acoes) {
+    public void setAcoes(Set<AcaoEntity> acoes) {
         this.acoes = acoes;
     }
 }

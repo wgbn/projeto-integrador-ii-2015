@@ -2,8 +2,10 @@ package br.com.wgbn.sgap.controller;
 
 import br.com.wgbn.sgap.util.FacadeEntityManager;
 
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
+import javax.faces.context.FacesContext;
 
 /**
  * Created by Walter Gandarella
@@ -28,6 +30,12 @@ public class MainApp {
     public static FacadeEntityManager getFacadeEntityManager(){
         MainApp.initEntityManager();
         return MainApp.fEntityManager;
+    }
+
+    @PostConstruct
+    void initialiseSession() {
+        System.out.println("##-> PostConstruct");
+        FacesContext.getCurrentInstance().getExternalContext().getSession(true);
     }
 
 }

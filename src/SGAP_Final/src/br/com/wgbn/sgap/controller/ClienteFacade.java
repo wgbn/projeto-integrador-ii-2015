@@ -1,11 +1,12 @@
 package br.com.wgbn.sgap.controller;
 
+import br.com.wgbn.sgap.bo.ClienteBO;
+import br.com.wgbn.sgap.bo.UsuarioBO;
 import br.com.wgbn.sgap.dao.ClienteDAO;
 import br.com.wgbn.sgap.entity.ClienteEntity;
-import br.com.wgbn.sgap.bo.ClienteModel;
-import br.com.wgbn.sgap.bo.UsuarioModel;
 import br.com.wgbn.sgap.util.Navegacao;
 import br.com.wgbn.sgap.util.Utilidades;
+import br.com.wgbn.sgap.vo.ClienteVO;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -22,15 +23,12 @@ import java.util.List;
 @SessionScoped
 public class ClienteFacade {
 
-    private List<ClienteEntity> clientes = new LinkedList<ClienteEntity>();
-    private ClienteModel        model;
-    private ClienteDAO          dao;
+    private List<ClienteVO> clientes = new LinkedList<ClienteVO>();
+    private ClienteBO       clienteBO;
+    private ClienteVO       clienteVO;
 
     public ClienteFacade(){
-        if (this.dao == null && MainApp.getFacadeEntityManager() != null)
-            this.dao = new ClienteDAO(MainApp.getFacadeEntityManager().getEntityManager());
-        model = new ClienteModel(dao);
-
+        this.clienteBO = new ClienteBO();
         System.out.println("##-> ClienteFacade iniciado");
     }
 
@@ -38,21 +36,24 @@ public class ClienteFacade {
      * Getters e setters
      */
 
-    public ClienteEntity getCliente() {
-        return this.model.getEntity();
+    public ClienteVO getCliente() {
+        return this.clienteVO;
     }
 
-    public void setCliente(ClienteEntity cliente) {
-        this.model.setEntity(cliente);
+    public void setCliente(ClienteVO _cliente) {
+        this.clienteVO = _cliente;
     }
 
-    public List<ClienteEntity> getClientes() {
-        this.clientes = this.model.getDao().getTodos();
-        return clientes;
+    public List<ClienteVO> getClientes() {
+        this.clientes = new LinkedList<ClienteVO>();
+        for (ClienteEntity c : this.clienteBO.getTodos()){
+            this.clientes.add(new ClienteVO(c));
+        }
+        return this.clientes;
     }
 
     public String getLogado(){
-        return UsuarioModel.getLogado().getNome();
+        return UsuarioBO.getLogado().getNome();
     }
 
     /**
@@ -61,24 +62,27 @@ public class ClienteFacade {
 
     public void aoCarregarCriarCliente(ComponentSystemEvent event) throws InstantiationException, IllegalAccessException {
         if (Utilidades.isNewRequest()){
-            this.model.resetEntity();
-            this.model.getEntity().setDatacriacao(new Timestamp(new Date().getTime()));
+            this.clienteVO = new ClienteVO();
+            this.clienteVO.setDatacriacao(new Timestamp(new Date().getTime()));
+            this.clienteBO.setEntityFromVo(this.clienteVO);
         }
     }
 
     public void cadastrarCliente() throws InstantiationException, IllegalAccessException {
-        this.model.getDao().salvar(this.model.getEntity());
-        this.model.resetEntity();
+        this.clienteBO.setEntityFromVo(this.clienteVO);
+        this.clienteBO.inserirCliente();
         Navegacao.navegarPara("clientes/clientesListar.xhtml");
     }
 
     public void alterarCliente(){
-        this.model.getDao().alterar(this.model.getEntity());
+        this.clienteBO.setEntityFromVo(this.clienteVO);
+        this.clienteBO.alterar();
         Navegacao.navegarPara("clientes/clientesListar.xhtml");
     }
 
     public void apagarCliente(){
-        this.model.getDao().excluir(this.model.getEntity());
+        this.clienteBO.setEntityFromVo(this.clienteVO);
+        this.clienteBO.excluir();
         Navegacao.navegarPara("clientes/clientesListar.xhtml");
     }
 }

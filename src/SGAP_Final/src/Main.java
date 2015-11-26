@@ -4,10 +4,6 @@ import br.com.wgbn.sgap.dao.ClienteDAO;
 import br.com.wgbn.sgap.dao.TipoacaoDAO;
 import br.com.wgbn.sgap.dao.UsuarioDAO;
 import br.com.wgbn.sgap.entity.*;
-import br.com.wgbn.sgap.bo.AcaoModel;
-import br.com.wgbn.sgap.bo.ClienteModel;
-import br.com.wgbn.sgap.bo.TipoacaoModel;
-import br.com.wgbn.sgap.bo.UsuarioModel;
 
 import javax.persistence.EntityManager;
 import java.sql.Timestamp;
@@ -22,7 +18,7 @@ public class Main {
         EntityManager em = MainApp.getFacadeEntityManager().getEntityManager();
 
         // cliente
-        ClienteModel clienteModel = new ClienteModel(new ClienteDAO(em));
+        /*ClienteModel clienteModel = new ClienteModel(new ClienteDAO(em));
         //ClienteEntity cliente = clienteModel.getDao().getPorPk(3);
         ClienteEntity cliente = new ClienteEntity();
                       cliente.setId(3);
@@ -78,7 +74,7 @@ public class Main {
                           ua2.setAcao(acaoModel.getEntity());
                           ua2.setLider(0);
                           ua2.setUsuario(p2);
-                          ua2 = acaoModel.setPromotor(ua2);
+                          ua2 = acaoModel.setPromotor(ua2);*/
 
         // pega do banco
         /*AcaoEntity acaoDb = acaoModel.getDao().getPorPk(13);
