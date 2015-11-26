@@ -2,8 +2,8 @@ package br.com.wgbn.sgap.controller;
 
 import br.com.wgbn.sgap.dao.ClienteDAO;
 import br.com.wgbn.sgap.entity.ClienteEntity;
-import br.com.wgbn.sgap.model.ClienteModel;
-import br.com.wgbn.sgap.model.UsuarioModel;
+import br.com.wgbn.sgap.bo.ClienteModel;
+import br.com.wgbn.sgap.bo.UsuarioModel;
 import br.com.wgbn.sgap.util.Navegacao;
 import br.com.wgbn.sgap.util.Utilidades;
 

@@ -1,11 +1,8 @@
-package br.com.wgbn.sgap.model;
+package br.com.wgbn.sgap.bo;
 
 import br.com.wgbn.sgap.dao.UsuarioDAO;
 import br.com.wgbn.sgap.entity.UsuarioEntity;
-import br.com.wgbn.sgap.util.Navegacao;
 
-import javax.faces.application.FacesMessage;
-import javax.faces.context.FacesContext;
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;

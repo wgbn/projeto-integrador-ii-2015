@@ -1,12 +1,10 @@
 package br.com.wgbn.sgap.controller;
 
 import br.com.wgbn.sgap.dao.AcaoDAO;
-import br.com.wgbn.sgap.dao.TipoacaoDAO;
 import br.com.wgbn.sgap.entity.AcaoEntity;
 import br.com.wgbn.sgap.entity.ClienteEntity;
 import br.com.wgbn.sgap.entity.TipoacaoEntity;
-import br.com.wgbn.sgap.model.AcaoModel;
-import br.com.wgbn.sgap.model.TipoacaoModel;
+import br.com.wgbn.sgap.bo.AcaoModel;
 import br.com.wgbn.sgap.util.Navegacao;
 import br.com.wgbn.sgap.util.Utilidades;
 
@@ -50,6 +48,12 @@ public class AcoesFacade {
         return this.acoes;
     }
 
+    public void setDataInicio(Date _inicio){ this.model.setDataInicio(_inicio); }
+    public Date getDataInicio(){ return this.model.getDataInicio(); }
+
+    public void setDataFim(Date _fim){ this.model.setDataFim(_fim); }
+    public Date getDataFim(){ return this.model.getDataFim(); }
+
     public List<TipoacaoEntity> getTipos(){ return this.model.getTiposAcao(); }
 
     public List<ClienteEntity> getClientes(){ return this.model.getClientes(); }
@@ -67,6 +71,8 @@ public class AcoesFacade {
         if (Utilidades.isNewRequest()){
             this.model.setEntity(new AcaoEntity());
             this.model.getEntity().setDatacriacao(new Timestamp(new Date().getTime()));
+            //this.model.setTipoacao(new TipoacaoEntity());
+            //this.model.setCliente(new ClienteEntity());
         }
     }
 

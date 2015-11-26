@@ -1,8 +1,4 @@
-package br.com.wgbn.sgap.model;
-
-import br.com.wgbn.sgap.controller.MainApp;
-
-import java.lang.reflect.ParameterizedType;
+package br.com.wgbn.sgap.bo;
 
 /**
  * Created by Walter Gandarella

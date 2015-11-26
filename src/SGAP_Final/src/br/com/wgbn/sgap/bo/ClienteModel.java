@@ -1,4 +1,4 @@
-package br.com.wgbn.sgap.model;
+package br.com.wgbn.sgap.bo;
 
 import br.com.wgbn.sgap.dao.ClienteDAO;
 import br.com.wgbn.sgap.entity.ClienteEntity;

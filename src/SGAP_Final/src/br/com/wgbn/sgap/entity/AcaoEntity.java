@@ -31,12 +31,6 @@ public class AcaoEntity implements Serializable {
     private UsuarioEntity usuario;
     private Set<UsuarioAcaoEntity> usuarios;
 
-    @Transient
-    private Date datainicioDate;
-
-    @Transient
-    private Date datafimDate;
-
     public AcaoEntity() {
         this.tipoacao   = new TipoacaoEntity();
         this.cliente    = new ClienteEntity();
@@ -61,20 +55,12 @@ public class AcaoEntity implements Serializable {
     }
     public void setDatainicio(Timestamp datainicio) { this.datainicio = datainicio; }
 
-    @Transient
-    public void setDatainicioDate(Date _dt){ this.datainicio = new Timestamp(_dt.getTime()); }
-    public Date getDatainicioDate(){ return this.datainicioDate; }
-
     @Basic
     @Column(name = "datafim", nullable = false, insertable = true, updatable = true)
     public Timestamp getDatafim() {
         return datafim;
     }
     public void setDatafim(Timestamp datafim) {this.datafim = datafim; }
-
-    @Transient
-    public void setDatafimDate(Date _dt){ this.datafim = new Timestamp(_dt.getTime()); }
-    public Date getDatafimDate(){ return this.datafimDate; }
 
     @Basic
     @Column(name = "descricao", nullable = true, insertable = true, updatable = true, length = 500)
@@ -148,6 +134,41 @@ public class AcaoEntity implements Serializable {
         this.dataedicao = dataedicao;
     }
 
+    @ManyToOne
+    @JoinColumn(name = "cliente_id", referencedColumnName = "id", nullable = false)
+    public ClienteEntity getCliente() {
+        return cliente;
+    }
+    public void setCliente(ClienteEntity cliente) {
+        this.cliente = cliente;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "tipoacao_id", referencedColumnName = "id", nullable = false)
+    public TipoacaoEntity getTipoacao() {
+        return tipoacao;
+    }
+    public void setTipoacao(TipoacaoEntity tipoacao) {
+        this.tipoacao = tipoacao;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "usuario_id", referencedColumnName = "id", nullable = false)
+    public UsuarioEntity getUsuario() {
+        return usuario;
+    }
+    public void setUsuario(UsuarioEntity usuario) {
+        this.usuario = usuario;
+    }
+
+    @OneToMany(mappedBy = "acao", fetch = FetchType.LAZY)
+    public Set<UsuarioAcaoEntity> getUsuarios() {
+        return usuarios;
+    }
+    public void setUsuarios(Set<UsuarioAcaoEntity> usuarios) {
+        this.usuarios = usuarios;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -186,38 +207,24 @@ public class AcaoEntity implements Serializable {
         return result;
     }
 
-    @ManyToOne
-    @JoinColumn(name = "cliente_id", referencedColumnName = "id", nullable = false)
-    public ClienteEntity getCliente() {
-        return cliente;
-    }
-    public void setCliente(ClienteEntity cliente) {
-        this.cliente = cliente;
-    }
-
-    @ManyToOne
-    @JoinColumn(name = "tipoacao_id", referencedColumnName = "id", nullable = false)
-    public TipoacaoEntity getTipoacao() {
-        return tipoacao;
-    }
-    public void setTipoacao(TipoacaoEntity tipoacao) {
-        this.tipoacao = tipoacao;
-    }
-
-    @ManyToOne
-    @JoinColumn(name = "usuario_id", referencedColumnName = "id", nullable = false)
-    public UsuarioEntity getUsuario() {
-        return usuario;
-    }
-    public void setUsuario(UsuarioEntity usuario) {
-        this.usuario = usuario;
-    }
-
-    @OneToMany(mappedBy = "acao", fetch = FetchType.LAZY)
-    public Set<UsuarioAcaoEntity> getUsuarios() {
-        return usuarios;
-    }
-    public void setUsuarios(Set<UsuarioAcaoEntity> usuarios) {
-        this.usuarios = usuarios;
+    @Override
+    public String toString() {
+        return "AcaoEntity{" +
+                "id=" + id +
+                ", datainicio=" + datainicio +
+                ", datafim=" + datafim +
+                ", descricao='" + descricao + '\'' +
+                ", local='" + local + '\'' +
+                ", latitude=" + latitude +
+                ", longitude=" + longitude +
+                ", valor=" + valor +
+                ", titulo='" + titulo + '\'' +
+                ", datacriacao=" + datacriacao +
+                ", dataedicao=" + dataedicao +
+                ", cliente=" + cliente +
+                ", tipoacao=" + tipoacao +
+                ", usuario=" + usuario +
+                ", usuarios=" + usuarios +
+                '}';
     }
 }

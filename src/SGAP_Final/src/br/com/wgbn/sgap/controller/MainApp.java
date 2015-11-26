@@ -16,12 +16,13 @@ public class MainApp {
 
     public MainApp(){
         MainApp.initEntityManager();
-        System.out.println("##-> MainApp iniciado");
     }
 
     private static void initEntityManager(){
-        if (MainApp.fEntityManager == null)
+        if (MainApp.fEntityManager == null) {
             MainApp.fEntityManager = new FacadeEntityManager("wgbn");
+            System.out.println("##-> MainApp iniciado");
+        }
     }
 
     public static FacadeEntityManager getFacadeEntityManager(){

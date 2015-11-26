@@ -2,7 +2,7 @@ package br.com.wgbn.sgap.controller;
 
 import br.com.wgbn.sgap.dao.UsuarioDAO;
 import br.com.wgbn.sgap.entity.UsuarioEntity;
-import br.com.wgbn.sgap.model.UsuarioModel;
+import br.com.wgbn.sgap.bo.UsuarioModel;
 import br.com.wgbn.sgap.util.Navegacao;
 import br.com.wgbn.sgap.util.Utilidades;
 
@@ -11,7 +11,6 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ComponentSystemEvent;
-import javax.servlet.http.HttpServletRequest;
 import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
 import java.sql.Timestamp;

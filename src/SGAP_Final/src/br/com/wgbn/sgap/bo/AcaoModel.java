@@ -1,4 +1,4 @@
-package br.com.wgbn.sgap.model;
+package br.com.wgbn.sgap.bo;
 
 import br.com.wgbn.sgap.dao.AcaoDAO;
 import br.com.wgbn.sgap.dao.ClienteDAO;
@@ -21,13 +21,32 @@ public class AcaoModel extends GenericoModel<AcaoEntity, AcaoDAO> {
     private UsuarioAcaoModel    usuarioAcaoModel;
     private TipoacaoModel       tipoAcaoModel;
     private ClienteModel        clienteModel;
-    private UsuarioAcaoDAO      uaDAO;
+
+    private Date            dataInicio;
+    private Date            dataFim;
 
     public AcaoModel(AcaoDAO dao) {
         super(dao);
         usuarioAcaoModel    = new UsuarioAcaoModel(new UsuarioAcaoDAO(dao.getEntityManager()));
         tipoAcaoModel       = new TipoacaoModel(new TipoacaoDAO(dao.getEntityManager()));
         clienteModel        = new ClienteModel(new ClienteDAO(dao.getEntityManager()));
+    }
+
+    public Date getDataInicio() {
+
+        return dataInicio;
+    }
+
+    public void setDataInicio(Date dataInicio) {
+        this.dataInicio = dataInicio;
+    }
+
+    public Date getDataFim() {
+        return dataFim;
+    }
+
+    public void setDataFim(Date dataFim) {
+        this.dataFim = dataFim;
     }
 
     @Override
@@ -58,6 +77,11 @@ public class AcaoModel extends GenericoModel<AcaoEntity, AcaoDAO> {
 
     public void inserirAcao(){
         this.getEntity().setDatacriacao(new Timestamp(new Date().getTime()));
+        this.getEntity().setDataedicao(new Timestamp(new Date().getTime()));
+        this.getEntity().setDatainicio(new Timestamp(this.dataInicio.getTime()));
+        this.getEntity().setDatafim(new Timestamp(this.dataFim.getTime()));
+        this.getEntity().setUsuario(UsuarioModel.getLogado());
+        System.out.println(this.getEntity().toString());
         this.setEntity(this.getDao().salvar(this.getEntity()));
     }
 }

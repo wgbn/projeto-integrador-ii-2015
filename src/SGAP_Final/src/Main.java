@@ -1,19 +1,17 @@
 import br.com.wgbn.sgap.controller.MainApp;
-import br.com.wgbn.sgap.controller.UsuarioFacade;
 import br.com.wgbn.sgap.dao.AcaoDAO;
 import br.com.wgbn.sgap.dao.ClienteDAO;
 import br.com.wgbn.sgap.dao.TipoacaoDAO;
 import br.com.wgbn.sgap.dao.UsuarioDAO;
 import br.com.wgbn.sgap.entity.*;
-import br.com.wgbn.sgap.model.AcaoModel;
-import br.com.wgbn.sgap.model.ClienteModel;
-import br.com.wgbn.sgap.model.TipoacaoModel;
-import br.com.wgbn.sgap.model.UsuarioModel;
+import br.com.wgbn.sgap.bo.AcaoModel;
+import br.com.wgbn.sgap.bo.ClienteModel;
+import br.com.wgbn.sgap.bo.TipoacaoModel;
+import br.com.wgbn.sgap.bo.UsuarioModel;
 
 import javax.persistence.EntityManager;
 import java.sql.Timestamp;
 import java.util.Date;
-import java.util.List;
 
 /**
  * Created by Walter Gandarella
@@ -25,7 +23,9 @@ public class Main {
 
         // cliente
         ClienteModel clienteModel = new ClienteModel(new ClienteDAO(em));
-        ClienteEntity cliente = clienteModel.getDao().getPorPk(3);
+        //ClienteEntity cliente = clienteModel.getDao().getPorPk(3);
+        ClienteEntity cliente = new ClienteEntity();
+                      cliente.setId(3);
 
         // tipo acao
         TipoacaoModel tipoModel = new TipoacaoModel(new TipoacaoDAO(em));
@@ -33,11 +33,13 @@ public class Main {
 
         // usuario gerente
         UsuarioModel userModel = new UsuarioModel(new UsuarioDAO(em));
-        UsuarioEntity gerente = userModel.getDao().getPorPk(3);
+        //UsuarioEntity gerente = userModel.getDao().getPorPk(3);
+        UsuarioEntity gerente = new UsuarioEntity();
+                      gerente.setId(3);
 
         //acao
         AcaoModel acaoModel = new AcaoModel(new AcaoDAO(em));
-        /*acaoModel.setEntity(new AcaoEntity());
+        acaoModel.setEntity(new AcaoEntity());
         Date data = new Date();
         acaoModel.getEntity().setDatainicio(new Timestamp(data.getTime() + 10800));
         acaoModel.getEntity().setDatafim(new Timestamp(data.getTime() + 14400));
@@ -76,10 +78,10 @@ public class Main {
                           ua2.setAcao(acaoModel.getEntity());
                           ua2.setLider(0);
                           ua2.setUsuario(p2);
-                          ua2 = acaoModel.setPromotor(ua2);*/
+                          ua2 = acaoModel.setPromotor(ua2);
 
         // pega do banco
-        AcaoEntity acaoDb = acaoModel.getDao().getPorPk(13);
+        /*AcaoEntity acaoDb = acaoModel.getDao().getPorPk(13);
 
         System.out.println("-----------------------------");
         System.out.println("ACÃO:\t"+acaoDb.getTitulo());
@@ -99,7 +101,7 @@ public class Main {
         System.out.println(p1.getNome());
         for (UsuarioAcaoEntity ua : p1.getAcoes()){
             System.out.println(ua.getAcao().getTitulo());
-        }
+        }*/
     }
 
 }

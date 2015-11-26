@@ -13,6 +13,7 @@ hs_err_pid*
 
 #deploy
 src/SGAP_Final/out/**/*
+openshift/**/*
 
 #idea
 src/SGAP_Final/.idea/workspace.xml

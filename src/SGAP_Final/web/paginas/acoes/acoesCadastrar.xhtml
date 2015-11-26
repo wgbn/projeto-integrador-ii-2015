@@ -22,12 +22,12 @@
                         <h5>Dados Básicos</h5>
 
                         <p:outputLabel for="datainicio" value="Data de início" />
-                        <p:calendar id="datainicio" value="#{acoesFacade.acao.datainicioDate}" pattern="dd/MM/yyyy HH:mm:ss" required="true" pt:editable="false" pt:placeholder="Quando inicia a ação...">
+                        <p:calendar id="datainicio" value="#{acoesFacade.dataInicio}" pattern="dd/MM/yyyy HH:mm:ss" required="true" pt:editable="false" pt:placeholder="Quando inicia a ação...">
                             <f:convertDateTime pattern="dd/MM/yyyy" type="both" dateType="short"></f:convertDateTime>
                         </p:calendar>
 
                         <p:outputLabel for="datafim" value="Data de término" />
-                        <p:calendar id="datafim" value="#{acoesFacade.acao.datafimDate}" pattern="dd/MM/yyyy HH:mm:ss" required="true" pt:editable="false" pt:placeholder="Quando termina a ação...">
+                        <p:calendar id="datafim" value="#{acoesFacade.dataFim}" pattern="dd/MM/yyyy HH:mm:ss" required="true" pt:editable="false" pt:placeholder="Quando termina a ação...">
                             <f:convertDateTime pattern="dd/MM/yyyy" type="both" dateType="short"></f:convertDateTime>
                         </p:calendar>
 
@@ -40,7 +40,7 @@
                         <p:outputLabel for="tipo">Tipo da ação</p:outputLabel>
                         <h:selectOneMenu id="tipo" value="#{acoesFacade.acao.tipoacao.id}">
                             <f:selectItem itemLabel="Escolha..." itemValue=""/>
-                            <f:selectItems value="#{acoesFacade.tipos}" var="tipo" itemLabel="#{tipo.tipo}" itemValue="#{tipo.id}"/>
+                            <f:selectItems value="#{acoesFacade.tipos}" var="tipo" itemLabel="#{tipo.tipo}" itemValue="#{tipo.id}" />
                         </h:selectOneMenu>
 
                         <h5>Cliente Desta Ação</h5>
@@ -48,7 +48,7 @@
                         <p:outputLabel for="cliente">Cliente</p:outputLabel>
                         <h:selectOneMenu id="cliente" value="#{acoesFacade.acao.cliente.id}">
                             <f:selectItem itemLabel="Escolha..." itemValue=""/>
-                            <f:selectItems value="#{acoesFacade.clientes}" var="cliente" itemLabel="#{cliente.nome}" itemValue="#{cliente.id}"/>
+                            <f:selectItems value="#{acoesFacade.clientes}" var="cliente" itemLabel="#{cliente.nome}" itemValue="#{cliente.id}" />
                         </h:selectOneMenu>
 
                         <h5>Local da Ação</h5>
