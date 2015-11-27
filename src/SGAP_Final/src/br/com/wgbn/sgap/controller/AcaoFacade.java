@@ -9,9 +9,17 @@ import br.com.wgbn.sgap.util.Utilidades;
 import br.com.wgbn.sgap.vo.AcaoVO;
 import br.com.wgbn.sgap.vo.ClienteVO;
 import br.com.wgbn.sgap.vo.TipoacaoVO;
+import org.primefaces.event.map.MarkerDragEvent;
+import org.primefaces.model.map.DefaultMapModel;
+import org.primefaces.model.map.LatLng;
+import org.primefaces.model.map.MapModel;
+import org.primefaces.model.map.Marker;
 
+import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 import javax.faces.event.ComponentSystemEvent;
 import java.sql.Timestamp;
 import java.util.Date;
@@ -29,6 +37,8 @@ public class AcaoFacade {
     private List<AcaoVO>    acoes = new LinkedList<AcaoVO>();
     private AcaoBO          acaoBO;
     private AcaoVO          acaoVO;
+    private MapModel        carregaMapa;
+    private Marker          marker;
 
     public AcaoFacade(){
         this.acaoBO = new AcaoBO();
@@ -89,7 +99,27 @@ public class AcaoFacade {
 
     public void cadastrarAcao(){
         this.acaoBO.setEntityFromVo(this.acaoVO);
+        this.acaoBO.inserirAcao();
         this.acaoVO = this.acaoBO.toVo();
         Navegacao.navegarPara("acoes/acoesPromotoresAcao.xhtml");
+    }
+
+    @PostConstruct
+    public void init() {
+        this.carregaMapa = new DefaultMapModel();
+
+        //Shared coordinates
+        //LatLng coord1 = new LatLng(-14.2392976,-53.1805017);
+
+        //Draggable
+        //this.carregaMapa.addOverlay(new Marker(coord1, "Arraste o marcador"));
+
+        /*for(Marker premarker : this.carregaMapa.getMarkers()) {
+            premarker.setDraggable(true);
+        }*/
+    }
+
+    public MapModel getCarregaMapa() {
+        return this.carregaMapa;
     }
 }

@@ -58,11 +58,16 @@
                         <p:outputLabel for="local" value="Endereço"/>
                         <p:inputText id="local" value="#{acaoFacade.acao.local}" pt:placeholder="Endereço desta ação..." styleClass="txtLocal" required="true"/>
 
-                        <div class="mapa" id="mapa" style="width: 100%; margin: auto; min-height: 300px;"></div>
-                        <!--h:inputHidden id="latitude" pt:class="hidLat" value="0"/>
-                        <h:inputHidden id="longitude" pt:class="hidLon" value="0"/-->
+                        <!--div class="mapa" id="mapa" style="width: 100%; margin: auto; min-height: 300px;"></div-->
                         <h:inputText styleClass="hidLat" value="#{acaoFacade.acao.latitude}"/>
                         <h:inputText styleClass="hidLon" value="#{acaoFacade.acao.longitude}"/>
+                        <p:gmap id="geoMap" widgetVar="geoMap"
+                                styleClass="areaMapa"
+                                center="-14.2392976,-53.1805017"
+                                zoom="3"
+                                type="ROADMAP"
+                                model="#{acaoFacade.carregaMapa}"
+                                style="width: 100%; margin: auto; min-height: 300px;"/>
 
                         <h5>Financeiro</h5>
 
