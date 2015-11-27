@@ -1,1 +1,0 @@
-Pasta de armazenamento das paginas da aplicação

@@ -13,7 +13,9 @@ hs_err_pid*
 
 #deploy
 src/SGAP_Final/out/**/*
+src/SGAP_Final/web/node_modules/**/*
 openshift/**/*
+.sass-cache/**/*
 
 #idea
 src/SGAP_Final/.idea/workspace.xml

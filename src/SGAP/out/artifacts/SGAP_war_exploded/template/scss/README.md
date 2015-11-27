@@ -1,1 +1,0 @@
-Pasta de armazenamento de folhas de estilo pré-compiladas
