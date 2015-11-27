@@ -154,7 +154,7 @@ public class AcaoEntity implements Serializable {
         this.dataedicao = dataedicao;
     }
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.REFRESH)
     @JoinColumn(name = "cliente_id", referencedColumnName = "id", nullable = false)
     public ClienteEntity getCliente() {
         return cliente;
@@ -163,7 +163,7 @@ public class AcaoEntity implements Serializable {
         this.cliente = cliente;
     }
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.REFRESH)
     @JoinColumn(name = "tipoacao_id", referencedColumnName = "id", nullable = false)
     public TipoacaoEntity getTipoacao() {
         return tipoacao;
@@ -172,7 +172,7 @@ public class AcaoEntity implements Serializable {
         this.tipoacao = tipoacao;
     }
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.REFRESH)
     @JoinColumn(name = "usuario_id", referencedColumnName = "id", nullable = false)
     public UsuarioEntity getUsuario() {
         return usuario;

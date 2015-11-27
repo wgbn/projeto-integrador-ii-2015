@@ -88,6 +88,7 @@ public class AcaoBO extends GenericoBO<AcaoEntity, AcaoDAO, AcaoVO> {
         this.getEntity().setDatacriacao(new Timestamp(new Date().getTime()));
         this.getEntity().setDataedicao(new Timestamp(new Date().getTime()));
         this.getEntity().setUsuario(UsuarioBO.getLogado());
+        AcaoEntity ac = this.getEntity();
         this.setEntity(this.getDao().salvar(this.getEntity()));
     }
 

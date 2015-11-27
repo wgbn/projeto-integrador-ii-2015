@@ -83,12 +83,13 @@ public class AcaoFacade {
         if (Utilidades.isNewRequest()){
             this.acaoVO = new AcaoVO();
             this.acaoVO.setDatacriacao(new Timestamp(new Date().getTime()));
-            this.acaoBO.setEntityFromVo(this.acaoVO);
+            this.acaoBO.setEntity(new AcaoEntity());
         }
     }
 
     public void cadastrarAcao(){
-        this.acaoBO.inserirAcao();
+        this.acaoBO.setEntityFromVo(this.acaoVO);
+        this.acaoVO = this.acaoBO.toVo();
         Navegacao.navegarPara("acoes/acoesPromotoresAcao.xhtml");
     }
 }

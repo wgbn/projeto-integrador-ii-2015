@@ -11,6 +11,8 @@
 
         <f:event listener="#{acaoFacade.aoCarregarCriarAcao}" type="preRenderView" />
 
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDS1qn3tsLHgyDD_MWVH21hEYzjYITwfN0"></script>
+
         <div class="usuarios-cadastro">
             <h1>Cadastro de Ação</h1>
 
@@ -22,12 +24,12 @@
                         <h5>Dados Básicos</h5>
 
                         <p:outputLabel for="datainicio" value="Data de início" />
-                        <p:calendar id="datainicio" value="#{acaoFacade.dataInicio}" pattern="dd/MM/yyyy HH:mm:ss" required="true" pt:editable="false" pt:placeholder="Quando inicia a ação...">
+                        <p:calendar id="datainicio" value="#{acaoFacade.acao.datainicio}" pattern="dd/MM/yyyy HH:mm:ss" required="true" pt:editable="false" pt:placeholder="Quando inicia a ação...">
                             <f:convertDateTime pattern="dd/MM/yyyy" type="both" dateType="short"></f:convertDateTime>
                         </p:calendar>
 
                         <p:outputLabel for="datafim" value="Data de término" />
-                        <p:calendar id="datafim" value="#{acaoFacade.dataFim}" pattern="dd/MM/yyyy HH:mm:ss" required="true" pt:editable="false" pt:placeholder="Quando termina a ação...">
+                        <p:calendar id="datafim" value="#{acaoFacade.acao.datafim}" pattern="dd/MM/yyyy HH:mm:ss" required="true" pt:editable="false" pt:placeholder="Quando termina a ação...">
                             <f:convertDateTime pattern="dd/MM/yyyy" type="both" dateType="short"></f:convertDateTime>
                         </p:calendar>
 
@@ -54,7 +56,13 @@
                         <h5>Local da Ação</h5>
 
                         <p:outputLabel for="local" value="Endereço"/>
-                        <p:inputText id="local" value="#{acaoFacade.acao.local}" pt:placeholder="Endereço desta ação..." required="true"/>
+                        <p:inputText id="local" value="#{acaoFacade.acao.local}" pt:placeholder="Endereço desta ação..." styleClass="txtLocal" required="true"/>
+
+                        <div class="mapa" id="mapa" style="width: 100%; margin: auto; min-height: 300px;"></div>
+                        <!--h:inputHidden id="latitude" pt:class="hidLat" value="0"/>
+                        <h:inputHidden id="longitude" pt:class="hidLon" value="0"/-->
+                        <h:inputText styleClass="hidLat" value="#{acaoFacade.acao.latitude}"/>
+                        <h:inputText styleClass="hidLon" value="#{acaoFacade.acao.longitude}"/>
 
                         <h5>Financeiro</h5>
 
@@ -66,6 +74,8 @@
                 </h:form>
             </div>
         </div>
+
+        <script type="text/javascript" src="#{request.contextPath}/template/js/acoesCadastrar.js"></script>
 
     </ui:define>
 </ui:composition>
