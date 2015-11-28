@@ -32,10 +32,4 @@ public class MainApp {
         return MainApp.fEntityManager;
     }
 
-    @PostConstruct
-    void initialiseSession() {
-        System.out.println("##-> PostConstruct");
-        FacesContext.getCurrentInstance().getExternalContext().getSession(true);
-    }
-
 }

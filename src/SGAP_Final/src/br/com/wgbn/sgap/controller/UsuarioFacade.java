@@ -6,6 +6,7 @@ import br.com.wgbn.sgap.util.Navegacao;
 import br.com.wgbn.sgap.util.Utilidades;
 import br.com.wgbn.sgap.vo.UsuarioVO;
 
+import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -35,6 +36,12 @@ public class UsuarioFacade {
         this.usuarioBO = new UsuarioBO();
         this.verificaLogado(null);
         System.out.println("##-> UsuarioFacade iniciado");
+    }
+
+    @PostConstruct
+    void iniciaSessao() {
+        System.out.println("##-> PostConstruct");
+        FacesContext.getCurrentInstance().getExternalContext().getSession(true);
     }
 
     /**
