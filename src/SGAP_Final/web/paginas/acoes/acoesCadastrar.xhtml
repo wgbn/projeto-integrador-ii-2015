@@ -24,14 +24,10 @@
                         <h5>Dados Básicos</h5>
 
                         <p:outputLabel for="datainicio" value="Data de início" />
-                        <p:calendar id="datainicio" value="#{acaoFacade.acao.datainicio}" pattern="dd/MM/yyyy HH:mm:ss" required="true" pt:editable="false" pt:placeholder="Quando inicia a ação...">
-                            <f:convertDateTime pattern="dd/MM/yyyy" type="both" dateType="short"></f:convertDateTime>
-                        </p:calendar>
+                        <p:calendar id="datainicio" value="#{acaoFacade.dataInicio}" pattern="dd/MM/yyyy HH:mm:ss" required="true" pt:editable="false" pt:placeholder="Quando inicia a ação..."></p:calendar>
 
                         <p:outputLabel for="datafim" value="Data de término" />
-                        <p:calendar id="datafim" value="#{acaoFacade.acao.datafim}" pattern="dd/MM/yyyy HH:mm:ss" required="true" pt:editable="false" pt:placeholder="Quando termina a ação...">
-                            <f:convertDateTime pattern="dd/MM/yyyy" type="both" dateType="short"></f:convertDateTime>
-                        </p:calendar>
+                        <p:calendar id="datafim" value="#{acaoFacade.dataFim}" pattern="dd/MM/yyyy HH:mm:ss" required="true" pt:editable="false" pt:placeholder="Quando termina a ação..."></p:calendar>
 
                         <p:outputLabel for="titulo" value="Título/nome"/>
                         <p:inputText id="titulo" value="#{acaoFacade.acao.titulo}" pt:placeholder="Dê um nome a esta ação..." required="true"/>

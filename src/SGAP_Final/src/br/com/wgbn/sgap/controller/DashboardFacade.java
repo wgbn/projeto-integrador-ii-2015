@@ -14,7 +14,7 @@ import java.util.List;
  */
 @ManagedBean
 @SessionScoped
-public class DashboardFacade {
+public class DashboardFacade extends GenericoBean {
 
     private boolean logado;
     private List<AcaoEntity> acoes = new LinkedList<AcaoEntity>();

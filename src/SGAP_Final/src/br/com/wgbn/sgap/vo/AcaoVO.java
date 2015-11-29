@@ -38,8 +38,8 @@ public class AcaoVO {
 
     public AcaoVO(AcaoEntity acao){
         this.id         = acao.getId();
-        this.datainicio = acao.getDatainicio();
-        this.datafim    = acao.getDatafim();
+        this.datainicio = new Date(acao.getDatainicio().getTime());
+        this.datafim    = new Date(acao.getDatafim().getTime());
         this.descricao  = acao.getDescricao();
         this.local      = acao.getLocal();
         this.latitude   = acao.getLatitude();

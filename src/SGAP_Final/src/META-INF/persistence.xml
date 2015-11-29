@@ -25,6 +25,12 @@
             <property name="hibernate.jdbc.wrap_result_sets" value="false" />
             <property name="hibernate.hibernate.cache.use_query_cache" value="true" />
             <property name="hibernate.hbm2ddl.auto" value="update" />
+
+            <!-- pull de conexoes -->
+            <property name="c3p0.min_size" value="5"/>
+            <property name="c3p0.max_size" value="20"/>
+            <property name="c3p0.timeout" value="300"/>
+            <property name="c3p0.max_statements" value="50"/>
         </properties>
     </persistence-unit>
 </persistence>

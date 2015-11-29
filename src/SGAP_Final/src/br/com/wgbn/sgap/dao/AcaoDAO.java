@@ -28,7 +28,6 @@ public class AcaoDAO extends GenericoDAO<AcaoEntity> {
     }
 
     public List<AcaoEntity> getTodosNaoRealizadosPromotor(int _promotorId){
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         Date hoje = new Date();
         Timestamp hojeTime = new Timestamp(hoje.getTime());
         String queryStr = "SELECT u FROM UsuarioEntity u WHERE u.id = :id";

@@ -21,11 +21,11 @@ import java.util.List;
  */
 @ManagedBean
 @SessionScoped
-public class ClienteFacade {
+public class ClienteFacade extends GenericoBean {
 
-    private List<ClienteVO> clientes = new LinkedList<ClienteVO>();
+    private List<ClienteEntity> clientes = new LinkedList<ClienteEntity>();
     private ClienteBO       clienteBO;
-    private ClienteVO       clienteVO;
+    private ClienteEntity   cliente;
 
     public ClienteFacade(){
         this.clienteBO = new ClienteBO();
@@ -36,19 +36,20 @@ public class ClienteFacade {
      * Getters e setters
      */
 
-    public ClienteVO getCliente() {
-        return this.clienteVO;
+    public ClienteEntity getCliente() {
+        return this.cliente;
     }
 
-    public void setCliente(ClienteVO _cliente) {
-        this.clienteVO = _cliente;
+    public void setCliente(ClienteEntity _cliente) {
+        this.cliente = _cliente;
     }
 
-    public List<ClienteVO> getClientes() {
-        this.clientes = new LinkedList<ClienteVO>();
+    public List<ClienteEntity> getClientes() {
+        /*this.clientes = new LinkedList<ClienteE>();
         for (ClienteEntity c : this.clienteBO.getTodos()){
             this.clientes.add(new ClienteVO(c));
-        }
+        }*/
+        this.clientes = this.clienteBO.getTodos();
         return this.clientes;
     }
 
@@ -62,26 +63,32 @@ public class ClienteFacade {
 
     public void aoCarregarCriarCliente(ComponentSystemEvent event) throws InstantiationException, IllegalAccessException {
         if (Utilidades.isNewRequest()){
-            this.clienteVO = new ClienteVO();
+            /*this.clienteVO = new ClienteVO();
             this.clienteVO.setDatacriacao(new Timestamp(new Date().getTime()));
-            this.clienteBO.setEntityFromVo(this.clienteVO);
+            this.clienteBO.setEntityFromVo(this.clienteVO);*/
+            this.cliente = new ClienteEntity();
+            this.cliente.setDatacriacao(new Timestamp(new Date().getTime()));
+            this.clienteBO.setEntity(this.cliente);
         }
     }
 
     public void cadastrarCliente() throws InstantiationException, IllegalAccessException {
-        this.clienteBO.setEntityFromVo(this.clienteVO);
+        //this.clienteBO.setEntityFromVo(this.clienteVO);
+        this.clienteBO.setEntity(this.cliente);
         this.clienteBO.inserirCliente();
         Navegacao.navegarPara("clientes/clientesListar.xhtml");
     }
 
     public void alterarCliente(){
-        this.clienteBO.setEntityFromVo(this.clienteVO);
+        //this.clienteBO.setEntityFromVo(this.clienteVO);
+        this.clienteBO.setEntity(this.cliente);
         this.clienteBO.alterar();
         Navegacao.navegarPara("clientes/clientesListar.xhtml");
     }
 
     public void apagarCliente(){
-        this.clienteBO.setEntityFromVo(this.clienteVO);
+        //this.clienteBO.setEntityFromVo(this.clienteVO);
+        this.clienteBO.setEntity(this.cliente);
         this.clienteBO.excluir();
         Navegacao.navegarPara("clientes/clientesListar.xhtml");
     }

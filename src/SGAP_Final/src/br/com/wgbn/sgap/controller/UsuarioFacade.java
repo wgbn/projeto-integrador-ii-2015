@@ -24,24 +24,15 @@ import java.util.List;
  */
 @ManagedBean
 @SessionScoped
-public class UsuarioFacade {
+public class UsuarioFacade extends GenericoBean {
 
-    private List<UsuarioVO> usuarios = new LinkedList<UsuarioVO>();
+    private List<UsuarioEntity> usuarios = new LinkedList<UsuarioEntity>();
     private UsuarioBO       usuarioBO;
-    private UsuarioVO       usuarioVO;
+    private UsuarioEntity   usuario;
 
     public UsuarioFacade(){
-        FacesContext.getCurrentInstance().getExternalContext().getSession(true);
-
         this.usuarioBO = new UsuarioBO();
-        this.verificaLogado(null);
         System.out.println("##-> UsuarioFacade iniciado");
-    }
-
-    @PostConstruct
-    void iniciaSessao() {
-        System.out.println("##-> PostConstruct");
-        FacesContext.getCurrentInstance().getExternalContext().getSession(true);
     }
 
     /**
@@ -52,27 +43,28 @@ public class UsuarioFacade {
      * Define um usuário selecionado
      * @param _usuario Objeto contendo o usuário
      */
-    public void setUsuario(UsuarioVO _usuario) {
-        this.usuarioVO = _usuario;
+    public void setUsuario(UsuarioEntity _usuario) {
+        this.usuario = _usuario;
     }
 
     /**
      * Pega o usuário selecionado
      * @return Objeto com o usuário selecionado
      */
-    public UsuarioVO getUsuario(){
-        return this.usuarioVO;
+    public UsuarioEntity getUsuario(){
+        return this.usuario;
     }
 
     /**
      * Pega uma lista de usuários
      * @return
      */
-    public List<UsuarioVO> getUsuarios() {
-        this.usuarios = new LinkedList<UsuarioVO>();
+    public List<UsuarioEntity> getUsuarios() {
+        /*this.usuarios = new LinkedList<UsuarioVO>();
         for (UsuarioEntity u : this.usuarioBO.getTodos()){
             this.usuarios.add(new UsuarioVO(u));
-        }
+        }*/
+        this.usuarios = this.usuarioBO.getTodos();
         return this.usuarios;
     }
 
@@ -80,7 +72,7 @@ public class UsuarioFacade {
      * Pega o usuário logado no istema
      * @return Objeto com usuário nolago
      */
-    public UsuarioVO getUsuarioLogado(){
+    public UsuarioEntity getUsuarioLogado(){
         /*UsuarioEntity u = this.usuarioBO.getUsuarioLogado();
         if (u == null){
             Navegacao.navegarPara("usuarios/usuariosLogin.xhtml");
@@ -88,7 +80,7 @@ public class UsuarioFacade {
         } else {
             return this.usuarioBO.toVo();
         }*/
-        return this.usuarioBO.toVo(this.usuarioBO.getUsuarioLogado());
+        return this.usuarioBO.getUsuarioLogado();
     }
 
     /**
@@ -112,7 +104,7 @@ public class UsuarioFacade {
      * @param usr Objeto com o usuário a ser convertido
      * @return 'Sim' ou 'Não'
      */
-    public String getGerenteToString(UsuarioVO usr){
+    public String getGerenteToString(UsuarioEntity usr){
         return this.usuarioBO.gerenteToStr(usr);
     }
 
@@ -127,9 +119,13 @@ public class UsuarioFacade {
      */
     public void aoCarregarCriarUsuario(ComponentSystemEvent event){
         if (Utilidades.isNewRequest()){
-            this.usuarioVO = new UsuarioVO();
+            /*this.usuarioVO = new UsuarioVO();
             this.usuarioVO.setDatacriacao(new Timestamp(new Date().getTime()));
             this.usuarioBO.setEntityFromVo(this.usuarioVO);
+            this.usuarioBO.setResenha(new String());*/
+            this.usuario = new UsuarioEntity();
+            this.usuario.setDatacriacao(new Timestamp(new Date().getTime()));
+            this.usuarioBO.resetEntity();
             this.usuarioBO.setResenha(new String());
         } else {
             this.verificaLogado(null);
@@ -142,7 +138,7 @@ public class UsuarioFacade {
      * @throws UnsupportedEncodingException
      */
     public void cadastrarUsuario() throws NoSuchAlgorithmException, UnsupportedEncodingException {
-        this.usuarioBO.setEntityFromVo(this.usuarioVO);
+        this.usuarioBO.setEntity(this.usuario);
         if (this.usuarioBO.validarSenha()) {
             this.usuarioBO.inserirUsuario();
             Navegacao.navegarPara("usuarios/usuariosListar.xhtml");
@@ -156,7 +152,8 @@ public class UsuarioFacade {
      * Atualiza um usuário do banco
      */
     public void atualizarUsuario(){
-        this.usuarioBO.setEntityFromVo(this.usuarioVO);
+        //this.usuarioBO.setEntityFromVo(this.usuarioVO);
+        this.usuarioBO.setEntity(this.usuario);
         this.usuarioBO.alterar();
         Navegacao.navegarPara("usuarios/usuariosListar.xhtml");
     }
@@ -165,7 +162,8 @@ public class UsuarioFacade {
      * Remove um usuário do banco
      */
     public void apagarUsuario(){
-        this.usuarioBO.setEntityFromVo(this.usuarioVO);
+        //this.usuarioBO.setEntityFromVo(this.usuarioVO);
+        this.usuarioBO.setEntity(this.usuario);
         this.usuarioBO.excluir();
         Navegacao.navegarPara("usuarios/usuariosListar.xhtml");
     }
@@ -187,7 +185,8 @@ public class UsuarioFacade {
      * @throws UnsupportedEncodingException
      */
     public void fazerLoginUsuario() throws NoSuchAlgorithmException, UnsupportedEncodingException {
-        this.usuarioBO.setEntityFromVo(this.usuarioVO);
+        //this.usuarioBO.setEntityFromVo(this.usuarioVO);
+        this.usuarioBO.setEntity(this.usuario);
         if (!this.usuarioBO.validarLogin())
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Atenção!", "Usuário e/ou senha não conferem."));
         else

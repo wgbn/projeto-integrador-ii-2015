@@ -48,32 +48,6 @@ $(document).ready(function () {
     });
 });
 
-/*function mapa() {
-    var mapOptions = {
-        zoom: 3,
-        scrollwheel: false,
-        mapTypeId: google.maps.MapTypeId.ROADMAP
-    };
-    mapOptions.center = new google.maps.LatLng(-14.2392976, -53.1805017);
-    $.map = new google.maps.Map(document.getElementById("mapa"), mapOptions);
-    $(".hidLat").val(mapOptions.center.lat());
-    $(".hidLon").val(mapOptions.center.lng());
-
-    $.voce = new google.maps.Marker({
-        position: $.map.getCenter(),
-        draggable: true,
-        animation: google.maps.Animation.DROP,
-        map: $.map,
-        title: "Arraste para marcar o local"
-    });
-
-    google.maps.event.addListener($.voce, 'dragend', function (e) {
-        $.map.setCenter(e.latLng);
-        $(".hidLat").val(e.latLng.lat());
-        $(".hidLon").val(e.latLng.lng());
-    });
-}*/
-
 function buscarEndereco(_txt) {
     var geocoder = new google.maps.Geocoder();
 
@@ -89,7 +63,3 @@ function buscarEndereco(_txt) {
         }
     });
 }
-/*function buscarEndereco(_txt) {
-    console.log('buscar endereco');
-    PF('geoMap').geocode(_txt);
-}*/

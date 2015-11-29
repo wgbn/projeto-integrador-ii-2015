@@ -2,16 +2,14 @@ package br.com.wgbn.sgap.controller;
 
 import br.com.wgbn.sgap.util.FacadeEntityManager;
 
-import javax.annotation.PostConstruct;
-import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
-import javax.faces.context.FacesContext;
+import javax.faces.bean.SessionScoped;
 
 /**
  * Created by Walter Gandarella
  */
 @ManagedBean
-@ApplicationScoped
+@SessionScoped
 public class MainApp {
 
     private static FacadeEntityManager fEntityManager = null;

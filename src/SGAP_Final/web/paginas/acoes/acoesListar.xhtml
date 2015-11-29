@@ -5,6 +5,7 @@
         xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
         xmlns:f="http://xmlns.jcp.org/jsf/core"
         xmlns:p="http://primefaces.org/ui"
+        xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
         template="/template/layout/layoutPadrao.xhtml">
     <ui:define name="tela">
 
@@ -15,6 +16,9 @@
 
             <p:dataTable var="acao"
                          value="#{acaoFacade.acoesNaoRealizadas}"
+                         selectionMode="single"
+                         selection="#{acaoFacade.acao}"
+                         rowKey="#{acao.id}"
                          styleClass="tabela"
                          rows="50"
                          paginator="true"
@@ -26,27 +30,23 @@
                 </p:column>
 
                 <p:column headerText="Quando" styleClass="linha-quando">
-                    <h:outputText value="#{acao.datainicio}">
-                        <f:convertDateTime type="both" pattern="dd/MM/YYYY HH:mm:ss"/>
-                    </h:outputText>
+                    <h:outputText value="#{acaoFacade.getDataLegivel(acao.datainicio)}" pt:class="btnLinha"/>
                 </p:column>
 
                 <p:column headerText="Até" styleClass="linha-quando">
-                    <h:outputText value="#{acao.datafim}">
-                        <f:convertDateTime type="both" pattern="dd/MM/YYYY HH:mm:ss"/>
-                    </h:outputText>
+                    <h:outputText value="#{acaoFacade.getDataLegivel(acao.datafim)}" pt:class="btnLinha"/>
                 </p:column>
 
                 <p:column headerText="Título">
-                    <h:outputText value="#{acao.titulo}"/>
+                    <h:outputText value="#{acao.titulo}" pt:class="btnLinha"/>
                 </p:column>
 
                 <p:column headerText="Tipo" styleClass="linha-tipo">
-                    <h:outputText value="#{acao.tipoacao.tipo}"/>
+                    <h:outputText value="#{acao.tipoacao.tipo}" pt:class="btnLinha"/>
                 </p:column>
 
                 <p:column headerText="Cliente" styleClass="linha-cliente">
-                    <h:outputText value="#{acao.cliente.nome}"/>
+                    <h:outputText value="#{acao.cliente.nome}" pt:class="btnLinha"/>
                 </p:column>
 
                 <p:column headerText="Opções" styleClass="linha-opc">
@@ -63,6 +63,18 @@
             </p:dataTable>
 
         </div>
+
+        <h:link outcome="acoesPromotoresAcao" value="Editar"/>
+
+        <script type="text/javascript" src="#{request.contextPath}/template/js/acoesListar.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $('body').on('click', '.btnLinha', function(e){
+                    e.preventDefault();
+                    $(location).attr('href', "#{request.contextPath}/paginas/acoes/acoesPromotoresAcao");
+                });
+            });
+        </script>
 
     </ui:define>
 </ui:composition>

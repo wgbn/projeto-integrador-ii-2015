@@ -14,7 +14,7 @@ import java.util.List;
  */
 @ManagedBean
 @SessionScoped
-public class RelatorioFacade {
+public class RelatorioFacade extends GenericoBean {
 
     private List<ClienteEntity> clientes = new LinkedList<ClienteEntity>();
     private List<UsuarioEntity> usuarios = new LinkedList<UsuarioEntity>();
