@@ -4,20 +4,14 @@ import br.com.wgbn.sgap.bo.AcaoBO;
 import br.com.wgbn.sgap.entity.*;
 import br.com.wgbn.sgap.util.Navegacao;
 import br.com.wgbn.sgap.util.Utilidades;
-import br.com.wgbn.sgap.vo.AcaoVO;
-import br.com.wgbn.sgap.vo.ClienteVO;
-import br.com.wgbn.sgap.vo.TipoacaoVO;
-import org.primefaces.event.map.MarkerDragEvent;
+import br.com.wgbn.sgap.vo.PromotorVO;
 import org.primefaces.model.map.DefaultMapModel;
-import org.primefaces.model.map.LatLng;
 import org.primefaces.model.map.MapModel;
 import org.primefaces.model.map.Marker;
 
 import javax.annotation.PostConstruct;
-import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
-import javax.faces.context.FacesContext;
 import javax.faces.event.ComponentSystemEvent;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
@@ -36,11 +30,12 @@ public class AcaoFacade extends GenericoBean {
     private List<AcaoEntity>    acoes = new LinkedList<AcaoEntity>();
     private AcaoBO          acaoBO;
     private AcaoEntity      acao;
-    private UsuarioEntity   promotor;
     private MapModel        carregaMapa;
     private Marker          marker;
     private Date            dataInicio;
     private Date            dataFim;
+    private UsuarioAcaoEntity promotor;
+    private PromotorVO      promotorVO;
 
     public AcaoFacade(){
         this.acaoBO = new AcaoBO();
@@ -59,29 +54,15 @@ public class AcaoFacade extends GenericoBean {
     }
 
     public List<AcaoEntity> getAcoesNaoRealizadas() {
-        /*this.acoes = new LinkedList<AcaoEntity>();
-        for (AcaoEntity a : this.acaoBO.getTodasNaoRealizadas()){
-            this.acoes.add(new AcaoVO(a));
-        }*/
         this.acoes = this.acaoBO.getTodasNaoRealizadas();
         return this.acoes;
     }
 
     public List<TipoacaoEntity> getTipos(){
-        /*List<TipoacaoVO> _tipos = new LinkedList<TipoacaoVO>();
-        for (TipoacaoEntity t : this.acaoBO.getTiposAcao()){
-            _tipos.add(new TipoacaoVO(t));
-        }
-        return _tipos;*/
         return this.acaoBO.getTiposAcao();
     }
 
     public List<ClienteEntity> getClientes(){
-        /*List<ClienteVO> _clis = new LinkedList<ClienteVO>();
-        for (ClienteEntity c : this.acaoBO.getClientes()){
-            _clis.add(new ClienteVO(c));
-        }
-        return _clis;*/
         return this.acaoBO.getClientes();
     }
 
@@ -99,17 +80,31 @@ public class AcaoFacade extends GenericoBean {
         this.dataFim = dataFim;
     }
 
-    public UsuarioEntity getPromotor() {
+    public UsuarioAcaoEntity getPromotor() {
         return promotor;
     }
-    public void setPromotor(UsuarioEntity promotor) {
+    public void setPromotor(UsuarioAcaoEntity promotor) {
         this.promotor = promotor;
     }
 
     public List<UsuarioEntity> getUsuarios(){
         return this.acaoBO.getUsuarios();
     }
-/**
+
+    public boolean isLider(int _flag){
+        return _flag == 0 ? false : true;
+    }
+    public String strLider(int _flag){
+        return _flag == 0 ? "Não":"Sim";
+    }
+
+    public PromotorVO getPromotorVO() {
+        return promotorVO;
+    }
+    public void setPromotorVO(PromotorVO promotorVO) {
+        this.promotorVO = promotorVO;
+    }
+    /**
     * Métodos do facade
     */
 
@@ -120,22 +115,19 @@ public class AcaoFacade extends GenericoBean {
      */
     public void aoCarregarCriarAcao(ComponentSystemEvent event){
         if (Utilidades.isNewRequest()){
-            /*this.acaoVO = new AcaoVO();
-            this.acaoVO.setDatacriacao(new Timestamp(new Date().getTime()));
-            this.acaoBO.setEntity(new AcaoEntity());*/
             this.acao = new AcaoEntity();
             this.acao.setDatacriacao(new Timestamp(new Date().getTime()));
             this.acaoBO.resetEntity();
         }
     }
     public void aoCarregarPromotoresAcao(ComponentSystemEvent event){
-        this.promotor = new UsuarioEntity();
+        this.promotor = new UsuarioAcaoEntity();
+        this.promotor.setAcao(new AcaoEntity());
+        this.promotor.getAcao().setId(this.acao.getId());
+        this.promotor.setUsuario(new UsuarioEntity());
     }
 
     public void cadastrarAcao(){
-        /*this.acaoBO.setEntityFromVo(this.acaoVO);
-        this.acaoBO.inserirAcao();
-        this.acaoVO = this.acaoBO.toVo();*/
         this.acao.setDatainicio(new Timestamp(this.dataInicio.getTime()));
         this.acao.setDatafim(new Timestamp(this.dataFim.getTime()));
         this.acaoBO.setEntity(this.acao);
@@ -154,7 +146,20 @@ public class AcaoFacade extends GenericoBean {
     }
 
     public void adicionarPromotor(){
-        this.acao.setUsuarios(this.acaoBO.setPromotor(this.acao, this.promotor));
+        if (
+                this.promotor.getAcao() != null &&
+                this.promotor.getUsuario() != null &
+                this.promotor.getUsuario().getId() > 0
+            )
+            this.acao.setUsuarios(this.acaoBO.setPromotor(this.promotor, this.acao));
+    }
+
+    public void tornarLider(UsuarioAcaoEntity _promotor){
+        this.acao.setUsuarios(this.acaoBO.setLider(_promotor, this.acao));
+    }
+
+    public void removerPromotor(UsuarioAcaoEntity _promotor){
+        this.acao.setUsuarios(this.acaoBO.removerPromotor(_promotor, this.acao));
     }
 
     @PostConstruct

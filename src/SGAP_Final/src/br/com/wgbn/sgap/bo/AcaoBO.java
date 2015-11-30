@@ -45,19 +45,29 @@ public class AcaoBO extends GenericoBO<AcaoEntity, AcaoDAO, AcaoVO> {
             return this.getDao().getTodosNaoRealizadosPromotor(Sessao.getInstance().getUsuarioLogado().getId());
     }
 
-    public UsuarioAcaoEntity setPromotor(UsuarioAcaoEntity usuarioAcao){
-        usuarioAcao = this.usuarioAcaoBO.salvar(usuarioAcao);
-        this.entity.getUsuarios().add(usuarioAcao);
-        return usuarioAcao;
+    public Set<UsuarioAcaoEntity> setLider(UsuarioAcaoEntity _usuarioAcao, AcaoEntity _acao){
+        for (UsuarioAcaoEntity ua : _acao.getUsuarios()){
+            if (ua.getLider() == 1){
+                ua.setLider(0);
+                this.usuarioAcaoBO.alterar(ua);
+            }
+        }
+        _usuarioAcao.setLider(1);
+        this.usuarioAcaoBO.alterar(_usuarioAcao);
+        return this.usuarioAcaoBO.getPorAcao(_acao);
     }
-    public Set<UsuarioAcaoEntity> setPromotor(AcaoEntity acao, UsuarioEntity promotor){
-        UsuarioAcaoEntity ua = new UsuarioAcaoEntity();
-        ua.setAcao(acao);
-        ua.setUsuario(promotor);
-        ua.setDatacadastro(new Timestamp(new Date().getTime()));
-        ua = this.usuarioAcaoBO.salvar(ua);
-        acao.getUsuarios().add(ua);
-        return acao.getUsuarios();
+
+    public Set<UsuarioAcaoEntity> setPromotor(UsuarioAcaoEntity _promotor, AcaoEntity _acao){
+        _promotor.setDatacadastro(new Timestamp(new Date().getTime()));
+        _promotor.setUsuario(usuarioBO.getPorPk(_promotor.getUsuario()));
+        this.usuarioAcaoBO.salvar(_promotor);
+        return this.usuarioAcaoBO.getPorAcao(_acao);
+    }
+
+    public Set<UsuarioAcaoEntity> removerPromotor(UsuarioAcaoEntity _promotor, AcaoEntity _acao){
+        _acao.getUsuarios().remove(_promotor);
+        this.usuarioAcaoBO.excluir(_promotor);
+        return this.usuarioAcaoBO.getPorAcao(_acao);
     }
 
     public List<TipoacaoEntity> getTiposAcao(){

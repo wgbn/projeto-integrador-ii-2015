@@ -5,9 +5,7 @@ import br.com.wgbn.sgap.entity.UsuarioEntity;
 import br.com.wgbn.sgap.util.Navegacao;
 import br.com.wgbn.sgap.util.Sessao;
 import br.com.wgbn.sgap.util.Utilidades;
-import br.com.wgbn.sgap.vo.UsuarioVO;
 
-import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;

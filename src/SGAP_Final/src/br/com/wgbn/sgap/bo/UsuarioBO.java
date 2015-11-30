@@ -98,6 +98,10 @@ public class UsuarioBO extends GenericoBO<UsuarioEntity, UsuarioDAO, UsuarioVO> 
         return this.getDao().getTodos();
     }
 
+    public UsuarioEntity getPorPk(UsuarioEntity _usuario){
+        return this.getDao().getPorPk(_usuario.getId());
+    }
+
     public void alterar(){
         this.getDao().alterar(this.getEntity());
     }

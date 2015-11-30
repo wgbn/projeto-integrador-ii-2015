@@ -16,21 +16,23 @@
 
             <hr/>
 
-            <p:outputLabel for="usuario">Adicionar Promotores</p:outputLabel>
-            <div class="promotores-add">
-                <div class="lista">
-                    <h:selectOneMenu id="usuario" value="#{acaoFacade.promotor.id}">
-                        <f:selectItem itemLabel="Escolha..." itemValue=""/>
-                        <f:selectItems value="#{acaoFacade.usuarios}" var="promo" itemLabel="#{promo.nome}" itemValue="#{promo.id}" />
-                    </h:selectOneMenu>
-                </div>
-                <div class="botao">
-                    <h:form>
-                        <h:commandLink styleClass="paper-btn" value="Adicionar">
-                            <f:ajax render="promotores" listener="#{acaoFacade.adicionarPromotor()}"/>
-                        </h:commandLink>
-                    </h:form>
-                </div>
+            <div class="form-promotores">
+                <h:form>
+                    <p:outputLabel for="promotor">Adicionar Promotores</p:outputLabel>
+                    <div class="promotores-add">
+                        <div class="lista">
+                            <h:selectOneMenu id="promotor" value="#{acaoFacade.promotor.usuario.id}">
+                                <f:selectItem itemLabel="Escolha..." itemValue="-1"/>
+                                <f:selectItems value="#{acaoFacade.usuarios}" var="promo" itemLabel="#{promo.nome}" itemValue="#{promo.id}" />
+                            </h:selectOneMenu>
+                        </div>
+                        <div class="botao">
+                            <h:commandLink styleClass="paper-btn" value="Adicionar" action="#{acaoFacade.adicionarPromotor()}">
+                                <!--f:ajax render="promotores" listener=""/-->
+                            </h:commandLink>
+                        </div>
+                    </div>
+                </h:form>
             </div>
 
             <hr/>
@@ -46,27 +48,21 @@
                 </p:column>
 
                 <p:column headerText="Nome">
-                    <h:outputText value="#{usr.nome}"/>
+                    <h:outputText value="#{usr.usuario.nome}"/>
                 </p:column>
 
                 <p:column headerText="Celular" styleClass="linha-tel">
-                    <h:outputText value="#{usr.telefoneCelular}"/>
+                    <h:outputText value="#{usr.usuario.telefoneCelular}"/>
                 </p:column>
 
                 <p:column headerText="Líder" styleClass="linha-gerente">
-                    <p:selectBooleanButton id="lider" value="#{usr.lider}" onLabel="Sim" offLabel="Não">
-                        <p:ajax update="promotores" listener="#{acaoFacade.tornarLider(usr)}" />
-                    </p:selectBooleanButton>
+                    <h:outputText value="#{acaoFacade.strLider(usr.lider)}"/>
                 </p:column>
 
-                <p:column headerText="Opções" styleClass="linha-opc">
+                <p:column headerText="Opções" style="width: 15%; text-align: left;">
                     <h:form>
-                        <h:commandLink action="#{navegacaoMB.actionUsuariosEditar()}" value="editar">
-                            <f:setPropertyActionListener target="#{usuarioFacade.usuario}" value="#{usr}"/>
-                        </h:commandLink>
-                        <h:commandLink action="#{navegacaoMB.actionAcoesUsuario()}" value="ações" title="Listar ações que este usuário participa">
-                            <f:setPropertyActionListener target="#{usuarioFacade.usuario}" value="#{usr}"/>
-                        </h:commandLink>
+                        <h:commandLink action="#{acaoFacade.removerPromotor(usr)}" value="remover" style="background-color: #F44336;"/>
+                        <h:commandLink action="#{acaoFacade.tornarLider(usr)}" value="tornar líder" rendered="#{!acaoFacade.isLider(usr.lider)}" title="Listar ações que este usuário participa"/>
                     </h:form>
                 </p:column>
 

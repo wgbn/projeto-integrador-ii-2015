@@ -20,13 +20,7 @@ public abstract class GenericoBean {
         System.out.println("## vefificaAcesso()");
         this.init();
 
-        String viewId = FacesContext.getCurrentInstance().getViewRoot().getViewId();
-        System.out.println(viewId);
-
-        if (Sessao.getInstance().isLogado())
-            if (viewId != "/paginas/index.xhtml")
-                Navegacao.navegarPara("index.xhtml");
-        else
+        if (!Sessao.getInstance().isLogado())
             Navegacao.navegarPara("usuarios/usuariosLogin.xhtml");
     }
 

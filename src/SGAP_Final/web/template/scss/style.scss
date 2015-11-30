@@ -478,6 +478,10 @@
             }
 
             & .acao-promotores {
+                & .form-promotores {
+                    width: 20%;
+                    margin: auto;
+                }
                 & .promotores-add {
                     @extend %flex-center-left;
                     & .lista {
