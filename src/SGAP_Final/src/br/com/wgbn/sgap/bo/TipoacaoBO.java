@@ -12,7 +12,7 @@ import java.util.List;
 /**
  * Created by Walter Gandarella
  */
-public class TipoacaoBO extends GenericoBO<TipoacaoEntity, TipoacaoDAO, TipoacaoVO> {
+public class TipoacaoBO extends GenericoBO<TipoacaoEntity, TipoacaoDAO> {
     public TipoacaoBO() {
         this.dao = FabricaDAO.getInstance().getTipoAcaoDAO();
     }
@@ -38,21 +38,4 @@ public class TipoacaoBO extends GenericoBO<TipoacaoEntity, TipoacaoDAO, Tipoacao
         this.entity = new TipoacaoEntity();
     }
 
-    @Override
-    public TipoacaoVO toVo() {
-        TipoacaoVO vo = new TipoacaoVO(this.getEntity());
-        for (AcaoEntity a : this.getEntity().getAcoes()){
-            vo.getAcoes().add(new AcaoVO(a));
-        }
-        return vo;
-    }
-
-    @Override
-    public TipoacaoEntity toEntity(TipoacaoVO tipoacaoVO) {
-        TipoacaoEntity t = new TipoacaoEntity(tipoacaoVO);
-        for (AcaoVO a : tipoacaoVO.getAcoes()){
-            t.getAcoes().add(new AcaoEntity(a));
-        }
-        return t;
-    }
 }

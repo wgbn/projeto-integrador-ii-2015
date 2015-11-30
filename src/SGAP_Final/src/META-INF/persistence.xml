@@ -3,6 +3,7 @@
 
     <persistence-unit name="wgbn" transaction-type="RESOURCE_LOCAL">
         <provider>org.hibernate.ejb.HibernatePersistence</provider>
+        <shared-cache-mode>NONE</shared-cache-mode>
         <!-- openshift -->
         <!--non-jta-data-source>java:/comp/env/jdbc/MysqlDS</non-jta-data-source-->
         <properties>

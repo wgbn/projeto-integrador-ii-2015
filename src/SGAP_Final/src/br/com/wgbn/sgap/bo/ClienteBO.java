@@ -12,7 +12,7 @@ import java.util.List;
 /**
  * Created by Walter Gandarella
  */
-public class ClienteBO extends GenericoBO<ClienteEntity, ClienteDAO, ClienteVO> {
+public class ClienteBO extends GenericoBO<ClienteEntity, ClienteDAO> {
 
     public ClienteBO() {
         this.dao = FabricaDAO.getInstance().getClienteDAO();
@@ -53,21 +53,4 @@ public class ClienteBO extends GenericoBO<ClienteEntity, ClienteDAO, ClienteVO> 
         this.entity = new ClienteEntity();
     }
 
-    @Override
-    public ClienteVO toVo() {
-        ClienteVO vo = new ClienteVO(this.getEntity());
-        for (AcaoEntity a : this.getEntity().getAcoes()){
-            vo.getAcoes().add(new AcaoVO(a));
-        }
-        return vo;
-    }
-
-    @Override
-    public ClienteEntity toEntity(ClienteVO clienteVO) {
-        ClienteEntity c = new ClienteEntity(clienteVO);
-        for (AcaoVO a : clienteVO.getAcoes()){
-            c.getAcoes().add(new AcaoEntity(a));
-        }
-        return c;
-    }
 }

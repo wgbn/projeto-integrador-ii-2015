@@ -3,7 +3,7 @@ package br.com.wgbn.sgap.bo;
 /**
  * Created by Walter Gandarella
  */
-public abstract class GenericoBO<T, D, VO> {
+public abstract class GenericoBO<T, D> {
     protected D dao = null;
     protected T entity;
 
@@ -23,13 +23,5 @@ public abstract class GenericoBO<T, D, VO> {
         this.entity = entity;
     }
 
-    public void setEntityFromVo(VO vo){
-        this.setEntity(this.toEntity(vo));
-    }
-
     public abstract void resetEntity();
-
-    public abstract VO toVo();
-
-    public abstract T toEntity(VO vo);
 }

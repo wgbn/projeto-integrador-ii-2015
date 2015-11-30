@@ -66,6 +66,10 @@ public class AcaoFacade extends GenericoBean {
         return this.acaoBO.getClientes();
     }
 
+    public List<UsuarioEntity> getUsuarios(){
+        return this.acaoBO.getUsuariosDisponiveis(this.acao);
+    }
+
     public Date getDataInicio() {
         return dataInicio;
     }
@@ -85,10 +89,6 @@ public class AcaoFacade extends GenericoBean {
     }
     public void setPromotor(UsuarioAcaoEntity promotor) {
         this.promotor = promotor;
-    }
-
-    public List<UsuarioEntity> getUsuarios(){
-        return this.acaoBO.getUsuarios();
     }
 
     public boolean isLider(int _flag){

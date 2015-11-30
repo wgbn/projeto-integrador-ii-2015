@@ -13,7 +13,7 @@ import java.util.Set;
 /**
  * Created by Walter Gandarella
  */
-public class UsuarioAcaoBO extends GenericoBO<UsuarioAcaoEntity, UsuarioAcaoDAO, UsuarioAcaoVO> {
+public class UsuarioAcaoBO extends GenericoBO<UsuarioAcaoEntity, UsuarioAcaoDAO> {
     public UsuarioAcaoBO() {
         this.dao = FabricaDAO.getInstance().getUsuarioAcaoDAO();
     }
@@ -43,15 +43,4 @@ public class UsuarioAcaoBO extends GenericoBO<UsuarioAcaoEntity, UsuarioAcaoDAO,
         this.entity = new UsuarioAcaoEntity();
     }
 
-    @Override
-    public UsuarioAcaoVO toVo() {
-        UsuarioAcaoVO vo = new UsuarioAcaoVO(this.getEntity());
-        return vo;
-    }
-
-    @Override
-    public UsuarioAcaoEntity toEntity(UsuarioAcaoVO usuarioAcaoVO) {
-        UsuarioAcaoEntity u = new UsuarioAcaoEntity(usuarioAcaoVO);
-        return u;
-    }
 }

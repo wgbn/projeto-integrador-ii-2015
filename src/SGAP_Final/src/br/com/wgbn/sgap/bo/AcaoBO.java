@@ -18,7 +18,7 @@ import java.util.Set;
 /**
  * Created by Walter Gandarella
  */
-public class AcaoBO extends GenericoBO<AcaoEntity, AcaoDAO, AcaoVO> {
+public class AcaoBO extends GenericoBO<AcaoEntity, AcaoDAO> {
 
     private UsuarioAcaoBO   usuarioAcaoBO;
     private TipoacaoBO      tipoAcaoBO;
@@ -82,6 +82,10 @@ public class AcaoBO extends GenericoBO<AcaoEntity, AcaoDAO, AcaoVO> {
         return this.usuarioBO.getTodos();
     }
 
+    public List<UsuarioEntity> getUsuariosDisponiveis(AcaoEntity _acao){
+        return this.usuarioBO.getTodosDisponiveis(_acao);
+    }
+
     public TipoacaoEntity setTipoAcao(TipoacaoEntity _tipo){
         return this.tipoAcaoBO.salvar(_tipo);
     }
@@ -113,23 +117,5 @@ public class AcaoBO extends GenericoBO<AcaoEntity, AcaoDAO, AcaoVO> {
         this.getEntity().setDataedicao(new Timestamp(new Date().getTime()));
         this.getEntity().setUsuario(Sessao.getInstance().getUsuarioLogado());
         this.setEntity(this.getDao().salvar(this.getEntity()));
-    }
-
-    @Override
-    public AcaoVO toVo() {
-        AcaoVO vo = new AcaoVO(this.getEntity());
-        for (UsuarioAcaoEntity ua : this.getEntity().getUsuarios()){
-            vo.getUsuarios().add(new UsuarioAcaoVO(ua));
-        }
-        return vo;
-    }
-
-    @Override
-    public AcaoEntity toEntity(AcaoVO acaoVO) {
-        AcaoEntity a = new AcaoEntity(acaoVO);
-        for (UsuarioAcaoVO ua : acaoVO.getUsuarios()){
-            a.getUsuarios().add(new UsuarioAcaoEntity(ua));
-        }
-        return a;
     }
 }

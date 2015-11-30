@@ -1,6 +1,7 @@
 package br.com.wgbn.sgap.bo;
 
 import br.com.wgbn.sgap.dao.UsuarioDAO;
+import br.com.wgbn.sgap.entity.AcaoEntity;
 import br.com.wgbn.sgap.entity.UsuarioAcaoEntity;
 import br.com.wgbn.sgap.entity.UsuarioEntity;
 import br.com.wgbn.sgap.util.FabricaDAO;
@@ -11,12 +12,13 @@ import br.com.wgbn.sgap.vo.UsuarioVO;
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
  * Created by Walter Gandarella
  */
-public class UsuarioBO extends GenericoBO<UsuarioEntity, UsuarioDAO, UsuarioVO> {
+public class UsuarioBO extends GenericoBO<UsuarioEntity, UsuarioDAO> {
     private String resenha;
     private static UsuarioEntity usuarioLogado = null;
 
@@ -98,6 +100,27 @@ public class UsuarioBO extends GenericoBO<UsuarioEntity, UsuarioDAO, UsuarioVO> 
         return this.getDao().getTodos();
     }
 
+    public List<UsuarioEntity> getTodosDisponiveis(AcaoEntity _acao){
+        List<UsuarioEntity> usuarios = new LinkedList<UsuarioEntity>();
+
+        for (UsuarioEntity u : this.getDao().getTodos()){
+            if (u.getAcoes().size() == 0)
+                usuarios.add(u);
+
+            for (UsuarioAcaoEntity ua : u.getAcoes()){
+                if (
+                        ua.getAcao().getDatainicio().getTime() < _acao.getDatainicio().getTime() &&
+                        ua.getAcao().getDatafim().getTime() > _acao.getDatafim().getTime()
+                    ){
+                    if (!usuarios.contains(u))
+                        usuarios.add(u);
+                }
+            }
+        }
+        System.out.println("## getTodosDisponiveis");
+        return usuarios;
+    }
+
     public UsuarioEntity getPorPk(UsuarioEntity _usuario){
         return this.getDao().getPorPk(_usuario.getId());
     }
@@ -121,28 +144,4 @@ public class UsuarioBO extends GenericoBO<UsuarioEntity, UsuarioDAO, UsuarioVO> 
         this.entity = new UsuarioEntity();
     }
 
-    @Override
-    public UsuarioVO toVo() {
-        UsuarioVO vo = new UsuarioVO(this.getEntity());
-        for (UsuarioAcaoEntity ua : this.getEntity().getAcoes()){
-            vo.getAcoes().add(new UsuarioAcaoVO(ua));
-        }
-        return vo;
-    }
-    public UsuarioVO toVo(UsuarioEntity _usuario){
-        UsuarioVO vo = new UsuarioVO(_usuario);
-        for (UsuarioAcaoEntity ua : _usuario.getAcoes()){
-            vo.getAcoes().add(new UsuarioAcaoVO(ua));
-        }
-        return vo;
-    }
-
-    @Override
-    public UsuarioEntity toEntity(UsuarioVO vo) {
-        UsuarioEntity u = new UsuarioEntity(vo);
-        for (UsuarioAcaoVO ua : vo.getAcoes()){
-            u.getAcoes().add(new UsuarioAcaoEntity(ua));
-        }
-        return u;
-    }
 }
