@@ -5,6 +5,7 @@ import br.com.wgbn.sgap.bo.UsuarioBO;
 import br.com.wgbn.sgap.dao.ClienteDAO;
 import br.com.wgbn.sgap.entity.ClienteEntity;
 import br.com.wgbn.sgap.util.Navegacao;
+import br.com.wgbn.sgap.util.Sessao;
 import br.com.wgbn.sgap.util.Utilidades;
 import br.com.wgbn.sgap.vo.ClienteVO;
 
@@ -54,7 +55,7 @@ public class ClienteFacade extends GenericoBean {
     }
 
     public String getLogado(){
-        return UsuarioBO.getLogado().getNome();
+        return Sessao.getInstance().getUsuarioLogado().getNome();
     }
 
     /**

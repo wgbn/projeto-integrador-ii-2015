@@ -3,6 +3,7 @@ package br.com.wgbn.sgap.controller;
 import br.com.wgbn.sgap.bo.UsuarioBO;
 import br.com.wgbn.sgap.entity.UsuarioEntity;
 import br.com.wgbn.sgap.util.Navegacao;
+import br.com.wgbn.sgap.util.Sessao;
 import br.com.wgbn.sgap.util.Utilidades;
 import br.com.wgbn.sgap.vo.UsuarioVO;
 
@@ -60,10 +61,6 @@ public class UsuarioFacade extends GenericoBean {
      * @return
      */
     public List<UsuarioEntity> getUsuarios() {
-        /*this.usuarios = new LinkedList<UsuarioVO>();
-        for (UsuarioEntity u : this.usuarioBO.getTodos()){
-            this.usuarios.add(new UsuarioVO(u));
-        }*/
         this.usuarios = this.usuarioBO.getTodos();
         return this.usuarios;
     }
@@ -73,14 +70,7 @@ public class UsuarioFacade extends GenericoBean {
      * @return Objeto com usuário nolago
      */
     public UsuarioEntity getUsuarioLogado(){
-        /*UsuarioEntity u = this.usuarioBO.getUsuarioLogado();
-        if (u == null){
-            Navegacao.navegarPara("usuarios/usuariosLogin.xhtml");
-            return null;
-        } else {
-            return this.usuarioBO.toVo();
-        }*/
-        return this.usuarioBO.getUsuarioLogado();
+        return Sessao.getInstance().getUsuarioLogado();
     }
 
     /**
@@ -119,10 +109,6 @@ public class UsuarioFacade extends GenericoBean {
      */
     public void aoCarregarCriarUsuario(ComponentSystemEvent event){
         if (Utilidades.isNewRequest()){
-            /*this.usuarioVO = new UsuarioVO();
-            this.usuarioVO.setDatacriacao(new Timestamp(new Date().getTime()));
-            this.usuarioBO.setEntityFromVo(this.usuarioVO);
-            this.usuarioBO.setResenha(new String());*/
             this.usuario = new UsuarioEntity();
             this.usuario.setDatacriacao(new Timestamp(new Date().getTime()));
             this.usuarioBO.resetEntity();
@@ -152,7 +138,6 @@ public class UsuarioFacade extends GenericoBean {
      * Atualiza um usuário do banco
      */
     public void atualizarUsuario(){
-        //this.usuarioBO.setEntityFromVo(this.usuarioVO);
         this.usuarioBO.setEntity(this.usuario);
         this.usuarioBO.alterar();
         Navegacao.navegarPara("usuarios/usuariosListar.xhtml");
@@ -162,7 +147,6 @@ public class UsuarioFacade extends GenericoBean {
      * Remove um usuário do banco
      */
     public void apagarUsuario(){
-        //this.usuarioBO.setEntityFromVo(this.usuarioVO);
         this.usuarioBO.setEntity(this.usuario);
         this.usuarioBO.excluir();
         Navegacao.navegarPara("usuarios/usuariosListar.xhtml");
@@ -174,9 +158,7 @@ public class UsuarioFacade extends GenericoBean {
      * @param event
      */
     public void verificaLogado(ComponentSystemEvent event){
-        System.out.println("##-> verificaLogado");
-        if (this.usuarioBO.getUsuarioLogado() == null)
-            Navegacao.navegarPara("usuarios/usuariosLogin.xhtml");
+        this.vefificaAcesso();
     }
 
     /**
@@ -185,7 +167,6 @@ public class UsuarioFacade extends GenericoBean {
      * @throws UnsupportedEncodingException
      */
     public void fazerLoginUsuario() throws NoSuchAlgorithmException, UnsupportedEncodingException {
-        //this.usuarioBO.setEntityFromVo(this.usuarioVO);
         this.usuarioBO.setEntity(this.usuario);
         if (!this.usuarioBO.validarLogin())
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Atenção!", "Usuário e/ou senha não conferem."));
@@ -197,7 +178,7 @@ public class UsuarioFacade extends GenericoBean {
      * Faz o logout do usuário no sistema
      */
     public void logOut(){
-        this.usuarioBO.setUsuarioLogado(null);
+        Sessao.getInstance().setUsuarioLogado(null);
         this.verificaLogado(null);
     }
 }

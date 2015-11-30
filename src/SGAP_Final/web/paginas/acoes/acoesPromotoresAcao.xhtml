@@ -5,11 +5,72 @@
         xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
         xmlns:f="http://xmlns.jcp.org/jsf/core"
         xmlns:p="http://primefaces.org/ui"
+        xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
         template="/template/layout/layoutPadrao.xhtml">
     <ui:define name="tela">
 
-        <div class="acao-promotores">
+        <f:event listener="#{acaoFacade.aoCarregarPromotoresAcao}" type="preRenderView" />
+
+        <div class="acao-promotores usuarios-lista">
             <h1>Ação: #{acaoFacade.acao.titulo}</h1>
+
+            <hr/>
+
+            <p:outputLabel for="usuario">Adicionar Promotores</p:outputLabel>
+            <div class="promotores-add">
+                <div class="lista">
+                    <h:selectOneMenu id="usuario" value="#{acaoFacade.promotor.id}">
+                        <f:selectItem itemLabel="Escolha..." itemValue=""/>
+                        <f:selectItems value="#{acaoFacade.usuarios}" var="promo" itemLabel="#{promo.nome}" itemValue="#{promo.id}" />
+                    </h:selectOneMenu>
+                </div>
+                <div class="botao">
+                    <h:form>
+                        <h:commandLink styleClass="paper-btn" value="Adicionar">
+                            <f:ajax render="promotores" listener="#{acaoFacade.adicionarPromotor()}"/>
+                        </h:commandLink>
+                    </h:form>
+                </div>
+            </div>
+
+            <hr/>
+
+            <p:dataTable var="usr" id="promotores"
+                         value="#{acaoFacade.acao.usuarios}"
+                         styleClass="tabela"
+                         rows="50"
+                         paginator="false">
+
+                <p:column headerText="#ID" styleClass="linha-id">
+                    <h:outputText value="#{usr.id}"/>
+                </p:column>
+
+                <p:column headerText="Nome">
+                    <h:outputText value="#{usr.nome}"/>
+                </p:column>
+
+                <p:column headerText="Celular" styleClass="linha-tel">
+                    <h:outputText value="#{usr.telefoneCelular}"/>
+                </p:column>
+
+                <p:column headerText="Líder" styleClass="linha-gerente">
+                    <p:selectBooleanButton id="lider" value="#{usr.lider}" onLabel="Sim" offLabel="Não">
+                        <p:ajax update="promotores" listener="#{acaoFacade.tornarLider(usr)}" />
+                    </p:selectBooleanButton>
+                </p:column>
+
+                <p:column headerText="Opções" styleClass="linha-opc">
+                    <h:form>
+                        <h:commandLink action="#{navegacaoMB.actionUsuariosEditar()}" value="editar">
+                            <f:setPropertyActionListener target="#{usuarioFacade.usuario}" value="#{usr}"/>
+                        </h:commandLink>
+                        <h:commandLink action="#{navegacaoMB.actionAcoesUsuario()}" value="ações" title="Listar ações que este usuário participa">
+                            <f:setPropertyActionListener target="#{usuarioFacade.usuario}" value="#{usr}"/>
+                        </h:commandLink>
+                    </h:form>
+                </p:column>
+
+            </p:dataTable>
 
         </div>
 

@@ -26,27 +26,57 @@
                          paginatorPosition="bottom">
 
                 <p:column headerText="#ID" styleClass="linha-id">
-                    <h:outputText value="#{acao.id}"/>
+                    <h:form>
+                        <h:commandLink action="#{navegacaoMB.actionAcoesVisualizar()}" value="#{acao.id}"
+                                       pt:class="btnLinha">
+                            <f:setPropertyActionListener target="#{acaoFacade.acao}" value="#{acao}"/>
+                        </h:commandLink>
+                    </h:form>
                 </p:column>
 
                 <p:column headerText="Quando" styleClass="linha-quando">
-                    <h:outputText value="#{acaoFacade.getDataLegivel(acao.datainicio)}" pt:class="btnLinha"/>
+                    <h:form>
+                        <h:commandLink action="#{navegacaoMB.actionAcoesVisualizar()}"
+                                       value="#{acaoFacade.getDataLegivel(acao.datainicio)}" pt:class="btnLinha">
+                            <f:setPropertyActionListener target="#{acaoFacade.acao}" value="#{acao}"/>
+                        </h:commandLink>
+                    </h:form>
                 </p:column>
 
                 <p:column headerText="Até" styleClass="linha-quando">
-                    <h:outputText value="#{acaoFacade.getDataLegivel(acao.datafim)}" pt:class="btnLinha"/>
+                    <h:form>
+                        <h:commandLink action="#{navegacaoMB.actionAcoesVisualizar()}"
+                                       value="#{acaoFacade.getDataLegivel(acao.datafim)}" pt:class="btnLinha">
+                            <f:setPropertyActionListener target="#{acaoFacade.acao}" value="#{acao}"/>
+                        </h:commandLink>
+                    </h:form>
                 </p:column>
 
                 <p:column headerText="Título">
-                    <h:outputText value="#{acao.titulo}" pt:class="btnLinha"/>
+                    <h:form>
+                        <h:commandLink action="#{navegacaoMB.actionAcoesVisualizar()}" value="#{acao.titulo}"
+                                       pt:class="btnLinha">
+                            <f:setPropertyActionListener target="#{acaoFacade.acao}" value="#{acao}"/>
+                        </h:commandLink>
+                    </h:form>
                 </p:column>
 
                 <p:column headerText="Tipo" styleClass="linha-tipo">
-                    <h:outputText value="#{acao.tipoacao.tipo}" pt:class="btnLinha"/>
+                    <h:form>
+                        <h:commandLink action="#{navegacaoMB.actionAcoesVisualizar()}" value="#{acao.tipoacao.tipo}"
+                                       pt:class="btnLinha">
+                            <f:setPropertyActionListener target="#{acaoFacade.acao}" value="#{acao}"/>
+                        </h:commandLink>
+                    </h:form>
                 </p:column>
 
                 <p:column headerText="Cliente" styleClass="linha-cliente">
-                    <h:outputText value="#{acao.cliente.nome}" pt:class="btnLinha"/>
+                    <h:form>
+                        <h:commandLink action="#{navegacaoMB.actionAcoesVisualizar()}" value="#{acao.cliente.nome}"
+                                       pt:class="btnLinha">
+                            <f:setPropertyActionListener target="#{acaoFacade.acao}" value="#{acao}"/>
+                        </h:commandLink>
+                    </h:form>
                 </p:column>
 
                 <p:column headerText="Opções" styleClass="linha-opc">
@@ -63,18 +93,6 @@
             </p:dataTable>
 
         </div>
-
-        <h:link outcome="acoesPromotoresAcao" value="Editar"/>
-
-        <script type="text/javascript" src="#{request.contextPath}/template/js/acoesListar.js"></script>
-        <script type="text/javascript">
-            $(document).ready(function(){
-                $('body').on('click', '.btnLinha', function(e){
-                    e.preventDefault();
-                    $(location).attr('href', "#{request.contextPath}/paginas/acoes/acoesPromotoresAcao");
-                });
-            });
-        </script>
 
     </ui:define>
 </ui:composition>

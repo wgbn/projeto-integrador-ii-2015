@@ -4,6 +4,7 @@ import br.com.wgbn.sgap.dao.UsuarioDAO;
 import br.com.wgbn.sgap.entity.UsuarioAcaoEntity;
 import br.com.wgbn.sgap.entity.UsuarioEntity;
 import br.com.wgbn.sgap.util.FabricaDAO;
+import br.com.wgbn.sgap.util.Sessao;
 import br.com.wgbn.sgap.vo.UsuarioAcaoVO;
 import br.com.wgbn.sgap.vo.UsuarioVO;
 
@@ -28,12 +29,6 @@ public class UsuarioBO extends GenericoBO<UsuarioEntity, UsuarioDAO, UsuarioVO> 
     }
 
     public void setResenha(String _resenha) { this.resenha = _resenha; }
-
-    public UsuarioEntity getUsuarioLogado() { return usuarioLogado; }
-
-    public static UsuarioEntity getLogado(){ return UsuarioBO.usuarioLogado; }
-
-    public void setUsuarioLogado(UsuarioEntity _usuarioLogado) { this.usuarioLogado = _usuarioLogado; }
 
     public String gerenteToStr(UsuarioEntity _usuario){
         return _usuario.getGerente() == 1 ? "Sim":"Não";
@@ -93,7 +88,7 @@ public class UsuarioBO extends GenericoBO<UsuarioEntity, UsuarioDAO, UsuarioVO> 
         UsuarioEntity usuarioNoBanco = this.getDao().getPorEmail(this.getEntity().getEmail());
 
         if (usuarioNoBanco.getSenha().equals(this.getEntity().getSenha())){
-            this.setUsuarioLogado(usuarioNoBanco);
+            Sessao.getInstance().setUsuarioLogado(usuarioNoBanco);
             return true;
         }
         return false;

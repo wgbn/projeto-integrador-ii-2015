@@ -1,9 +1,7 @@
 package br.com.wgbn.sgap.controller;
 
 import br.com.wgbn.sgap.bo.AcaoBO;
-import br.com.wgbn.sgap.entity.AcaoEntity;
-import br.com.wgbn.sgap.entity.ClienteEntity;
-import br.com.wgbn.sgap.entity.TipoacaoEntity;
+import br.com.wgbn.sgap.entity.*;
 import br.com.wgbn.sgap.util.Navegacao;
 import br.com.wgbn.sgap.util.Utilidades;
 import br.com.wgbn.sgap.vo.AcaoVO;
@@ -38,6 +36,7 @@ public class AcaoFacade extends GenericoBean {
     private List<AcaoEntity>    acoes = new LinkedList<AcaoEntity>();
     private AcaoBO          acaoBO;
     private AcaoEntity      acao;
+    private UsuarioEntity   promotor;
     private MapModel        carregaMapa;
     private Marker          marker;
     private Date            dataInicio;
@@ -99,6 +98,17 @@ public class AcaoFacade extends GenericoBean {
     public void setDataFim(Date dataFim) {
         this.dataFim = dataFim;
     }
+
+    public UsuarioEntity getPromotor() {
+        return promotor;
+    }
+    public void setPromotor(UsuarioEntity promotor) {
+        this.promotor = promotor;
+    }
+
+    public List<UsuarioEntity> getUsuarios(){
+        return this.acaoBO.getUsuarios();
+    }
 /**
     * Métodos do facade
     */
@@ -117,6 +127,9 @@ public class AcaoFacade extends GenericoBean {
             this.acao.setDatacriacao(new Timestamp(new Date().getTime()));
             this.acaoBO.resetEntity();
         }
+    }
+    public void aoCarregarPromotoresAcao(ComponentSystemEvent event){
+        this.promotor = new UsuarioEntity();
     }
 
     public void cadastrarAcao(){
@@ -138,6 +151,10 @@ public class AcaoFacade extends GenericoBean {
     public String getDataLegivel(Date _data){
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm");
         return sdf.format(_data);
+    }
+
+    public void adicionarPromotor(){
+        this.acao.setUsuarios(this.acaoBO.setPromotor(this.acao, this.promotor));
     }
 
     @PostConstruct
