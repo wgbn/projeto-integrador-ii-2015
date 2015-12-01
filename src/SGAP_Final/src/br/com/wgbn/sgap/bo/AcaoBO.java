@@ -83,7 +83,8 @@ public class AcaoBO extends GenericoBO<AcaoEntity, AcaoDAO> {
     }
 
     public List<UsuarioEntity> getUsuariosDisponiveis(AcaoEntity _acao){
-        return this.usuarioBO.getTodosDisponiveis(_acao);
+        //return this.usuarioBO.getTodosDisponiveis(_acao);
+        return this.usuarioBO.getTodos();
     }
 
     public TipoacaoEntity setTipoAcao(TipoacaoEntity _tipo){

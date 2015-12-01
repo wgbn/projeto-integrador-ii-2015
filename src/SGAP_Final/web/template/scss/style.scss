@@ -478,8 +478,17 @@
             }
 
             & .acao-promotores {
+                & h2 {
+                    color: #73879C;
+                    font-size: 1.5em;
+                    text-align: center;
+                    padding-bottom: 1em;
+                }
+                & .tabela {
+                    margin-bottom: 2em;
+                }
                 & .form-promotores {
-                    width: 20%;
+                    width: 30%;
                     margin: auto;
                 }
                 & .promotores-add {
@@ -497,6 +506,31 @@
                 }
                 & select {
                     padding: .4em;
+                }
+
+                & .dados {
+                    @include box-shadow(0, 0, 4px, rgba(0,0,0,.4));
+                    padding: 1em;
+                    width: 100%;
+                    max-width: 650px;
+                    margin: 1em auto;
+
+                    & .linha {
+                        @extend %flex-center-center;
+                        & .coluna {
+                            width: 50%;
+                        }
+                    }
+
+                    & .linha-unica {
+                        margin: 1em 0 0;
+                    }
+
+                    & .mapa-local {
+                        @extend %cover;
+                        height: 250px;
+                        margin: 1em 0 0;
+                    }
                 }
             }
         }

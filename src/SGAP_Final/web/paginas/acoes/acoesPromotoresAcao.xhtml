@@ -12,61 +12,105 @@
         <f:event listener="#{acaoFacade.aoCarregarPromotoresAcao}" type="preRenderView" />
 
         <div class="acao-promotores usuarios-lista">
+
             <h1>Ação: #{acaoFacade.acao.titulo}</h1>
 
-            <hr/>
-
-            <div class="form-promotores">
-                <h:form>
-                    <p:outputLabel for="promotor">Adicionar Promotores</p:outputLabel>
-                    <div class="promotores-add">
-                        <div class="lista">
-                            <h:selectOneMenu id="promotor" value="#{acaoFacade.promotor.usuario.id}">
-                                <f:selectItem itemLabel="Escolha..." itemValue="-1"/>
-                                <f:selectItems value="#{acaoFacade.usuarios}" var="promo" itemLabel="#{promo.nome}" itemValue="#{promo.id}" />
-                            </h:selectOneMenu>
-                        </div>
-                        <div class="botao">
-                            <h:commandLink styleClass="paper-btn" value="Adicionar" action="#{acaoFacade.adicionarPromotor()}">
-                                <!--f:ajax render="promotores" listener=""/-->
-                            </h:commandLink>
-                        </div>
+            <div class="dados">
+                <div class="linha">
+                    <div class="coluna">
+                        <label>Início</label>
+                        <h:outputText value="#{acaoFacade.getDataLegivel(acaoFacade.acao.datainicio)}"/>
                     </div>
-                </h:form>
+                    <div class="coluna">
+                        <label>Término</label>
+                        <h:outputText value="#{acaoFacade.getDataLegivel(acaoFacade.acao.datafim)}"/>
+                    </div>
+                </div>
+
+                <div class="linha-unica">
+                    <label>Descrição</label>
+                    <h:outputText value="#{acaoFacade.acao.descricao}"/>
+                </div>
+
+                <div class="linha-unica" jsf:rendered="#{!acaoFacade.isLider(usuarioFacade.usuarioLogado.gerente)}">
+                    <a href="" jsf:action="#{acaoFacade.confirmarAcao(true)}" class="paper-btn"><span class="ic-checkmark"></span> Confirmar participação nesta ação</a>
+                    <a href="" jsf:action="#{acaoFacade.confirmarAcao(false)}" class="paper-btn paper-cancel"><span class="ic-cross"></span> Não poderei ir a esta ação</a>
+                </div>
+
+                <div class="linha-unica">
+                    <label>Local da ação</label>
+                    <h:outputText value="#{acaoFacade.acao.local}"/>
+
+                    <div class="mapa-local" style="background-image: url(https://maps.googleapis.com/maps/api/staticmap?center=#{acaoFacade.acao.latitude},#{acaoFacade.acao.longitude}&amp;zoom=16&amp;scale=2&amp;size=960x400&amp;maptype=roadmap&amp;markers=color:red%7Clabel:E%7C#{acaoFacade.acao.latitude},#{acaoFacade.acao.longitude});"></div>
+                </div>
+
+                <div class="linha-unica">
+                    <label>Cliente da ação</label>
+                    <h:outputText value="#{acaoFacade.acao.cliente.nome}"/>
+                </div>
+
             </div>
 
-            <hr/>
+            <div jsf:rendered="#{acaoFacade.isLider(usuarioFacade.usuarioLogado.gerente)}">
+                <hr/>
 
-            <p:dataTable var="usr" id="promotores"
-                         value="#{acaoFacade.acao.usuarios}"
-                         styleClass="tabela"
-                         rows="50"
-                         paginator="false">
-
-                <p:column headerText="#ID" styleClass="linha-id">
-                    <h:outputText value="#{usr.id}"/>
-                </p:column>
-
-                <p:column headerText="Nome">
-                    <h:outputText value="#{usr.usuario.nome}"/>
-                </p:column>
-
-                <p:column headerText="Celular" styleClass="linha-tel">
-                    <h:outputText value="#{usr.usuario.telefoneCelular}"/>
-                </p:column>
-
-                <p:column headerText="Líder" styleClass="linha-gerente">
-                    <h:outputText value="#{acaoFacade.strLider(usr.lider)}"/>
-                </p:column>
-
-                <p:column headerText="Opções" style="width: 15%; text-align: left;">
+                <h2>Promotores desta ação</h2>
+                <div class="form-promotores">
                     <h:form>
-                        <h:commandLink action="#{acaoFacade.removerPromotor(usr)}" value="remover" style="background-color: #F44336;"/>
-                        <h:commandLink action="#{acaoFacade.tornarLider(usr)}" value="tornar líder" rendered="#{!acaoFacade.isLider(usr.lider)}" title="Listar ações que este usuário participa"/>
+                        <p:outputLabel for="promotor">Adicionar Promotores</p:outputLabel>
+                        <div class="promotores-add">
+                            <div class="lista">
+                                <h:selectOneMenu id="promotor" value="#{acaoFacade.promotor.usuario.id}">
+                                    <f:selectItem itemLabel="Escolha..." itemValue="-1"/>
+                                    <f:selectItems value="#{acaoFacade.usuarios}" var="promo" itemLabel="#{promo.nome}" itemValue="#{promo.id}" />
+                                </h:selectOneMenu>
+                            </div>
+                            <div class="botao">
+                                <h:commandLink styleClass="paper-btn" value="Adicionar" action="#{acaoFacade.adicionarPromotor()}">
+                                    <!--f:ajax render="promotores" listener=""/-->
+                                </h:commandLink>
+                            </div>
+                        </div>
                     </h:form>
-                </p:column>
+                </div>
 
-            </p:dataTable>
+                <hr/>
+
+                <p:dataTable var="usr" id="promotores"
+                             value="#{acaoFacade.acao.usuarios}"
+                             styleClass="tabela"
+                             rows="50"
+                             paginator="false">
+
+                    <p:column headerText="#ID" styleClass="linha-id">
+                        <h:outputText value="#{usr.id}"/>
+                    </p:column>
+
+                    <p:column headerText="Nome">
+                        <h:outputText value="#{usr.usuario.nome}"/>
+                    </p:column>
+
+                    <p:column headerText="Celular" styleClass="linha-tel">
+                        <h:outputText value="#{usr.usuario.telefoneCelular}"/>
+                    </p:column>
+
+                    <p:column headerText="Confirmado" styleClass="linha-gerente">
+                        <h:outputText value="#{acaoFacade.strBoolean(usr.confirmado)}"/>
+                    </p:column>
+
+                    <p:column headerText="Líder" styleClass="linha-gerente">
+                        <h:outputText value="#{acaoFacade.strBoolean(usr.lider)}"/>
+                    </p:column>
+
+                    <p:column headerText="Opções" style="width: 18%; text-align: left;">
+                        <h:form>
+                            <h:commandLink action="#{acaoFacade.removerPromotor(usr)}" value="remover" style="background-color: #F44336;"/>
+                            <h:commandLink action="#{acaoFacade.tornarLider(usr)}" value="tornar líder" rendered="#{!acaoFacade.isLider(usr.lider)}" title="Listar ações que este usuário participa"/>
+                        </h:form>
+                    </p:column>
+
+                </p:dataTable>
+            </div>
 
         </div>
 

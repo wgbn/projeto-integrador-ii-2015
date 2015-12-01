@@ -94,7 +94,7 @@ public class AcaoFacade extends GenericoBean {
     public boolean isLider(int _flag){
         return _flag == 0 ? false : true;
     }
-    public String strLider(int _flag){
+    public String strBoolean(int _flag){
         return _flag == 0 ? "Não":"Sim";
     }
 
@@ -160,6 +160,10 @@ public class AcaoFacade extends GenericoBean {
 
     public void removerPromotor(UsuarioAcaoEntity _promotor){
         this.acao.setUsuarios(this.acaoBO.removerPromotor(_promotor, this.acao));
+    }
+
+    public void confirmarAcao(boolean _flag){
+
     }
 
     @PostConstruct
