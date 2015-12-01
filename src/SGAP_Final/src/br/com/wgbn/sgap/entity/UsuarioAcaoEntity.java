@@ -10,6 +10,7 @@ import java.sql.Timestamp;
  * Created by Walter Gandarella
  */
 @Entity
+@Cacheable(false)
 @Table(name = "usuario_acao")
 public class UsuarioAcaoEntity implements Serializable {
     private int id;

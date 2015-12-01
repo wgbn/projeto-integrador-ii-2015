@@ -108,6 +108,8 @@ public class UsuarioBO extends GenericoBO<UsuarioEntity, UsuarioDAO> {
                 usuarios.add(u);
 
             for (UsuarioAcaoEntity ua : u.getAcoes()){
+                boolean t1 = ua.getAcao().getDatainicio().getTime() < _acao.getDatainicio().getTime();
+                boolean t2 = ua.getAcao().getDatafim().getTime() > _acao.getDatafim().getTime();
                 if (
                         ua.getAcao().getDatainicio().getTime() < _acao.getDatainicio().getTime() &&
                         ua.getAcao().getDatafim().getTime() > _acao.getDatafim().getTime()

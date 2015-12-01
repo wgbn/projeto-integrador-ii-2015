@@ -12,6 +12,7 @@ import java.util.Set;
  * Created by Walter Gandarella
  */
 @Entity
+@Cacheable(false)
 @Table(name = "usuario")
 public class UsuarioEntity implements Serializable {
     private int id;

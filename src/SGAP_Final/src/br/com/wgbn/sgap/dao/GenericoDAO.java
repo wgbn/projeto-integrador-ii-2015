@@ -1,8 +1,10 @@
 package br.com.wgbn.sgap.dao;
 
-import br.com.wgbn.sgap.util.FacadeEntityManager;
+import org.hibernate.annotations.QueryHints;
 
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
+import javax.persistence.QueryHint;
 import java.lang.reflect.ParameterizedType;
 import java.util.List;
 
@@ -60,7 +62,8 @@ public abstract class GenericoDAO<T> implements IF_DAO<T> {
     }
 
     public List<T> getTodos() {
-        return this.entityManager.createQuery("FROM " + getTypeClass().getName()).getResultList();
+        Query queryStr = this.entityManager.createQuery("FROM " + getTypeClass().getName());
+        return queryStr.getResultList();
     }
 
     public T getPorPk(int pk) {

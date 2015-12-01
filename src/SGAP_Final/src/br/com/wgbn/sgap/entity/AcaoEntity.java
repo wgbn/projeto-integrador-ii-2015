@@ -15,6 +15,7 @@ import java.util.Set;
  * Created by Walter Gandarella
  */
 @Entity
+@Cacheable(false)
 @Table(name = "acao")
 public class AcaoEntity implements Serializable {
     private int id;
@@ -181,7 +182,7 @@ public class AcaoEntity implements Serializable {
         this.usuario = usuario;
     }
 
-    @OneToMany(mappedBy = "acao", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "acao", fetch = FetchType.LAZY, cascade = CascadeType.REFRESH)
     public Set<UsuarioAcaoEntity> getUsuarios() {
         return usuarios;
     }

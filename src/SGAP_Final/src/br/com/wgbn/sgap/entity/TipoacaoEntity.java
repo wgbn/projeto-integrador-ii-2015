@@ -13,6 +13,7 @@ import java.util.Set;
  * Created by Walter Gandarella
  */
 @Entity
+@Cacheable(false)
 @Table(name = "tipoacao")
 public class TipoacaoEntity implements Serializable {
     private int id;
