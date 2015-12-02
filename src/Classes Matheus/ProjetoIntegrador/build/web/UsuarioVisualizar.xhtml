@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <p>Visualização do Usuário</p>
+            <br/>
+            <table border="0">
+                <tbody>
+                    <tr>
+                        <td><h:outputLabel value="CÓDIGO :"/></td>
+                        <td><h:outputLabel value="#{usuarioFacade.usuarioSeolecionado.idusuario}"/></td>
+                    </tr>
+                    <tr>
+                        <td><h:outputLabel value="NOME :"/></td>
+                        <td><h:outputLabel value="#{usuarioFacade.usuarioSeolecionado.nome}"/></td>
+                    </tr>
+                    <tr>
+                        <td><h:outputLabel value="EMAIL :"/></td>
+                        <td><h:outputLabel value="#{usuarioFacade.usuarioSeolecionado.email}"/></td>
+                    </tr>
+                    <tr>
+                        <td><h:outputLabel value="SENHA :"/></td>
+                        <td><h:outputLabel value="#{usuarioFacade.usuarioSeolecionado.senha}"/></td>
+                    </tr>
+                    <tr>
+                        <td><h:outputLabel value="BANCO :"/></td>
+                        <td><h:outputLabel value="#{usuarioFacade.usuarioSeolecionado.banco}"/></td>
+                    </tr>
+                    <tr>
+                        <td><h:outputLabel value="AGENCIA :"/></td>
+                        <td><h:outputLabel value="#{usuarioFacade.usuarioSeolecionado.agencia}"/></td>
+                    </tr>
+                    <tr>
+                        <td><h:outputLabel value="CONTA :"/></td>
+                        <td><h:outputLabel value="#{usuarioFacade.usuarioSeolecionado.conta}"/></td>
+                    </tr>
+                    <tr>
+                        <td><h:outputLabel value="GERENTE :"/></td>
+                        <td><h:outputLabel value="#{usuarioFacade.usuarioSeolecionado.gerente}"/></td>
+                    </tr>
+                    <tr>
+                        <td><h:outputLabel value="DT CRIACAO :"/></td>
+                        <td><h:outputLabel value="#{usuarioFacade.usuarioSeolecionado.dtcriacao}">
+                                <f:convertDateTime pattern="dd/MM/yyyy"></f:convertDateTime>
+                            </h:outputLabel> </td>
+                    </tr>
+                    <tr>
+                        <td><h:outputLabel value="DT EDICAO :"/></td>
+                        <td><h:outputLabel value="#{usuarioFacade.usuarioSeolecionado.dtedicao}">
+                                <f:convertDateTime pattern="dd/MM/yyyy"></f:convertDateTime>
+                            </h:outputLabel> </td>
+                    </tr>
+                    <tr>
+                        <td><h:outputLabel value="TELEFONE FIXO :"/></td>
+                        <td><h:outputLabel value="#{usuarioFacade.usuarioSeolecionado.telefonefixo}"/></td>
+                    </tr>
+                    <tr>
+                        <td><h:outputLabel value="TELEFONE CELULAR :"/></td>
+                        <td><h:outputLabel value="#{usuarioFacade.usuarioSeolecionado.telefonecelular}"/></td>
+                    </tr>
+                </tbody>
+            </table>
+            <br/>
+            <p:commandButton value="Alterar" action="VaiParaeditar"
+                             style="width: 50%"/>
+            <p:commandButton value="Voltar"
+                             style="width: 49%"
+                             action="VoltaParaListar"/>
+        </h:form>
+    </h:body>
+</html>
+
