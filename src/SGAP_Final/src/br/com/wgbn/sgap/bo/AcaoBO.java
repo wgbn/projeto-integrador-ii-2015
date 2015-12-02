@@ -58,10 +58,14 @@ public class AcaoBO extends GenericoBO<AcaoEntity, AcaoDAO> {
     }
 
     public Set<UsuarioAcaoEntity> setPromotor(UsuarioAcaoEntity _promotor, AcaoEntity _acao){
-        _promotor.setDatacadastro(new Timestamp(new Date().getTime()));
-        _promotor.setUsuario(usuarioBO.getPorPk(_promotor.getUsuario()));
-        this.usuarioAcaoBO.salvar(_promotor);
-        return this.usuarioAcaoBO.getPorAcao(_acao);
+        if (!this.verificaPromotorNaAcao(_promotor.getUsuario(), _acao)) {
+            _promotor.setDatacadastro(new Timestamp(new Date().getTime()));
+            _promotor.setUsuario(usuarioBO.getPorPk(_promotor.getUsuario()));
+            this.usuarioAcaoBO.salvar(_promotor);
+            return this.usuarioAcaoBO.getPorAcao(_acao);
+        } else {
+            return null;
+        }
     }
 
     public Set<UsuarioAcaoEntity> removerPromotor(UsuarioAcaoEntity _promotor, AcaoEntity _acao){
@@ -118,5 +122,24 @@ public class AcaoBO extends GenericoBO<AcaoEntity, AcaoDAO> {
         this.getEntity().setDataedicao(new Timestamp(new Date().getTime()));
         this.getEntity().setUsuario(Sessao.getInstance().getUsuarioLogado());
         this.setEntity(this.getDao().salvar(this.getEntity()));
+    }
+
+    public Set<UsuarioAcaoEntity> confirmarAcao(boolean _flag, UsuarioEntity _promotor, AcaoEntity _acao){
+        for (UsuarioAcaoEntity ua : _acao.getUsuarios()){
+            if (ua.getUsuario().getId() == _promotor.getId()){
+                ua.setConfirmado(_flag ? 1 : 0);
+                this.usuarioAcaoBO.alterar(ua);
+            }
+        }
+        return _acao.getUsuarios();
+    }
+
+    private boolean verificaPromotorNaAcao(UsuarioEntity _promotor, AcaoEntity _acao){
+        for (UsuarioAcaoEntity ua : _acao.getUsuarios()){
+            if (ua.getUsuario().getId() == _promotor.getId()){
+                return true;
+            }
+        }
+        return false;
     }
 }

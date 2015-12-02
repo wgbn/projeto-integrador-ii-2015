@@ -33,8 +33,10 @@
                 </div>
 
                 <div class="linha-unica" jsf:rendered="#{!acaoFacade.isLider(usuarioFacade.usuarioLogado.gerente)}">
-                    <a href="" jsf:action="#{acaoFacade.confirmarAcao(true)}" class="paper-btn"><span class="ic-checkmark"></span> Confirmar participação nesta ação</a>
-                    <a href="" jsf:action="#{acaoFacade.confirmarAcao(false)}" class="paper-btn paper-cancel"><span class="ic-cross"></span> Não poderei ir a esta ação</a>
+                    <h:form rendered="#{!acaoFacade.confirmadoNaAcao()}">
+                        <a href="" jsf:action="#{acaoFacade.confirmarAcao(true)}" class="paper-btn"><span class="ic-checkmark"></span> Confirmar participação nesta ação</a>
+                        <a href="" jsf:action="#{acaoFacade.confirmarAcao(false)}" class="paper-btn paper-cancel"><span class="ic-cross"></span> Não poderei ir a esta ação</a>
+                    </h:form>
                 </div>
 
                 <div class="linha-unica">
@@ -74,6 +76,10 @@
                     </h:form>
                 </div>
 
+                <div class="mensagem">
+                    <p:messages severity="error" id="messages" showDetail="true" autoUpdate="true" closable="true" />
+                </div>
+
                 <hr/>
 
                 <p:dataTable var="usr" id="promotores"
@@ -94,7 +100,7 @@
                         <h:outputText value="#{usr.usuario.telefoneCelular}"/>
                     </p:column>
 
-                    <p:column headerText="Confirmado" styleClass="linha-gerente">
+                    <p:column headerText="Confirm." styleClass="linha-gerente">
                         <h:outputText value="#{acaoFacade.strBoolean(usr.confirmado)}"/>
                     </p:column>
 

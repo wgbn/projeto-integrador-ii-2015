@@ -3,6 +3,7 @@ package br.com.wgbn.sgap.controller;
 import br.com.wgbn.sgap.bo.AcaoBO;
 import br.com.wgbn.sgap.entity.*;
 import br.com.wgbn.sgap.util.Navegacao;
+import br.com.wgbn.sgap.util.Sessao;
 import br.com.wgbn.sgap.util.Utilidades;
 import br.com.wgbn.sgap.vo.PromotorVO;
 import org.primefaces.model.map.DefaultMapModel;
@@ -10,14 +11,17 @@ import org.primefaces.model.map.MapModel;
 import org.primefaces.model.map.Marker;
 
 import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 import javax.faces.event.ComponentSystemEvent;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Created by Walter Gandarella
@@ -150,8 +154,14 @@ public class AcaoFacade extends GenericoBean {
                 this.promotor.getAcao() != null &&
                 this.promotor.getUsuario() != null &
                 this.promotor.getUsuario().getId() > 0
-            )
-            this.acao.setUsuarios(this.acaoBO.setPromotor(this.promotor, this.acao));
+            ) {
+            Set<UsuarioAcaoEntity> usuarios = this.acaoBO.setPromotor(this.promotor, this.acao);
+            if (usuarios == null){
+                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Ooops!", "Este usuário já participa desta ação"));
+            } else {
+                this.acao.setUsuarios(usuarios);
+            }
+        }
     }
 
     public void tornarLider(UsuarioAcaoEntity _promotor){
@@ -163,7 +173,16 @@ public class AcaoFacade extends GenericoBean {
     }
 
     public void confirmarAcao(boolean _flag){
+        this.acao.setUsuarios(this.acaoBO.confirmarAcao(_flag, Sessao.getInstance().getUsuarioLogado(), this.acao));
+    }
 
+    public boolean confirmadoNaAcao(){
+        for (UsuarioAcaoEntity ua : this.acao.getUsuarios()){
+            if (ua.getUsuario().getId() == Sessao.getInstance().getUsuarioLogado().getId() && ua.getConfirmado() == 1){
+                return true;
+            }
+        }
+        return false;
     }
 
     @PostConstruct

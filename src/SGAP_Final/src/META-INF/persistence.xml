@@ -5,13 +5,13 @@
         <provider>org.hibernate.ejb.HibernatePersistence</provider>
         <shared-cache-mode>NONE</shared-cache-mode>
         <!-- openshift -->
-        <non-jta-data-source>java:/comp/env/jdbc/MysqlDS</non-jta-data-source>
+        <!--non-jta-data-source>java:/comp/env/jdbc/MysqlDS</non-jta-data-source-->
         <properties>
             <!-- vivasalute -->
-            <!--property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
+            <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
             <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/pi2015" />
             <property name="javax.persistence.jdbc.user" value="root" />
-            <property name="javax.persistence.jdbc.password" value="vivasalute" /-->
+            <property name="javax.persistence.jdbc.password" value="vivasalute" />
 
             <!-- laptop -->
             <!--property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
