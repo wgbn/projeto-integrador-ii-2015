@@ -2,6 +2,9 @@ package br.com.wgbn.sgap.util;
 
 import br.com.wgbn.sgap.entity.UsuarioEntity;
 
+import javax.faces.context.ExternalContext;
+import javax.faces.context.FacesContext;
+
 /**
  * Created by Walter Gandarella
  */
@@ -16,6 +19,18 @@ public class Sessao {
     }
 
     private Sessao() {}
+
+    public ExternalContext getCurrentExternalContext(){
+        if (FacesContext.getCurrentInstance() == null){
+            throw new RuntimeException("O FacesContext não pode ser chamado fora de uma requisição HTTP");
+        }else{
+            return FacesContext.getCurrentInstance().getExternalContext();
+        }
+    }
+
+    public void encerrarSessao(){
+        getCurrentExternalContext().invalidateSession();
+    }
 
     public UsuarioEntity getUsuarioLogado() {
         return usuarioLogado;

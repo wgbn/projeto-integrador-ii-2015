@@ -9,7 +9,7 @@ import java.io.IOException;
  */
 public class Navegacao {
     public static final void navegarPara(String _pagina){
-        ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
+        ExternalContext externalContext = Sessao.getInstance().getCurrentExternalContext();
         try {
             externalContext.redirect(externalContext.getRequestContextPath() + "/paginas/" + _pagina);
         } catch (IOException e) {

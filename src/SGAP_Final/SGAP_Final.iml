@@ -46,5 +46,6 @@
     <orderEntry type="library" exported="" name="com.mysql.jdbc:com.springsource.com.mysql.jdbc:5.1.6" level="project" />
     <orderEntry type="library" exported="" name="javaee:javaee-api:5" level="project" />
     <orderEntry type="library" exported="" name="javax.servlet:jstl:1.2" level="project" />
+    <orderEntry type="library" exported="" name="javax:javaee-api:6.0" level="project" />
   </component>
 </module>

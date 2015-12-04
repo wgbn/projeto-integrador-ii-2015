@@ -45,4 +45,9 @@ public class NavegacaoManagedBean {
         Navegacao.navegarPara("clientes/clientesEditar.xhtml");
     }
     public void actionClientesCadastrar(){ Navegacao.navegarPara("clientes/clientesCadastrar.xhtml"); }
+
+    /**
+     * ### Navegação de Tipos
+     */
+    public void actionTiposListar(){ Navegacao.navegarPara("tipos/tiposListar.xhtml"); }
 }

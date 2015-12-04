@@ -18,10 +18,10 @@ public abstract class GenericoBean {
     @PostConstruct
     public void vefificaAcesso(){
         System.out.println("## vefificaAcesso()");
-        this.init();
+        /*this.init();
 
         if (!Sessao.getInstance().isLogado())
-            Navegacao.navegarPara("usuarios/usuariosLogin.xhtml");
+            Navegacao.navegarPara("usuarios/usuariosLogin.xhtml");*/
     }
 
 }
