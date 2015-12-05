@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:jsf="http://xmlns.jcp.org/jsf"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<f:view>
+    <h:head>
+        <script type="text/javascript" language="JavaScript" src="#{request.contextPath}/template/js/app.js"></script>
+
+        <title>SGAP - Sistema de Gerenciamento de Ações e Promoções - WGBN Software House, inc.</title>
+        <meta content="text/html;charset=UTF-8" http-equiv="Content-Type"/>
+
+        <link type="text/css" rel="stylesheet" href="#{request.contextPath}/template/css/mixins.css"/>
+        <link type="text/css" rel="stylesheet" href="#{request.contextPath}/template/css/reset.css"/>
+        <link type="text/css" rel="stylesheet" href="#{request.contextPath}/template/css/fonts.css"/>
+        <link type="text/css" rel="stylesheet" href="#{request.contextPath}/template/css/style.css"/>
+    </h:head>
+
+    <f:event listener="#{usuarioFacade.aoCarregarCriarUsuario}" type="preRenderView" />
+
+    <h:body styleClass="app">
+
+        <p:ajaxStatus>
+
+            <f:facet name="start">
+                <div class="pAjax">
+                    <img src="#{request.contextPath}/template/img/loadingwin.gif"/>
+                </div>
+
+            </f:facet>
+
+            <f:facet name="complete">
+                <h:outputText value="" />
+            </f:facet>
+        </p:ajaxStatus>
+
+        <div class="page-login">
+            <h:form>
+                <div class="login">
+                    <h3>Acesso</h3>
+
+                    <p:messages severity="error" id="messages" showDetail="true" autoUpdate="true" closable="true" />
+
+                    <label for="email">E-mail</label>
+                    <input type="text" id="email" jsf:value="#{usuarioFacade.usuario.email}" placeholder="Seu e-mail" />
+
+                    <label for="senha">Senha</label>
+                    <input type="password" id="senha" jsf:value="#{usuarioFacade.usuario.senha}" placeholder="Sua senha" />
+
+                    <a href="" jsf:action="#{usuarioFacade.fazerLoginUsuario()}" class="paper-btn">Entrar</a>
+                </div>
+            </h:form>
+        </div>
+
+    </h:body>
+</f:view>
+</html>

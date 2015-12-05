@@ -1,0 +1,98 @@
+<ui:composition
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:jsf="http://xmlns.jcp.org/jsf"
+        xmlns:h="http://xmlns.jcp.org/jsf/html"
+        xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+        xmlns:f="http://xmlns.jcp.org/jsf/core"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+        template="/template/layout/layoutPadrao.xhtml">
+    <ui:define name="tela">
+
+        <div class="usuarios-lista">
+            <h1>Açoes</h1>
+
+            <hr/>
+
+            <p:dataTable var="acao"
+                         value="#{acaoFacade.acoesNaoRealizadas}"
+                         selectionMode="single"
+                         selection="#{acaoFacade.acao}"
+                         rowKey="#{acao.id}"
+                         styleClass="tabela"
+                         rows="50"
+                         paginator="true"
+                         paginatorTemplate="{PageLinks}"
+                         paginatorPosition="bottom">
+
+                <p:column headerText="#ID" styleClass="linha-id">
+                    <h:form>
+                        <h:commandLink action="#{navegacaoMB.actionAcoesVisualizar()}" value="#{acao.id}"
+                                       pt:class="btnLinha">
+                            <f:setPropertyActionListener target="#{acaoFacade.acao}" value="#{acao}"/>
+                        </h:commandLink>
+                    </h:form>
+                </p:column>
+
+                <p:column headerText="Quando" styleClass="linha-quando">
+                    <h:form>
+                        <h:commandLink action="#{navegacaoMB.actionAcoesVisualizar()}"
+                                       value="#{acaoFacade.getDataLegivel(acao.datainicio)}" pt:class="btnLinha">
+                            <f:setPropertyActionListener target="#{acaoFacade.acao}" value="#{acao}"/>
+                        </h:commandLink>
+                    </h:form>
+                </p:column>
+
+                <p:column headerText="Até" styleClass="linha-quando">
+                    <h:form>
+                        <h:commandLink action="#{navegacaoMB.actionAcoesVisualizar()}"
+                                       value="#{acaoFacade.getDataLegivel(acao.datafim)}" pt:class="btnLinha">
+                            <f:setPropertyActionListener target="#{acaoFacade.acao}" value="#{acao}"/>
+                        </h:commandLink>
+                    </h:form>
+                </p:column>
+
+                <p:column headerText="Título">
+                    <h:form>
+                        <h:commandLink action="#{navegacaoMB.actionAcoesVisualizar()}" value="#{acao.titulo}"
+                                       pt:class="btnLinha">
+                            <f:setPropertyActionListener target="#{acaoFacade.acao}" value="#{acao}"/>
+                        </h:commandLink>
+                    </h:form>
+                </p:column>
+
+                <p:column headerText="Tipo" styleClass="linha-tipo">
+                    <h:form>
+                        <h:commandLink action="#{navegacaoMB.actionAcoesVisualizar()}" value="#{acao.tipoacao.tipo}"
+                                       pt:class="btnLinha">
+                            <f:setPropertyActionListener target="#{acaoFacade.acao}" value="#{acao}"/>
+                        </h:commandLink>
+                    </h:form>
+                </p:column>
+
+                <p:column headerText="Cliente" styleClass="linha-cliente">
+                    <h:form>
+                        <h:commandLink action="#{navegacaoMB.actionAcoesVisualizar()}" value="#{acao.cliente.nome}"
+                                       pt:class="btnLinha">
+                            <f:setPropertyActionListener target="#{acaoFacade.acao}" value="#{acao}"/>
+                        </h:commandLink>
+                    </h:form>
+                </p:column>
+
+                <p:column headerText="Opções" styleClass="linha-opc">
+                    <h:form>
+                        <h:commandLink action="#{navegacaoMB.actionAcoesEditar()}" value="editar">
+                            <f:setPropertyActionListener target="#{acaoFacade.acao}" value="#{acao}"/>
+                        </h:commandLink>
+                        <h:commandLink action="#{navegacaoMB.actionAcoesVisualizar()}" value="ações">
+                            <f:setPropertyActionListener target="#{acaoFacade.acao}" value="#{acao}"/>
+                        </h:commandLink>
+                    </h:form>
+                </p:column>
+
+            </p:dataTable>
+
+        </div>
+
+    </ui:define>
+</ui:composition>

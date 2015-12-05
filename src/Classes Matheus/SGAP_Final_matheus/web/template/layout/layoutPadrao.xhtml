@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:jsf="http://xmlns.jcp.org/jsf"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://java.sun.com/jstl/core">
+
+<f:view contentType="text/html">
+    <head jsf:id="head">
+        <title>SGAP - Sistema de Gerenciamento de Ações e Promoções - WGBN Software House, inc.</title>
+        <meta content="text/html;charset=UTF-8" http-equiv="Content-Type"/>
+
+        <link type="text/css" rel="stylesheet" href="#{request.contextPath}/template/css/uikit.almost-flat.min.css"/>
+        <link type="text/css" rel="stylesheet" href="#{request.contextPath}/template/css/mixins.css"/>
+        <link type="text/css" rel="stylesheet" href="#{request.contextPath}/template/css/reset.css"/>
+        <link type="text/css" rel="stylesheet" href="#{request.contextPath}/template/css/fonts.css"/>
+        <link type="text/css" rel="stylesheet" href="#{request.contextPath}/template/css/style.css"/>
+
+        <script type="text/javascript" language="JavaScript" src="#{request.contextPath}/template/js/app.js"></script>
+        <script type="text/javascript" language="JavaScript" src="#{request.contextPath}/template/js/uikit.min.js"></script>
+
+        <!-- Hotjar Tracking Code for tomcat-pi2015.rhcloud.com -->
+        <script>
+            (function(h,o,t,j,a,r){
+                h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+                h._hjSettings={hjid:109611,hjsv:5};
+                a=o.getElementsByTagName('head')[0];
+                r=o.createElement('script');r.async=1;
+                r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+                a.appendChild(r);
+            })(window,document,'//static.hotjar.com/c/hotjar-','.js?sv=');
+        </script>
+
+    </head>
+
+    <f:event listener="#{usuarioFacade.vefificaAcesso()}" type="preRenderView" />
+
+    <h:body styleClass="app">
+
+        <p:ajaxStatus>
+
+            <f:facet name="start">
+                <div class="pAjax">
+                    <img src="#{request.contextPath}/template/img/loadingwin.gif"/>
+                </div>
+
+            </f:facet>
+
+            <f:facet name="complete">
+                <h:outputText value="" />
+            </f:facet>
+        </p:ajaxStatus>
+
+        <p:growl id="msg" sticky="false" showSummary="true" showDetail="true" life="5000" severity="info, warn" />
+
+        <div class="layout-menu esquerda">
+            <ui:include src="../../template/layout/menu.xhtml"/>
+
+        </div>
+        <div class="layout-topo topo">
+            <ui:include src="../../template/layout/topo.xhtml"/>
+        </div>
+        <div class="layout-area tela">
+            <div class="area">
+                <ui:insert name="tela"></ui:insert>
+            </div>
+        </div>
+
+    </h:body>
+</f:view>
+
+</html>

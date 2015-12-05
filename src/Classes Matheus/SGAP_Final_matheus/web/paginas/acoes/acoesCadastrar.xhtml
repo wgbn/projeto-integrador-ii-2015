@@ -1,0 +1,82 @@
+<ui:composition
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:jsf="http://xmlns.jcp.org/jsf"
+        xmlns:h="http://xmlns.jcp.org/jsf/html"
+        xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+        xmlns:f="http://xmlns.jcp.org/jsf/core"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+        template="/template/layout/layoutPadrao.xhtml">
+    <ui:define name="tela">
+
+        <f:event listener="#{acaoFacade.aoCarregarCriarAcao}" type="preRenderView" />
+
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDS1qn3tsLHgyDD_MWVH21hEYzjYITwfN0"></script>
+
+        <div class="usuarios-cadastro">
+            <h1>Cadastro de Ação</h1>
+
+            <div class="formulario">
+                <h:form styleClass="uk-form">
+                    <p:outputPanel autoUpdate="true">
+                        <p:messages severity="error" id="messages" showDetail="true" autoUpdate="true" closable="true" />
+
+                        <h5>Dados Básicos</h5>
+
+                        <p:outputLabel for="datainicio" value="Data de início" />
+                        <p:calendar id="datainicio" value="#{acaoFacade.dataInicio}" pattern="dd/MM/yyyy HH:mm:ss" required="true" pt:editable="false" pt:placeholder="Quando inicia a ação..."></p:calendar>
+
+                        <p:outputLabel for="datafim" value="Data de término" />
+                        <p:calendar id="datafim" value="#{acaoFacade.dataFim}" pattern="dd/MM/yyyy HH:mm:ss" required="true" pt:editable="false" pt:placeholder="Quando termina a ação..."></p:calendar>
+
+                        <p:outputLabel for="titulo" value="Título/nome"/>
+                        <p:inputText id="titulo" value="#{acaoFacade.acao.titulo}" pt:placeholder="Dê um nome a esta ação..." required="true"/>
+
+                        <p:outputLabel for="descricao">descrição</p:outputLabel>
+                        <p:inputTextarea id="descricao" value="#{acaoFacade.acao.descricao}" required="true" pt:placeholder="Faça uma descrição sobre esta ação..."/>
+
+                        <p:outputLabel for="tipo">Tipo da ação</p:outputLabel>
+                        <h:selectOneMenu id="tipo" value="#{acaoFacade.acao.tipoacao.id}">
+                            <f:selectItem itemLabel="Escolha..." itemValue=""/>
+                            <f:selectItems value="#{acaoFacade.tipos}" var="tipo" itemLabel="#{tipo.tipo}" itemValue="#{tipo.id}" />
+                        </h:selectOneMenu>
+
+                        <h5>Cliente Desta Ação</h5>
+
+                        <p:outputLabel for="cliente">Cliente</p:outputLabel>
+                        <h:selectOneMenu id="cliente" value="#{acaoFacade.acao.cliente.id}">
+                            <f:selectItem itemLabel="Escolha..." itemValue=""/>
+                            <f:selectItems value="#{acaoFacade.clientes}" var="cliente" itemLabel="#{cliente.nome}" itemValue="#{cliente.id}" />
+                        </h:selectOneMenu>
+
+                        <h5>Local da Ação</h5>
+
+                        <p:outputLabel for="local" value="Endereço"/>
+                        <p:inputText id="local" value="#{acaoFacade.acao.local}" pt:placeholder="Endereço desta ação..." styleClass="txtLocal" required="true"/>
+
+                        <!--div class="mapa" id="mapa" style="width: 100%; margin: auto; min-height: 300px;"></div-->
+                        <h:inputText styleClass="hidLat" value="#{acaoFacade.acao.latitude}"/>
+                        <h:inputText styleClass="hidLon" value="#{acaoFacade.acao.longitude}"/>
+                        <p:gmap id="geoMap" widgetVar="geoMap"
+                                styleClass="areaMapa"
+                                center="-14.2392976,-53.1805017"
+                                zoom="3"
+                                type="ROADMAP"
+                                model="#{acaoFacade.carregaMapa}"
+                                style="width: 100%; margin: auto; min-height: 300px;"/>
+
+                        <h5>Financeiro</h5>
+
+                        <p:outputLabel for="valor" value="Valor da ação"/>
+                        <p:inputText id="valor" value="#{acaoFacade.acao.valor}" pt:placeholder="Orçamento para esta ação..."/>
+
+                        <a jsf:action="#{acaoFacade.cadastrarAcao()}" class="paper-btn">Cadastrar</a>
+                    </p:outputPanel>
+                </h:form>
+            </div>
+        </div>
+
+        <script type="text/javascript" src="#{request.contextPath}/template/js/acoesCadastrar.js"></script>
+
+    </ui:define>
+</ui:composition>

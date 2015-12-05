@@ -1,0 +1,39 @@
+<ui:composition
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:jsf="http://xmlns.jcp.org/jsf"
+        xmlns:h="http://xmlns.jcp.org/jsf/html"
+        xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+        xmlns:f="http://xmlns.jcp.org/jsf/core"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+        template="/template/layout/layoutPadrao.xhtml">
+    <ui:define name="tela">
+
+        <div class="usuarios-cadastro">
+            <h1>Editar TipoAcao</h1>
+
+            <div class="formulario">
+                <h:form>
+                    <h5>Dados Básicos</h5>
+
+                    <h:outputLabel value="Tipo"/>
+                    <h:inputText value="#{TipoAcaoFacade.tipoAcao.tipo}" pt:placeholder="Tipo da acao..." rendered="true"/>
+
+                 <p:column headerText="Data Inicio">
+                    <h:outputText value="#{TipoAcaoFacade.tipoAcao.datainicio}"/>
+                </p:column>
+                
+                 <p:column headerText="Data Fim">
+                    <h:outputText value="#{TipoAcaoFacade.tipoAcao.datafim}"/>
+                </p:column>
+
+                    <a jsf:action="#{TipoAcaoFacade.alterarTipoAcao()}" class="paper-btn">Salvar</a>
+                    <a href="#" class="paper-btn paper-cancel btnDeTipoAcao">Excluir TipoAcao</a>
+                    <a href="" jsf:action="#{TipoAcaoFacade.apagarTipoAcao()}" class="oculto btnDelTipoAcaoOculto">oculto</a>
+
+                </h:form>
+            </div>
+        </div>
+
+    </ui:define>
+</ui:composition>
