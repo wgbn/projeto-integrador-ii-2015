@@ -537,6 +537,24 @@
                     margin: auto;
                 }
             }
+
+            & .tipos-cadastro {
+                & .add-tipo {
+                    width: 100%;
+                    max-width: 850px;
+                    margin: auto;
+                    & input[type=text] {
+                        margin-bottom: 1em;
+                        width: 50%;
+                        box-sizing: border-box;
+                        padding: .4em 0;
+                        border: 0;
+                        border-bottom: 3px solid #73879C;
+                        background-color: transparent;
+                        @include border-radius(0);
+                    }
+                }
+            }
         }
     }
 

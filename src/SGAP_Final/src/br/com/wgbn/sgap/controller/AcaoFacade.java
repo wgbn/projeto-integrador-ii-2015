@@ -43,7 +43,6 @@ public class AcaoFacade extends GenericoBean {
 
     public AcaoFacade(){
         this.acaoBO = new AcaoBO();
-        System.out.println("##-> AcoesFacade iniciado");
     }
 
     /**

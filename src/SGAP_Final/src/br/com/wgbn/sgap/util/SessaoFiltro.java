@@ -11,7 +11,7 @@ import java.io.IOException;
 /**
  * Created by Walter Gandarella
  */
-@WebFilter("/*")
+@WebFilter("/paginas/*")
 public class SessaoFiltro implements Filter {
 
     // implementação do init e destroy
@@ -27,12 +27,13 @@ public class SessaoFiltro implements Filter {
         HttpSession sessao = ((HttpServletRequest) request).getSession(true);
         String paginaAtual = ((HttpServletRequest) request).getServletPath();
 
-        if (!Sessao.getInstance().isLogado()){
-            //HttpServletResponse res = (HttpServletResponse) response;
-            //res.sendRedirect("http://localhost:8080/SGAP_Final_war_exploded/paginas/usuarios/usuariosLogin.xhtml");
-            if (paginaAtual != "/paginas/usuarios/usuariosLogin.xhtml")
-                System.out.println("## "+paginaAtual);
-        }
+        if (!paginaAtual.contains(".js") || !paginaAtual.contains(".css") || !paginaAtual.contains(".jpg") || !paginaAtual.contains(".gif") || !paginaAtual.contains(".png"))
+            if (!Sessao.getInstance().isLogado()){
+                if (!paginaAtual.contains("Login")){
+                    HttpServletResponse res = (HttpServletResponse) response;
+                    res.sendRedirect(((HttpServletRequest) request).getContextPath()+"/paginas/usuarios/usuariosLogin.xhtml");
+                }
+            }
 
 
         // passa pela porta

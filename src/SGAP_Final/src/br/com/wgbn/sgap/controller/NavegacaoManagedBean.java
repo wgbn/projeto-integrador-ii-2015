@@ -50,4 +50,5 @@ public class NavegacaoManagedBean {
      * ### Navegação de Tipos
      */
     public void actionTiposListar(){ Navegacao.navegarPara("tipos/tiposListar.xhtml"); }
+    public void actionTiposCadastrar(){ Navegacao.navegarPara("tipos/tiposCadastrar.xhtml"); }
 }
