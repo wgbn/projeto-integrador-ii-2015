@@ -3,6 +3,7 @@ package br.com.wgbn.sgap.bo;
 import br.com.wgbn.sgap.dao.ClienteDAO;
 import br.com.wgbn.sgap.entity.AcaoEntity;
 import br.com.wgbn.sgap.entity.ClienteEntity;
+import br.com.wgbn.sgap.entity.MetricaEntity;
 import br.com.wgbn.sgap.util.FabricaDAO;
 import br.com.wgbn.sgap.vo.AcaoVO;
 import br.com.wgbn.sgap.vo.ClienteVO;
@@ -46,6 +47,21 @@ public class ClienteBO extends GenericoBO<ClienteEntity, ClienteDAO> {
     }
     public void excluir(ClienteEntity _cliente){
         this.getDao().excluir(_cliente);
+    }
+
+    public MetricaEntity getClienteMetrica(){
+        MetricaEntity cliente = new MetricaEntity();
+        cliente.setDescricao("clientes");
+        cliente.setValor(this.getDao().getTotalClientes().intValue());
+
+        int anterior = this.getDao().getTotalClientesMesAnterior().intValue();
+        int atual = this.getDao().getTotalClientesMesAtual().intValue();
+        String diferenca = atual > anterior ? "+"+(atual - anterior)+" que mês anterior" : "-"+(anterior - atual)+" que mês anterior";
+
+        cliente.setStatusAtual(diferenca);
+        cliente.setIcone("ic-user-tie");
+
+        return cliente;
     }
 
     @Override

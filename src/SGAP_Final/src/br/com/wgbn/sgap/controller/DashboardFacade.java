@@ -1,6 +1,7 @@
 package br.com.wgbn.sgap.controller;
 
 import br.com.wgbn.sgap.bo.AcaoBO;
+import br.com.wgbn.sgap.bo.ClienteBO;
 import br.com.wgbn.sgap.entity.AcaoEntity;
 import br.com.wgbn.sgap.entity.MetricaEntity;
 import br.com.wgbn.sgap.util.Navegacao;
@@ -22,13 +23,16 @@ public class DashboardFacade extends GenericoBean {
     private boolean             logado;
     private List<AcaoEntity>    acoes = new LinkedList<AcaoEntity>();
     private AcaoBO              acaoBO;
+    private ClienteBO           clienteBO;
     private MetricaEntity       metricaCliente;
     private MetricaEntity       metricaAcao;
     private MetricaEntity       metricaReceber;
     private MetricaEntity       metricaPagar;
 
     public DashboardFacade(){
-       this.acaoBO = new AcaoBO();
+        this.acaoBO = new AcaoBO();
+        this.clienteBO = new ClienteBO();
+        this.preencheMetricas();
     }
 
     public MetricaEntity getMetricaCliente() {
@@ -84,7 +88,8 @@ public class DashboardFacade extends GenericoBean {
 
     private void preencheMetricas(){
         this.metricaAcao = new MetricaEntity("ic-bullhorn", "ações", 300, "+ 80 no último mês");
-        this.metricaCliente = new MetricaEntity("ic-user-tie", "clientes", 100, "+ 10 no último mês");
+        //this.metricaCliente = new MetricaEntity("ic-user-tie", "clientes", 100, "+ 10 no último mês");
+        this.metricaCliente = clienteBO.getClienteMetrica();
         this.metricaPagar = new MetricaEntity("ic-coin-dollar", "à pagar", 2500, "10% a mais");
         this.metricaReceber = new MetricaEntity("ic-coin-dollar", "à receber", 1150, "15% a mais");
     }
