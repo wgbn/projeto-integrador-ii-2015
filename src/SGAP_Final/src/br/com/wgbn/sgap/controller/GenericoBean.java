@@ -15,13 +15,12 @@ public abstract class GenericoBean {
         FacesContext.getCurrentInstance().getExternalContext().getSession(true);
     }
 
-    @PostConstruct
+    /*@PostConstruct
     public void vefificaAcesso(){
         System.out.println("## vefificaAcesso()");
-        /*this.init();
 
         if (!Sessao.getInstance().isLogado())
-            Navegacao.navegarPara("usuarios/usuariosLogin.xhtml");*/
-    }
+            Navegacao.navegarPara("usuarios/usuariosLogin.xhtml");
+    }*/
 
 }

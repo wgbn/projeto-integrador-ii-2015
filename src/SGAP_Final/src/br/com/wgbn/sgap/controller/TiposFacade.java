@@ -61,4 +61,12 @@ public class TiposFacade extends GenericoBean {
     public void aoCarregarCriarTipo(ComponentSystemEvent event){
         this.tipoNovo = new TipoacaoEntity();
     }
+
+    public void cadastrarTipo(){
+        this.tipoBO.salvar(this.tipoNovo);
+    }
+
+    public void excluirTipo(){
+        this.tipoBO.excluir(this.tipo);
+    }
 }

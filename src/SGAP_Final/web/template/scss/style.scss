@@ -540,11 +540,12 @@
 
             & .tipos-cadastro {
                 & .add-tipo {
-                    width: 100%;
-                    max-width: 850px;
+                    width: 90%;
+                    //max-width: 850px;
                     margin: auto;
                     & input[type=text] {
                         margin-bottom: 1em;
+                        margin-right: .5em;
                         width: 50%;
                         box-sizing: border-box;
                         padding: .4em 0;

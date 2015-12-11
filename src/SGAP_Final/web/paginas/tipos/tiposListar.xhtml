@@ -18,7 +18,7 @@
 
             <div class="add-tipo">
                 <h:form>
-                    <h:inputText value="#{tiposFacade.tipoNovo.tipo}" pt:placeholder=""/> <a href="" jsf:action="#{tiposFacade.cadastrarTipo()}" class="paper-btn">Adicionar</a>
+                    <h:inputText value="#{tiposFacade.tipoNovo.tipo}" pt:placeholder="Adicione um tipo aqui..."/> <a href="" jsf:action="#{tiposFacade.cadastrarTipo()}" class="paper-btn">Adicionar</a>
                 </h:form>
             </div>
 
@@ -40,10 +40,7 @@
 
                 <p:column headerText="Opções" styleClass="linha-opc">
                     <h:form>
-                        <h:commandLink action="#{navegacaoMB.actionTiposEditar()}" value="editar">
-                            <f:setPropertyActionListener target="#{tiposFacade.tipo}" value="#{tipo}"/>
-                        </h:commandLink>
-                        <h:commandLink action="#{navegacaoMB.actionTiposExcluir()}" value="excluir" style="background-color: #F44336;">
+                        <h:commandLink action="#{tiposFacade.excluirTipo()}" value="excluir" style="background-color: #F44336;">
                             <f:setPropertyActionListener target="#{tiposFacade.tipo}" value="#{tipo}"/>
                         </h:commandLink>
                     </h:form>

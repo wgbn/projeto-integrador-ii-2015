@@ -156,7 +156,8 @@ public class UsuarioFacade extends GenericoBean {
      * @param event
      */
     public void verificaLogado(ComponentSystemEvent event){
-        this.vefificaAcesso();
+        if (!Sessao.getInstance().isLogado())
+            Navegacao.navegarPara("usuarios/usuariosLogin.xhtml");
     }
 
     /**

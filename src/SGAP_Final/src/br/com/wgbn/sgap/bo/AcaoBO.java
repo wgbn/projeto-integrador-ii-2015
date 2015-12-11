@@ -39,10 +39,14 @@ public class AcaoBO extends GenericoBO<AcaoEntity, AcaoDAO> {
     }
 
     public List<AcaoEntity> getTodasNaoRealizadas(){
-        if (Sessao.getInstance().getUsuarioLogado().getGerente() == 1)
-            return this.getDao().getTodosNaoRealizadosGerente();
-        else
-            return this.getDao().getTodosNaoRealizadosPromotor(Sessao.getInstance().getUsuarioLogado().getId());
+        if (Sessao.getInstance().isLogado()) {
+            if (Sessao.getInstance().getUsuarioLogado().getGerente() == 1)
+                return this.getDao().getTodosNaoRealizadosGerente();
+            else
+                return this.getDao().getTodosNaoRealizadosPromotor(Sessao.getInstance().getUsuarioLogado().getId());
+        } else {
+            return null;
+        }
     }
 
     public Set<UsuarioAcaoEntity> setLider(UsuarioAcaoEntity _usuarioAcao, AcaoEntity _acao){

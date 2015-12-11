@@ -1,7 +1,10 @@
 package br.com.wgbn.sgap.controller;
 
+import br.com.wgbn.sgap.bo.AcaoBO;
 import br.com.wgbn.sgap.entity.AcaoEntity;
 import br.com.wgbn.sgap.entity.MetricaEntity;
+import br.com.wgbn.sgap.util.Navegacao;
+import br.com.wgbn.sgap.util.Sessao;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -16,12 +19,17 @@ import java.util.List;
 @SessionScoped
 public class DashboardFacade extends GenericoBean {
 
-    private boolean logado;
-    private List<AcaoEntity> acoes = new LinkedList<AcaoEntity>();
-    private MetricaEntity metricaCliente;
-    private MetricaEntity metricaAcao;
-    private MetricaEntity metricaReceber;
-    private MetricaEntity metricaPagar;
+    private boolean             logado;
+    private List<AcaoEntity>    acoes = new LinkedList<AcaoEntity>();
+    private AcaoBO              acaoBO;
+    private MetricaEntity       metricaCliente;
+    private MetricaEntity       metricaAcao;
+    private MetricaEntity       metricaReceber;
+    private MetricaEntity       metricaPagar;
+
+    public DashboardFacade(){
+       this.acaoBO = new AcaoBO();
+    }
 
     public MetricaEntity getMetricaCliente() {
         return metricaCliente;
@@ -55,13 +63,10 @@ public class DashboardFacade extends GenericoBean {
         this.metricaPagar = metricaPagar;
     }
 
-    public DashboardFacade(){
-        this.preencheTimeline();
-        this.preencheMetricas();
-
-    }
-
     public List<AcaoEntity> getAcoes() {
+        if (!Sessao.getInstance().isLogado())
+            this.acoes = this.acaoBO.getTodasNaoRealizadas();
+
         return acoes;
     }
 
@@ -75,21 +80,6 @@ public class DashboardFacade extends GenericoBean {
 
     public void setLogado(boolean logado) {
         this.logado = logado;
-    }
-
-    private void preencheTimeline(){
-        AcaoEntity acao;
-
-        for (int i = 1; i < 11; i++){
-            acao = new AcaoEntity();
-            acao.setId(i);
-            //acao.setDatainicio(new Timestamp(2015, 11, 7, 10, 50, 0));
-            //acao.setDatafim(new Timestamp(2015, 11, 7, 11, 50, 0));
-            acao.setDescricao("Uma ação para comemorar o nascimento de Theo");
-            acao.setLocal("Centro, Lauro de Freitas - BA");
-            acao.setTitulo("Bem vindo Theo!");
-            this.acoes.add(acao);
-        }
     }
 
     private void preencheMetricas(){

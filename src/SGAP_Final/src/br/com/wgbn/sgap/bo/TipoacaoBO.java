@@ -7,6 +7,8 @@ import br.com.wgbn.sgap.util.FabricaDAO;
 import br.com.wgbn.sgap.vo.AcaoVO;
 import br.com.wgbn.sgap.vo.TipoacaoVO;
 
+import java.sql.Timestamp;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -22,6 +24,7 @@ public class TipoacaoBO extends GenericoBO<TipoacaoEntity, TipoacaoDAO> {
     }
 
     public TipoacaoEntity salvar(TipoacaoEntity _tipo){
+        _tipo.setDatacriacao(new Timestamp(new Date().getTime()));
         return this.getDao().salvar(_tipo);
     }
 
