@@ -45,6 +45,7 @@ public class AcaoBO extends GenericoBO<AcaoEntity, AcaoDAO> {
             else
                 return this.getDao().getTodosNaoRealizadosPromotor(Sessao.getInstance().getUsuarioLogado().getId());
         } else {
+            System.out.println("## getTodasNaoRealizadas() NULL");
             return null;
         }
     }
@@ -145,5 +146,35 @@ public class AcaoBO extends GenericoBO<AcaoEntity, AcaoDAO> {
             }
         }
         return false;
+    }
+
+    public MetricaEntity getAcaoMetrica(){
+        MetricaEntity acao = new MetricaEntity();
+        acao.setDescricao("ações");
+        acao.setValor(this.getDao().getTotalAcoes().intValue());
+
+        int anterior = this.getDao().getTotalAcoesMesAnterior().intValue();
+        int atual = this.getDao().getTotalAcoesMesAtual().intValue();
+        String diferenca = atual > anterior ? "+"+(atual - anterior)+" que no mês anterior" : "-"+(anterior - atual)+" que mês anterior";
+
+        acao.setStatusAtual(diferenca);
+        acao.setIcone("ic-bullhorn");
+
+        return acao;
+    }
+
+    public MetricaEntity getReceberMetrica(){
+        MetricaEntity receber = new MetricaEntity();
+        receber.setDescricao("à receber");
+
+        int anterior = this.getDao().getTotalReceberMesAnterior().intValue();
+        int atual = this.getDao().getTotalReceberMesAtual().intValue();
+        String diferenca = atual > anterior ? "+"+(atual - anterior)+" que no mês anterior" : "-"+(anterior - atual)+" que mês anterior";
+
+        receber.setStatusAtual(diferenca);
+        receber.setValor(atual);
+        receber.setIcone("ic-coin-dollar");
+
+        return receber;
     }
 }

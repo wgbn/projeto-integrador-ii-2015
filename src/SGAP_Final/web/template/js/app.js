@@ -67,4 +67,11 @@ $(document).ready(function(){
             $('.btnDelUsuarioOculto').click();
         });
     });
+
+    $(".btnDelAcao").click(function(e){
+        e.preventDefault();
+        UIkit.modal.confirm("Tem certeza que deseja excluir esta ação?", function(){
+            $('.btnDelAcaoOculto').click();
+        });
+    });
 });

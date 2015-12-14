@@ -287,12 +287,13 @@
                                     text-align: center;
                                 }
                                 & .dia {
-                                    font-size: 1.2em;
-                                    line-height: normal;
+                                    font-size: 1.3em;
+                                    line-height: .7em;
+                                    margin-bottom: .1em;
                                 }
-                                & .semana {
+                                & .semana, & .mes {
                                     text-transform: uppercase;
-                                    font-size: .7em;
+                                    font-size: .6em;
                                 }
                             }
                         }
@@ -300,18 +301,36 @@
                             width: 90%;
                             //padding-top: 8%;
 
-                            & .caixa {
-                                width: 95%;
-                                border: 1px solid #73879C;
-                                padding: .6em;
-                                margin-left: 5%;
-                                margin-top: 8%;
-                                cursor: pointer;
-                                @include border-radius-separate(0, 10px, 10px, 10px);
+                            & a {
+                                text-decoration: none;
+                                color: #73879C;
 
-                                &:hover {
-                                    background-color: #73879C;
-                                    color: #fff;
+                                & .caixa {
+                                    width: 95%;
+                                    border: 1px solid #73879C;
+                                    padding: .6em;
+                                    margin-left: 5%;
+                                    margin-top: 8%;
+                                    cursor: pointer;
+                                    @include border-radius-separate(0, 10px, 10px, 10px);
+
+                                    & strong {
+                                        font-weight: bold;
+                                    }
+
+                                    & p, & .cliente {
+                                        margin: .3em 0 0;
+                                    }
+
+                                    & .cliente {
+                                        color: #1ABB9C;
+                                        display: block;
+                                    }
+
+                                    &:hover {
+                                        background-color: #73879C;
+                                        color: #fff;
+                                    }
                                 }
                             }
                         }

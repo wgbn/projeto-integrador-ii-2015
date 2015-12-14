@@ -120,9 +120,16 @@ public class AcaoFacade extends GenericoBean {
         if (Utilidades.isNewRequest()){
             this.acao = new AcaoEntity();
             this.acao.setDatacriacao(new Timestamp(new Date().getTime()));
+            this.dataInicio = this.dataFim = null;
             this.acaoBO.resetEntity();
         }
     }
+
+    public void aoCarregarEditarAcao(ComponentSystemEvent event){
+        this.dataInicio = new Date(this.acao.getDatainicio().getTime());
+        this.dataFim = new Date(this.acao.getDatafim().getTime());
+    }
+
     public void aoCarregarPromotoresAcao(ComponentSystemEvent event){
         this.promotor = new UsuarioAcaoEntity();
         this.promotor.setAcao(new AcaoEntity());
@@ -137,6 +144,20 @@ public class AcaoFacade extends GenericoBean {
         this.acaoBO.inserirAcao();
         this.acao = this.acaoBO.getEntity();
         Navegacao.navegarPara("acoes/acoesPromotoresAcao.xhtml");
+    }
+
+    public void atualizarAcao(){
+        this.acao.setDatainicio(new Timestamp(this.dataInicio.getTime()));
+        this.acao.setDatafim(new Timestamp(this.dataFim.getTime()));
+        this.acaoBO.setEntity(this.acao);
+        this.acaoBO.alterar();
+        Navegacao.navegarPara("acoes/acoesPromotoresAcao.xhtml");
+    }
+
+    public void apagarAcao(){
+        this.acaoBO.setEntity(this.acao);
+        this.acaoBO.excluir();
+        Navegacao.navegarPara("acoes/acoesListar.xhtml");
     }
 
     public String getDataLegivel(Timestamp _data){

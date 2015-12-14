@@ -56,7 +56,7 @@ public class ClienteBO extends GenericoBO<ClienteEntity, ClienteDAO> {
 
         int anterior = this.getDao().getTotalClientesMesAnterior().intValue();
         int atual = this.getDao().getTotalClientesMesAtual().intValue();
-        String diferenca = atual > anterior ? "+"+(atual - anterior)+" que mês anterior" : "-"+(anterior - atual)+" que mês anterior";
+        String diferenca = atual > anterior ? "+"+(atual - anterior)+" que no mês anterior" : "-"+(anterior - atual)+" que mês anterior";
 
         cliente.setStatusAtual(diferenca);
         cliente.setIcone("ic-user-tie");

@@ -4,6 +4,7 @@
       xmlns:composite="http://java.sun.com/jsf/composite"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:jsf="http://xmlns.jcp.org/jsf"
       xmlns:ui="http://java.sun.com/jsf/facelets">
 <head>
     <title>Not present in rendered output</title>
@@ -20,16 +21,23 @@
             <div class="esq">
                 <div class="bola">
                     <div>
-                        <span class="dia">#{acao.id}</span>
-                        <span class="semana">sex</span>
+                        <span class="mes">#{dashboardFacade.getMes(acao.datainicio)}</span>
+                        <span class="dia">#{acao.datainicio.getDate()}</span>
+                        <span class="semana">#{dashboardFacade.getDiaDaSemana(acao.datainicio)}</span>
                     </div>
                 </div>
             </div>
             <div class="dir">
-                <div class="caixa">
-                    <strong style="display: block">#{acao.titulo}</strong>
-                    <p>#{acao.descricao}</p>
-                </div>
+                <h:form>
+                    <a href="#" jsf:action="#{navegacaoMB.actionAcoesVisualizar()}">
+                        <f:setPropertyActionListener target="#{acaoFacade.acao}" value="#{acao}"/>
+                        <div class="caixa">
+                            <strong style="display: block">#{dashboardFacade.formataHora(acao.datainicio)}h - #{acao.titulo}</strong>
+                            <span class="cliente">#{acao.cliente.nome}</span>
+                            <p>#{acao.descricao}</p>
+                        </div>
+                    </a>
+                </h:form>
             </div>
         </div>
     </ui:repeat>
