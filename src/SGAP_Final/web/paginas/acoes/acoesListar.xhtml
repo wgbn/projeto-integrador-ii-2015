@@ -72,8 +72,7 @@
 
                 <p:column headerText="Cliente" styleClass="linha-cliente">
                     <h:form>
-                        <h:commandLink action="#{navegacaoMB.actionAcoesVisualizar()}" value="#{acao.cliente.nome}"
-                                       pt:class="btnLinha">
+                        <h:commandLink action="#{navegacaoMB.actionAcoesVisualizar()}" value="#{acao.cliente.nome}" pt:class="btnLinha">
                             <f:setPropertyActionListener target="#{acaoFacade.acao}" value="#{acao}"/>
                         </h:commandLink>
                     </h:form>
@@ -84,7 +83,7 @@
                         <h:commandLink action="#{navegacaoMB.actionAcoesEditar()}" value="editar">
                             <f:setPropertyActionListener target="#{acaoFacade.acao}" value="#{acao}"/>
                         </h:commandLink>
-                        <h:commandLink action="#{navegacaoMB.actionAcoesVisualizar()}" value="ações">
+                        <h:commandLink action="#{navegacaoMB.actionAcoesVisualizar()}" value="detalhes">
                             <f:setPropertyActionListener target="#{acaoFacade.acao}" value="#{acao}"/>
                         </h:commandLink>
                     </h:form>
