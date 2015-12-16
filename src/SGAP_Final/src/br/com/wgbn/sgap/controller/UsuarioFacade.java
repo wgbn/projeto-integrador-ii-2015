@@ -26,8 +26,8 @@ import java.util.List;
 public class UsuarioFacade extends GenericoBean {
 
     private List<UsuarioEntity> usuarios = new LinkedList<UsuarioEntity>();
-    private UsuarioBO       usuarioBO;
-    private UsuarioEntity   usuario;
+    private UsuarioBO           usuarioBO;
+    private UsuarioEntity       usuario;
 
     public UsuarioFacade(){
         this.usuarioBO = new UsuarioBO();
