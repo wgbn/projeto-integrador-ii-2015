@@ -1,12 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:jsf="http://xmlns.jcp.org/jsf"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
-      xmlns:fb="https://www.facebook.com/2008/fbml"
       xmlns:p="http://primefaces.org/ui">
 <f:view>
     <h:head>
@@ -21,23 +19,19 @@
         <link type="text/css" rel="stylesheet" href="#{request.contextPath}/template/css/style.css"/>
     </h:head>
 
-    <f:event listener="#{usuarioFacade.aoCarregarCriarUsuario}" type="preRenderView" />
+    <f:event listener="#{usuarioFacade.aoCarregarCriarUsuario}" type="preRenderView"></f:event>
 
     <h:body styleClass="app">
 
         <script>
             // This is called with the results from from FB.getLoginStatus().
             function statusChangeCallback(response) {
-                console.log('statusChangeCallback');
-                console.log(response);
                 // The response object is returned with a status field that lets the
                 // app know the current login status of the person.
                 // Full docs on the response object can be found in the documentation
                 // for FB.getLoginStatus().
                 if (response.status === 'connected') {
                     // Logged into your app and Facebook.
-                    //$("#facebookUserId").val(response.authResponse.userID);
-                    //$("#btnLoginFace").click();
                 } else if (response.status === 'not_authorized') {
                     // The person is logged into Facebook, but not your app.
                 } else {
@@ -102,28 +96,43 @@
             </f:facet>
 
             <f:facet name="complete">
-                <h:outputText value="" />
+                <h:outputText value=""></h:outputText>
             </f:facet>
         </p:ajaxStatus>
 
         <div class="page-login">
-            <h:form>
+            <h:form styleClass="page-form-login">
+                <div class="titulo">
+                    <strong>SGAP</strong>
+                    <span>Sistema de Gerenciamento<br/>de Ações e Promoções</span>
+                </div>
                 <div class="login">
                     <h3>Acesso</h3>
 
                     <p:messages severity="error" id="messages" showDetail="true" autoUpdate="true" closable="true" />
 
                     <label for="email">E-mail</label>
-                    <input type="text" id="email" jsf:value="#{usuarioFacade.usuario.email}" placeholder="Seu e-mail" />
+                    <input type="text" id="email" jsf:value="#{usuarioFacade.usuario.email}" placeholder="Seu e-mail"/>
 
                     <label for="senha">Senha</label>
-                    <input type="password" id="senha" jsf:value="#{usuarioFacade.usuario.senha}" placeholder="Sua senha" />
+                    <input type="password" id="senha" jsf:value="#{usuarioFacade.usuario.senha}" placeholder="Sua senha"/>
 
                     <a href="" jsf:action="#{usuarioFacade.fazerLoginUsuario()}" class="paper-btn">Entrar</a>
                     <a href="#" class="paper-btn faceLogin"><span class="ic-facebook2"></span> Entrar com Facebook</a>
-                    <!--fb:login-button scope="public_profile,email" onlogin="checkLoginState();"></fb:login-button-->
                 </div>
             </h:form>
+
+            <div class="overlay"></div>
+
+            <!--[if lt IE 9]>
+            <script>
+            document.createElement('video');
+            </script>
+            <![endif]-->
+            <video autoplay="" loop="" id="video-capa">
+                <source src="http://wgbn.com.br/img/video-pi-menor.webm" type="video/webm"/>
+                <source src="http://wgbn.com.br/img/video-pi-menor.mp4" type="video/mpeg"/>
+            </video>
         </div>
 
         <div style="display: none;">
