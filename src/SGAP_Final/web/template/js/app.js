@@ -74,4 +74,20 @@ $(document).ready(function(){
             $('.btnDelAcaoOculto').click();
         });
     });
+
+    $('.faceLogin').click(function(e){
+        e.preventDefault();
+        FB.login(function(response) {
+            if (response.status === 'connected') {
+                // Logged into your app and Facebook.
+                $("#facebookUserId").val(response.authResponse.userID);
+                $("#btnLoginFace").click();
+            } else if (response.status === 'not_authorized') {
+                // The person is logged into Facebook, but not your app.
+            } else {
+                // The person is not logged into Facebook, so we're not sure if
+                // they are logged into this app or not.
+            }
+        }, {scope: 'public_profile,email'});
+    });
 });

@@ -116,6 +116,16 @@ public class UsuarioFacade extends GenericoBean {
         }
     }
 
+    public void aoVincularFacebook(ComponentSystemEvent event){
+        if (Sessao.getInstance().isLogado()){
+            this.usuario = Sessao.getInstance().getUsuarioLogado();
+        }
+    }
+
+    public boolean isVinculoFacebook(){
+        return Sessao.getInstance().getUsuarioLogado().getFacebookUserId().isEmpty();
+    }
+
     /**
      * Faz o cadastro de um usuário e persiste no banco
      * @throws NoSuchAlgorithmException
@@ -173,11 +183,24 @@ public class UsuarioFacade extends GenericoBean {
             Navegacao.navegarPara("index.xhtml");
     }
 
+    public void fazerLoginFacebook(){
+        this.usuarioBO.setEntity(this.usuario);
+        if (!this.usuarioBO.validarLoginFacebook())
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Atenção!", "O login com Facebook não funcionou."));
+        else
+            Navegacao.navegarPara("index.xhtml");
+    }
+
     /**
      * Faz o logout do usuário no sistema
      */
     public void logOut(){
         Sessao.getInstance().setUsuarioLogado(null);
         this.verificaLogado(null);
+    }
+
+    public void vincularFacebook(){
+        this.usuarioBO.setEntity(this.usuario);
+        this.usuarioBO.vincularFacebook();
     }
 }

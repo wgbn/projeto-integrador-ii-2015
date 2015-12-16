@@ -9,6 +9,7 @@ import br.com.wgbn.sgap.util.Sessao;
 import br.com.wgbn.sgap.vo.UsuarioAcaoVO;
 import br.com.wgbn.sgap.vo.UsuarioVO;
 
+import javax.persistence.NoResultException;
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -96,6 +97,29 @@ public class UsuarioBO extends GenericoBO<UsuarioEntity, UsuarioDAO> {
         return false;
     }
 
+    public boolean validarLoginFacebook(){
+        return this.validarLoginUsuarioFacebook();
+    }
+
+    public boolean validarLoginFacebook(UsuarioEntity _usuario){
+        this.setEntity(_usuario);
+        return this.validarLoginUsuarioFacebook();
+    }
+
+    private boolean validarLoginUsuarioFacebook(){
+        UsuarioEntity usuarioNoBanco = this.getDao().getPorFacebookId(this.getEntity().getFacebookUserId());
+
+        if (usuarioNoBanco != null){
+            Sessao.getInstance().setUsuarioLogado(usuarioNoBanco);
+            return true;
+        }
+        return false;
+    }
+
+    public void vincularFacebook(){
+        this.getDao().alterar(this.getEntity());
+    }
+
     public List<UsuarioEntity> getTodos(){
         return this.getDao().getTodos();
     }
@@ -119,7 +143,6 @@ public class UsuarioBO extends GenericoBO<UsuarioEntity, UsuarioDAO> {
                 }
             }
         }
-        System.out.println("## getTodosDisponiveis");
         return usuarios;
     }
 

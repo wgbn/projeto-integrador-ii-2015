@@ -27,6 +27,7 @@ public class UsuarioEntity implements Serializable {
     private Timestamp dataedicao;
     private String telefoneFixo;
     private String telefoneCelular;
+    private String facebookUserId;
     private Set<UsuarioAcaoEntity> acoes;
 
     public UsuarioEntity() { this.acoes = new HashSet<UsuarioAcaoEntity>(); }
@@ -154,6 +155,15 @@ public class UsuarioEntity implements Serializable {
     }
     public void setTelefoneCelular(String telefoneCelular) {
         this.telefoneCelular = telefoneCelular;
+    }
+
+    @Basic
+    @Column(name = "facebook_user_id", nullable = true, insertable = true, updatable = true, length = 150)
+    public String getFacebookUserId() {
+        return facebookUserId;
+    }
+    public void setFacebookUserId(String facebookUserId) {
+        this.facebookUserId = facebookUserId;
     }
 
     @Override
