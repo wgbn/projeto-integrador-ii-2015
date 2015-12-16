@@ -86,13 +86,18 @@
                     }(document, 'script', 'facebook-jssdk'));
                 </script>
 
-                <fb:login-button scope="public_profile,email" onlogin="checkLoginState();"></fb:login-button>
+                <!--fb:login-button scope="public_profile,email" onlogin="checkLoginState();"></fb:login-button-->
+                <a href="#" class="paper-btn faceLogin"><span class="ic-facebook2"></span> Vincular conta ao Facebook</a>
                 <div style="display: none;">
                     <h:form>
                         <input type="hidden" jsf:value="#{usuarioFacade.usuario.facebookUserId}" id="facebookUserId" class="facebookUserId"/>
                         <a href="" jsf:action="#{usuarioFacade.vincularFacebook()}" id="btnLoginFace">face</a>
                     </h:form>
                 </div>
+            </c:if>
+
+            <c:if test="#{usuarioFacade.usuarioLogado.facebookUserId != null}">
+                <em>Sua conta já está vinculada ao Facebook</em>
             </c:if>
 
         </div>

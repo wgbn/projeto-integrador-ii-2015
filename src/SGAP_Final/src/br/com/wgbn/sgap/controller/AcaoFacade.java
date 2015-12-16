@@ -5,7 +5,6 @@ import br.com.wgbn.sgap.entity.*;
 import br.com.wgbn.sgap.util.Navegacao;
 import br.com.wgbn.sgap.util.Sessao;
 import br.com.wgbn.sgap.util.Utilidades;
-import br.com.wgbn.sgap.vo.PromotorVO;
 import org.primefaces.model.map.DefaultMapModel;
 import org.primefaces.model.map.MapModel;
 import org.primefaces.model.map.Marker;
@@ -39,7 +38,6 @@ public class AcaoFacade extends GenericoBean {
     private Date            dataInicio;
     private Date            dataFim;
     private UsuarioAcaoEntity promotor;
-    private PromotorVO      promotorVO;
 
     public AcaoFacade(){
         this.acaoBO = new AcaoBO();
@@ -101,12 +99,6 @@ public class AcaoFacade extends GenericoBean {
         return _flag == 0 ? "Não":"Sim";
     }
 
-    public PromotorVO getPromotorVO() {
-        return promotorVO;
-    }
-    public void setPromotorVO(PromotorVO promotorVO) {
-        this.promotorVO = promotorVO;
-    }
     /**
     * Métodos do facade
     */

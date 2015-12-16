@@ -1,14 +1,9 @@
 package br.com.wgbn.sgap.bo;
 
 import br.com.wgbn.sgap.dao.AcaoDAO;
-import br.com.wgbn.sgap.dao.ClienteDAO;
-import br.com.wgbn.sgap.dao.TipoacaoDAO;
-import br.com.wgbn.sgap.dao.UsuarioAcaoDAO;
 import br.com.wgbn.sgap.entity.*;
 import br.com.wgbn.sgap.util.FabricaDAO;
 import br.com.wgbn.sgap.util.Sessao;
-import br.com.wgbn.sgap.vo.AcaoVO;
-import br.com.wgbn.sgap.vo.UsuarioAcaoVO;
 
 import java.sql.Timestamp;
 import java.util.Date;

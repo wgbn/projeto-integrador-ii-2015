@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>br.com.wgbn.sgap</OriginalElement>
+  <nodes>
+    <node x="329.0" y="614.0">br.com.wgbn.sgap.entity.MetricaEntity</node>
+    <node x="285.5" y="0.0">br.com.wgbn.sgap.dao.IF_DAO</node>
+    <node x="269.0" y="760.0">br.com.wgbn.sgap.util.Sessao</node>
+    <node x="0.0" y="687.0">br.com.wgbn.sgap.util.SessaoFiltro</node>
+    <node x="0.0" y="760.0">br.com.wgbn.sgap.util.Utilidades</node>
+    <node x="0.0" y="541.0">br.com.wgbn.sgap.controller.NavegacaoManagedBean</node>
+    <node x="147.99999999999997" y="468.0">br.com.wgbn.sgap.bo.ClienteBO</node>
+    <node x="513.0" y="156.0">br.com.wgbn.sgap.dao.TipoacaoDAO</node>
+    <node x="260.0" y="468.0">br.com.wgbn.sgap.bo.AcaoBO</node>
+    <node x="157.0" y="156.0">br.com.wgbn.sgap.dao.ClienteDAO</node>
+    <node x="340.0" y="229.0">br.com.wgbn.sgap.controller.GenericoBean</node>
+    <node x="237.0" y="541.0">br.com.wgbn.sgap.util.FacadeEntityManager</node>
+    <node x="154.0" y="687.0">br.com.wgbn.sgap.util.FabricaDAO</node>
+    <node x="360.0" y="468.0">br.com.wgbn.sgap.bo.UsuarioBO</node>
+    <node x="0.0" y="614.0">br.com.wgbn.sgap.entity.TipoacaoEntity</node>
+    <node x="265.5" y="78.0">br.com.wgbn.sgap.dao.GenericoDAO</node>
+    <node x="401.0" y="317.0">br.com.wgbn.sgap.controller.DashboardFacade</node>
+    <node x="387.0" y="156.0">br.com.wgbn.sgap.dao.UsuarioDAO</node>
+    <node x="278.0" y="156.0">br.com.wgbn.sgap.dao.AcaoDAO</node>
+    <node x="169.0" y="614.0">br.com.wgbn.sgap.entity.UsuarioEntity</node>
+    <node x="477.0" y="468.0">br.com.wgbn.sgap.bo.TipoacaoBO</node>
+    <node x="270.0" y="317.0">br.com.wgbn.sgap.controller.TiposFacade</node>
+    <node x="139.0" y="760.0">br.com.wgbn.sgap.controller.MainApp</node>
+    <node x="450.0" y="687.0">br.com.wgbn.sgap.entity.AcaoEntity</node>
+    <node x="487.0" y="614.0">br.com.wgbn.sgap.entity.ClienteEntity</node>
+    <node x="247.49999999999997" y="390.0">br.com.wgbn.sgap.bo.GenericoBO</node>
+    <node x="450.0" y="541.0">br.com.wgbn.sgap.entity.UsuarioAcaoEntity</node>
+    <node x="568.0" y="317.0">br.com.wgbn.sgap.controller.RelatorioFacade</node>
+    <node x="303.0" y="687.0">br.com.wgbn.sgap.util.Navegacao</node>
+    <node x="722.0" y="317.0">br.com.wgbn.sgap.controller.UsuarioFacade</node>
+    <node x="0.0" y="468.0">br.com.wgbn.sgap.bo.UsuarioAcaoBO</node>
+    <node x="0.0" y="156.0">br.com.wgbn.sgap.dao.UsuarioAcaoDAO</node>
+    <node x="141.0" y="317.0">br.com.wgbn.sgap.controller.AcaoFacade</node>
+    <node x="0.0" y="317.0">br.com.wgbn.sgap.controller.ClienteFacade</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="br.com.wgbn.sgap.dao.GenericoDAO" target="br.com.wgbn.sgap.dao.IF_DAO">
+      <point x="0.0" y="-14.0" />
+      <point x="0.0" y="14.0" />
+    </edge>
+    <edge source="br.com.wgbn.sgap.controller.TiposFacade" target="br.com.wgbn.sgap.controller.GenericoBean">
+      <point x="0.0" y="-14.0" />
+      <point x="325.5" y="297.0" />
+      <point x="390.0" y="297.0" />
+      <point x="-10.0" y="14.0" />
+    </edge>
+    <edge source="br.com.wgbn.sgap.dao.ClienteDAO" target="br.com.wgbn.sgap.dao.GenericoDAO">
+      <point x="0.0" y="-14.0" />
+      <point x="207.5" y="136.0" />
+      <point x="299.70000000000005" y="136.0" />
+      <point x="-22.799999999999955" y="14.0" />
+    </edge>
+    <edge source="br.com.wgbn.sgap.bo.UsuarioBO" target="br.com.wgbn.sgap.bo.GenericoBO">
+      <point x="0.0" y="-14.0" />
+      <point x="408.5" y="448.0" />
+      <point x="321.0" y="448.0" />
+      <point x="21.0" y="14.0" />
+    </edge>
+    <edge source="br.com.wgbn.sgap.controller.UsuarioFacade" target="br.com.wgbn.sgap.controller.GenericoBean">
+      <point x="0.0" y="-14.0" />
+      <point x="785.0" y="277.0" />
+      <point x="450.0" y="277.0" />
+      <point x="50.0" y="14.0" />
+    </edge>
+    <edge source="br.com.wgbn.sgap.bo.AcaoBO" target="br.com.wgbn.sgap.bo.GenericoBO">
+      <point x="0.0" y="-14.0" />
+      <point x="0.0" y="14.0" />
+    </edge>
+    <edge source="br.com.wgbn.sgap.dao.TipoacaoDAO" target="br.com.wgbn.sgap.dao.GenericoDAO">
+      <point x="0.0" y="-14.0" />
+      <point x="570.5" y="126.0" />
+      <point x="368.1" y="126.0" />
+      <point x="45.60000000000002" y="14.0" />
+    </edge>
+    <edge source="br.com.wgbn.sgap.bo.TipoacaoBO" target="br.com.wgbn.sgap.bo.GenericoBO">
+      <point x="0.0" y="-14.0" />
+      <point x="530.0" y="438.0" />
+      <point x="342.0" y="438.0" />
+      <point x="42.0" y="14.0" />
+    </edge>
+    <edge source="br.com.wgbn.sgap.bo.UsuarioAcaoBO" target="br.com.wgbn.sgap.bo.GenericoBO">
+      <point x="0.0" y="-14.0" />
+      <point x="64.0" y="438.0" />
+      <point x="258.0" y="438.0" />
+      <point x="-42.0" y="14.0" />
+    </edge>
+    <edge source="br.com.wgbn.sgap.controller.AcaoFacade" target="br.com.wgbn.sgap.controller.GenericoBean">
+      <point x="0.0" y="-14.0" />
+      <point x="195.5" y="287.0" />
+      <point x="370.0" y="287.0" />
+      <point x="-30.0" y="14.0" />
+    </edge>
+    <edge source="br.com.wgbn.sgap.dao.AcaoDAO" target="br.com.wgbn.sgap.dao.GenericoDAO">
+      <point x="0.0" y="-14.0" />
+      <point x="0.0" y="14.0" />
+    </edge>
+    <edge source="br.com.wgbn.sgap.controller.ClienteFacade" target="br.com.wgbn.sgap.controller.GenericoBean">
+      <point x="0.0" y="-14.0" />
+      <point x="60.5" y="277.0" />
+      <point x="350.0" y="277.0" />
+      <point x="-50.0" y="14.0" />
+    </edge>
+    <edge source="br.com.wgbn.sgap.dao.UsuarioDAO" target="br.com.wgbn.sgap.dao.GenericoDAO">
+      <point x="0.0" y="-14.0" />
+      <point x="440.0" y="136.0" />
+      <point x="345.29999999999995" y="136.0" />
+      <point x="22.799999999999955" y="14.0" />
+    </edge>
+    <edge source="br.com.wgbn.sgap.controller.RelatorioFacade" target="br.com.wgbn.sgap.controller.GenericoBean">
+      <point x="0.0" y="-14.0" />
+      <point x="635.0" y="287.0" />
+      <point x="430.0" y="287.0" />
+      <point x="30.0" y="14.0" />
+    </edge>
+    <edge source="br.com.wgbn.sgap.dao.UsuarioAcaoDAO" target="br.com.wgbn.sgap.dao.GenericoDAO">
+      <point x="0.0" y="-14.0" />
+      <point x="68.5" y="126.0" />
+      <point x="276.9" y="126.0" />
+      <point x="-45.60000000000002" y="14.0" />
+    </edge>
+    <edge source="br.com.wgbn.sgap.controller.DashboardFacade" target="br.com.wgbn.sgap.controller.GenericoBean">
+      <point x="0.0" y="-14.0" />
+      <point x="474.5" y="297.0" />
+      <point x="410.0" y="297.0" />
+      <point x="10.0" y="14.0" />
+    </edge>
+    <edge source="br.com.wgbn.sgap.bo.ClienteBO" target="br.com.wgbn.sgap.bo.GenericoBO">
+      <point x="0.0" y="-14.0" />
+      <point x="193.99999999999997" y="448.0" />
+      <point x="279.0" y="448.0" />
+      <point x="-21.0" y="14.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="545.0" y="343.5" />
+  <SelectedNodes>
+    <node>br.com.wgbn.sgap.dao.AcaoDAO</node>
+  </SelectedNodes>
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

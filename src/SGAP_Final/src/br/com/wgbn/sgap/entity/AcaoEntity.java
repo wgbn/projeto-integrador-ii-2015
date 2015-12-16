@@ -1,13 +1,9 @@
 package br.com.wgbn.sgap.entity;
 
-import br.com.wgbn.sgap.vo.AcaoVO;
-
 import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.sql.Timestamp;
-import java.util.Collection;
-import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -38,24 +34,6 @@ public class AcaoEntity implements Serializable {
         this.tipoacao   = new TipoacaoEntity();
         this.cliente    = new ClienteEntity();
         this.usuario    = new UsuarioEntity();
-        this.usuarios   = new HashSet<UsuarioAcaoEntity>();
-    }
-
-    public AcaoEntity(AcaoVO acao){
-        this.id         = acao.getId();
-        this.datainicio = new Timestamp(acao.getDatainicio().getTime());
-        this.datafim    = new Timestamp(acao.getDatafim().getTime());
-        this.descricao  = acao.getDescricao();
-        this.local      = acao.getLocal();
-        this.latitude   = acao.getLatitude();
-        this.longitude  = acao.getLongitude();
-        this.valor      = acao.getValor();
-        this.titulo     = acao.getTitulo();
-        this.datacriacao = acao.getDatacriacao();
-        this.dataedicao = acao.getDataedicao();
-        this.cliente    = new ClienteEntity(acao.getCliente());
-        this.tipoacao   = new TipoacaoEntity(acao.getTipoacao());
-        this.usuario    = new UsuarioEntity(acao.getUsuario());
         this.usuarios   = new HashSet<UsuarioAcaoEntity>();
     }
 

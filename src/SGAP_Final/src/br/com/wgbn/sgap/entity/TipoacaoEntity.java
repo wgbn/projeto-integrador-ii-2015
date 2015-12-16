@@ -1,11 +1,8 @@
 package br.com.wgbn.sgap.entity;
 
-import br.com.wgbn.sgap.vo.TipoacaoVO;
-
 import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Timestamp;
-import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -23,14 +20,6 @@ public class TipoacaoEntity implements Serializable {
     private Set<AcaoEntity> acoes;
 
     public TipoacaoEntity(){}
-
-    public TipoacaoEntity(TipoacaoVO tipo){
-        this.id         = tipo.getId();
-        this.tipo       = tipo.getTipo();
-        this.datacriacao = tipo.getDatacriacao();
-        this.dataedicao = tipo.getDataedicao();
-        this.acoes      = new HashSet<AcaoEntity>();
-    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

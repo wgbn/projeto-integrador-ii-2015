@@ -4,7 +4,6 @@ import br.com.wgbn.sgap.dao.UsuarioAcaoDAO;
 import br.com.wgbn.sgap.entity.AcaoEntity;
 import br.com.wgbn.sgap.entity.UsuarioAcaoEntity;
 import br.com.wgbn.sgap.util.FabricaDAO;
-import br.com.wgbn.sgap.vo.UsuarioAcaoVO;
 
 import java.util.HashSet;
 import java.util.List;

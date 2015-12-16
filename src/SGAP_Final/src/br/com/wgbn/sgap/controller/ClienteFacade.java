@@ -1,13 +1,10 @@
 package br.com.wgbn.sgap.controller;
 
 import br.com.wgbn.sgap.bo.ClienteBO;
-import br.com.wgbn.sgap.bo.UsuarioBO;
-import br.com.wgbn.sgap.dao.ClienteDAO;
 import br.com.wgbn.sgap.entity.ClienteEntity;
 import br.com.wgbn.sgap.util.Navegacao;
 import br.com.wgbn.sgap.util.Sessao;
 import br.com.wgbn.sgap.util.Utilidades;
-import br.com.wgbn.sgap.vo.ClienteVO;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;

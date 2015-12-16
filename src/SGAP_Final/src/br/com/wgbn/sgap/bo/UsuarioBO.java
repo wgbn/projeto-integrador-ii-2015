@@ -6,10 +6,7 @@ import br.com.wgbn.sgap.entity.UsuarioAcaoEntity;
 import br.com.wgbn.sgap.entity.UsuarioEntity;
 import br.com.wgbn.sgap.util.FabricaDAO;
 import br.com.wgbn.sgap.util.Sessao;
-import br.com.wgbn.sgap.vo.UsuarioAcaoVO;
-import br.com.wgbn.sgap.vo.UsuarioVO;
 
-import javax.persistence.NoResultException;
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -34,10 +31,6 @@ public class UsuarioBO extends GenericoBO<UsuarioEntity, UsuarioDAO> {
     public void setResenha(String _resenha) { this.resenha = _resenha; }
 
     public String gerenteToStr(UsuarioEntity _usuario){
-        return _usuario.getGerente() == 1 ? "Sim":"Não";
-    }
-
-    public String gerenteToStr(UsuarioVO _usuario){
         return _usuario.getGerente() == 1 ? "Sim":"Não";
     }
 

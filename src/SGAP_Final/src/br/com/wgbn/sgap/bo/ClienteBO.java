@@ -1,12 +1,9 @@
 package br.com.wgbn.sgap.bo;
 
 import br.com.wgbn.sgap.dao.ClienteDAO;
-import br.com.wgbn.sgap.entity.AcaoEntity;
 import br.com.wgbn.sgap.entity.ClienteEntity;
 import br.com.wgbn.sgap.entity.MetricaEntity;
 import br.com.wgbn.sgap.util.FabricaDAO;
-import br.com.wgbn.sgap.vo.AcaoVO;
-import br.com.wgbn.sgap.vo.ClienteVO;
 
 import java.util.List;
 
