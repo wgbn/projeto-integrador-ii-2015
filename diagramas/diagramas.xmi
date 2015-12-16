@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<XMI verified="false" xmi.version="1.2" timestamp="2015-10-16T17:32:49" xmlns:UML="http://schema.omg.org/spec/UML/1.3">
+<XMI verified="false" xmi.version="1.2" timestamp="2015-12-16T15:38:44" xmlns:UML="http://schema.omg.org/spec/UML/1.3">
  <XMI.header>
   <XMI.documentation>
    <XMI.exporter>umbrello uml modeller http://umbrello.kde.org</XMI.exporter>
@@ -515,7 +515,7 @@
      </UML:Namespace.ownedElement>
      <XMI.extension xmi.extender="umbrello">
       <diagrams>
-       <diagram showopsig="1" linecolor="#ff0000" snapx="25" showattribassocs="1" snapy="25" linewidth="0" showattsig="1" textcolor="#000000" isopen="1" showpackage="1" showpubliconly="1" showstereotype="1" name="diagrama-de-classe-DTOs" font="Sans Serif,9,-1,0,50,0,0,0,0,0" canvasheight="684,3478393554688" canvaswidth="573,9130249023438" localid="-1" snapcsgrid="0" showgrid="0" showops="1" griddotcolor="#d3d3d3" backgroundcolor="#ffffff" usefillcolor="1" fillcolor="#ffff00" zoom="69" xmi.id="tdYfV38EnPHQ" documentation="" showscope="1" snapgrid="0" showatts="1" type="1">
+       <diagram showopsig="1" linecolor="#ff0000" snapx="25" showattribassocs="1" snapy="25" linewidth="0" showattsig="1" textcolor="#000000" isopen="0" showpackage="1" showpubliconly="1" showstereotype="1" name="diagrama-de-classe-DTOs" font="Sans Serif,9,-1,0,50,0,0,0,0,0" canvasheight="684,3478393554688" canvaswidth="573,9130249023438" localid="-1" snapcsgrid="0" showgrid="0" showops="1" griddotcolor="#d3d3d3" backgroundcolor="#ffffff" usefillcolor="1" fillcolor="#ffff00" zoom="69" xmi.id="tdYfV38EnPHQ" documentation="" showscope="1" snapgrid="0" showatts="1" type="1">
         <widgets>
          <classwidget linecolor="none" usesdiagramfillcolor="0" linewidth="0" showoperations="1" textcolor="#000000" usesdiagramusefillcolor="0" showpubliconly="0" showpackage="1" x="-1158" showattsigs="601" showstereotype="1" y="-521,587646484375" showattributes="1" font="Sans Serif,9,-1,0,50,0,0,0,0,0" localid="emU9J99zWRlC" width="226" isinstance="0" usefillcolor="1" fillcolor="#ffff00" xmi.id="krXc8wxH26HA" showscope="1" height="176" showopsigs="601"/>
          <classwidget linecolor="none" usesdiagramfillcolor="0" linewidth="0" showoperations="1" textcolor="#000000" usesdiagramusefillcolor="0" showpubliconly="0" showpackage="1" x="-809,2188110351562" showattsigs="601" showstereotype="1" y="-506,9329223632812" showattributes="1" font="Sans Serif,9,-1,0,50,0,0,0,0,0" localid="SA4zLStjdgM1" width="164" isinstance="0" usefillcolor="1" fillcolor="#ffff00" xmi.id="W5AibfZfE2BB" showscope="1" height="232" showopsigs="601"/>
@@ -524,7 +524,7 @@
          <classwidget linecolor="none" usesdiagramfillcolor="0" linewidth="0" showoperations="1" textcolor="#000000" usesdiagramusefillcolor="0" showpubliconly="0" showpackage="1" x="-769,88671875" showattsigs="601" showstereotype="1" y="-204,3909912109375" showattributes="1" font="Sans Serif,9,-1,0,50,0,0,0,0,0" localid="PlZBiBMb9Voy" width="147" isinstance="0" usefillcolor="1" fillcolor="#ffff00" xmi.id="BrrVXgC1W25E" showscope="1" height="88" showopsigs="601"/>
          <classwidget linecolor="none" usesdiagramfillcolor="0" linewidth="0" showoperations="1" textcolor="#000000" usesdiagramusefillcolor="0" showpubliconly="0" showpackage="1" x="-1064,197509765625" showattsigs="601" showstereotype="1" y="-230,8641967773438" showattributes="1" font="Sans Serif,9,-1,0,50,0,0,0,0,0" localid="6Y6cKbQUeu5R" width="169" isinstance="0" usefillcolor="1" fillcolor="#ffff00" xmi.id="x4c7Mrem25Up" showscope="1" height="120" showopsigs="601"/>
          <boxwidget width="573,9130249023438" showstereotype="1" x="-1182,608764648438" usesdiagramusefillcolor="0" y="-775,3623046875" usesdiagramfillcolor="0" isinstance="0" localid="mBaS2SBJOe5c" fillcolor="#7bff88" height="684,3478393554688" linecolor="#000000" xmi.id="dpE52Y63lvDe" textcolor="#000000" usefillcolor="1" linewidth="0" font="Sans Serif,9,-1,0,50,0,0,0,0,0"/>
-         <floatingtext linecolor="none" usesdiagramfillcolor="0" linewidth="0" textcolor="#000000" usesdiagramusefillcolor="0" x="-1176,811645507812" showstereotype="1" y="-772,4637451171875" text="DTOs" font="Sans Serif,9,-1,0,50,0,0,0,0,0" localid="BsJRLFD7QnXS" pretext="" role="700" width="40" isinstance="0" posttext="" usefillcolor="1" fillcolor="#ffff00" xmi.id="EjjcLnCycP3d" height="20"/>
+         <floatingtext linecolor="none" usesdiagramfillcolor="0" linewidth="0" textcolor="#000000" usesdiagramusefillcolor="0" x="-1176,811645507812" showstereotype="1" y="-772,4637451171875" text="DTOs" font="Sans Serif,9,-1,0,50,0,0,0,0,0" localid="BsJRLFD7QnXS" pretext="" role="700" width="40" isinstance="0" posttext="" usefillcolor="1" fillcolor="#ffff00" xmi.id="EjjcLnCycP3d" height="18"/>
         </widgets>
         <messages/>
         <associations>
@@ -579,7 +579,7 @@
          </assocwidget>
         </associations>
        </diagram>
-       <diagram showopsig="1" linecolor="#ff0000" snapx="25" showattribassocs="1" snapy="25" linewidth="0" showattsig="1" textcolor="#000000" isopen="1" showpackage="1" showpubliconly="1" showstereotype="1" name="diagrama-de-classe-DAOs" font="Sans Serif,9,-1,0,50,0,0,0,0,0" canvasheight="498,1384887695312" canvaswidth="1000" localid="-1" snapcsgrid="0" showgrid="0" showops="1" griddotcolor="#d3d3d3" backgroundcolor="#ffffff" usefillcolor="1" fillcolor="#ffff00" zoom="72" xmi.id="8oCPmVzrI4tA" documentation="" showscope="1" snapgrid="0" showatts="1" type="1">
+       <diagram showopsig="1" linecolor="#ff0000" snapx="25" showattribassocs="1" snapy="25" linewidth="0" showattsig="1" textcolor="#000000" isopen="0" showpackage="1" showpubliconly="1" showstereotype="1" name="diagrama-de-classe-DAOs" font="Sans Serif,9,-1,0,50,0,0,0,0,0" canvasheight="498,1384887695312" canvaswidth="1000" localid="-1" snapcsgrid="0" showgrid="0" showops="1" griddotcolor="#d3d3d3" backgroundcolor="#ffffff" usefillcolor="1" fillcolor="#ffff00" zoom="72" xmi.id="8oCPmVzrI4tA" documentation="" showscope="1" snapgrid="0" showatts="1" type="1">
         <widgets>
          <classwidget linecolor="none" usesdiagramfillcolor="0" linewidth="0" showoperations="1" textcolor="#000000" usesdiagramusefillcolor="0" showpubliconly="0" showpackage="1" x="-640" showattsigs="601" showstereotype="1" y="-1188" showattributes="1" font="Sans Serif,9,-1,0,50,0,0,0,0,0" localid="xNuNeBq8Zzyf" width="242" isinstance="0" usefillcolor="1" fillcolor="#ffff00" xmi.id="iGXmD7EM68lw" showscope="1" height="192" showopsigs="601"/>
          <classwidget linecolor="none" usesdiagramfillcolor="0" linewidth="0" showoperations="1" textcolor="#000000" usesdiagramusefillcolor="0" showpubliconly="1" showpackage="1" x="-1056,934448242188" showattsigs="601" showstereotype="1" y="-1138,737670898438" showattributes="1" font="Sans Serif,9,-1,0,50,0,0,0,0,0" localid="ynCWgiWLkUau" width="350" isinstance="0" usefillcolor="1" fillcolor="#ffff00" xmi.id="AFRMBQ032L4j" showscope="1" height="56" showopsigs="601"/>
@@ -589,7 +589,7 @@
          <classwidget linecolor="none" usesdiagramfillcolor="0" linewidth="0" showoperations="1" textcolor="#000000" usesdiagramusefillcolor="0" showpubliconly="1" showpackage="1" x="-247,3888854980469" showattsigs="601" showstereotype="1" y="-1131,611083984375" showattributes="1" font="Sans Serif,9,-1,0,50,0,0,0,0,0" localid="pAuFyDHk3qvl" width="148" isinstance="0" usefillcolor="1" fillcolor="#ffff00" xmi.id="Zv6iJi4JLciB" showscope="1" height="32" showopsigs="601"/>
          <classwidget linecolor="none" usesdiagramfillcolor="0" linewidth="0" showoperations="1" textcolor="#000000" usesdiagramusefillcolor="0" showpubliconly="1" showpackage="1" x="-669,8524780273438" showattsigs="601" showstereotype="1" y="-887,327880859375" showattributes="1" font="Sans Serif,9,-1,0,50,0,0,0,0,0" localid="PVzj5guvon8m" width="176" isinstance="0" usefillcolor="1" fillcolor="#ffff00" xmi.id="EuStDUbmPhTg" showscope="1" height="32" showopsigs="601"/>
          <boxwidget width="1000" showstereotype="1" x="-1071,666625976562" usesdiagramusefillcolor="0" y="-1211,77783203125" usesdiagramfillcolor="0" isinstance="0" localid="gCxG4Ji9SUJs" fillcolor="#ffff00" height="497,5555419921875" linecolor="#000000" xmi.id="ni8qT2692zyr" textcolor="#000000" usefillcolor="1" linewidth="0" font="Sans Serif,9,-1,0,50,0,0,0,0,0"/>
-         <floatingtext linecolor="none" usesdiagramfillcolor="0" linewidth="0" textcolor="#000000" usesdiagramusefillcolor="0" x="-1058,333374023438" showstereotype="1" y="-1205,666625976562" text="DAOs" font="Sans Serif,9,-1,0,50,0,0,0,0,0" localid="4oTHbNpGXmWZ" pretext="" role="700" width="41" isinstance="0" posttext="" usefillcolor="1" fillcolor="#ffff00" xmi.id="3EhTh0KSiSI9" height="20"/>
+         <floatingtext linecolor="none" usesdiagramfillcolor="0" linewidth="0" textcolor="#000000" usesdiagramusefillcolor="0" x="-1058,333374023438" showstereotype="1" y="-1205,666625976562" text="DAOs" font="Sans Serif,9,-1,0,50,0,0,0,0,0" localid="4oTHbNpGXmWZ" pretext="" role="700" width="41" isinstance="0" posttext="" usefillcolor="1" fillcolor="#ffff00" xmi.id="3EhTh0KSiSI9" height="18"/>
         </widgets>
         <messages/>
         <associations>
@@ -631,7 +631,7 @@
          </assocwidget>
         </associations>
        </diagram>
-       <diagram showopsig="1" linecolor="#ff0000" snapx="25" showattribassocs="1" snapy="25" linewidth="0" showattsig="1" textcolor="#000000" isopen="1" showpackage="1" showpubliconly="1" showstereotype="1" name="diagrama-de-classe-aplicacao" font="Sans Serif,9,-1,0,50,0,0,0,0,0" canvasheight="654,9583282470703" canvaswidth="1456,950622558594" localid="-1" snapcsgrid="0" showgrid="0" showops="1" griddotcolor="#d3d3d3" backgroundcolor="#ffffff" usefillcolor="1" fillcolor="#ffff00" zoom="75" xmi.id="98JHAzm4JEiR" documentation="" showscope="1" snapgrid="0" showatts="1" type="1">
+       <diagram showopsig="1" linecolor="#ff0000" snapx="25" showattribassocs="1" snapy="25" linewidth="0" showattsig="1" textcolor="#000000" isopen="0" showpackage="1" showpubliconly="1" showstereotype="1" name="diagrama-de-classe-aplicacao" font="Sans Serif,9,-1,0,50,0,0,0,0,0" canvasheight="654,9583282470703" canvaswidth="1456,950622558594" localid="-1" snapcsgrid="0" showgrid="0" showops="1" griddotcolor="#d3d3d3" backgroundcolor="#ffffff" usefillcolor="1" fillcolor="#ffff00" zoom="75" xmi.id="98JHAzm4JEiR" documentation="" showscope="1" snapgrid="0" showatts="1" type="1">
         <widgets>
          <classwidget linecolor="#ff0000" usesdiagramfillcolor="0" linewidth="0" showoperations="1" textcolor="#000000" usesdiagramusefillcolor="0" showpubliconly="0" showpackage="1" x="-1162,083374023438" showattsigs="601" showstereotype="1" y="-664,0125122070312" showattributes="1" font="Sans Serif,9,-1,0,50,0,0,0,0,0" localid="EQqTIE2PLMgV" width="297" isinstance="0" usefillcolor="1" fillcolor="#ffff00" xmi.id="XQTbCOYmS7eW" showscope="1" height="304" showopsigs="601"/>
          <classwidget linecolor="#ff0000" usesdiagramfillcolor="0" linewidth="0" showoperations="1" textcolor="#000000" usesdiagramusefillcolor="0" showpubliconly="0" showpackage="1" x="-1692" showattsigs="601" showstereotype="1" y="-570" showattributes="1" font="Sans Serif,9,-1,0,50,0,0,0,0,0" localid="pHaHOEmbec4u" width="395" isinstance="0" usefillcolor="1" fillcolor="#ffff00" xmi.id="JRXadF1AdTlp" showscope="1" height="56" showopsigs="601"/>
@@ -713,7 +713,7 @@
         </messages>
         <associations/>
        </diagram>
-       <diagram showopsig="1" linecolor="#ff0000" snapx="25" showattribassocs="1" snapy="25" linewidth="0" showattsig="1" textcolor="#000000" isopen="1" showpackage="1" showpubliconly="1" showstereotype="1" name="diagrama-de-sequencia-promotor-listar-acoes" font="Sans Serif,9,-1,0,50,0,0,0,0,0" canvasheight="283" canvaswidth="850,5101928710938" localid="-1" snapcsgrid="0" showgrid="0" showops="1" griddotcolor="#d3d3d3" backgroundcolor="#ffffff" autoincrementsequence="1" usefillcolor="1" fillcolor="#ffff00" zoom="98" xmi.id="vDBtYXMBwOnZ" documentation="" showscope="1" snapgrid="0" showatts="1" type="3">
+       <diagram showopsig="1" linecolor="#ff0000" snapx="25" showattribassocs="1" snapy="25" linewidth="0" showattsig="1" textcolor="#000000" isopen="0" showpackage="1" showpubliconly="1" showstereotype="1" name="diagrama-de-sequencia-promotor-listar-acoes" font="Sans Serif,9,-1,0,50,0,0,0,0,0" canvasheight="285" canvaswidth="850,5101928710938" localid="-1" snapcsgrid="0" showgrid="0" showops="1" griddotcolor="#d3d3d3" backgroundcolor="#ffffff" autoincrementsequence="1" usefillcolor="1" fillcolor="#ffff00" zoom="98" xmi.id="vDBtYXMBwOnZ" documentation="" showscope="1" snapgrid="0" showatts="1" type="3">
         <widgets>
          <objectwidget linecolor="none" usesdiagramfillcolor="1" linewidth="0" textcolor="#000000" usesdiagramusefillcolor="1" x="-1297" decon="0" showstereotype="1" y="80" font="Sans Serif,9,-1,0,50,0,0,0,0,0" localid="eZKElfxfh5kL" width="66" isinstance="0" multipleinstance="0" usefillcolor="1" fillcolor="none" xmi.id="5eQkTeyfxyR4" height="61" drawasactor="1"/>
          <objectwidget linecolor="none" usesdiagramfillcolor="1" linewidth="0" textcolor="#000000" usesdiagramusefillcolor="1" x="-1058" decon="0" showstereotype="1" y="80" font="Sans Serif,9,-1,0,50,0,0,0,0,0" localid="O7BJaNA4MEDz" width="111" isinstance="0" multipleinstance="0" usefillcolor="1" fillcolor="none" xmi.id="XQTbCOYmS7eW" height="26" drawasactor="0"/>
@@ -772,7 +772,7 @@
         </messages>
         <associations/>
        </diagram>
-       <diagram showopsig="1" linecolor="#ff0000" snapx="25" showattribassocs="1" snapy="25" linewidth="0" showattsig="1" textcolor="#000000" isopen="1" showpackage="1" showpubliconly="1" showstereotype="1" name="diagrama-de-sequencia-gerente-criar-acao" font="Sans Serif,9,-1,0,50,0,0,0,0,0" canvasheight="503" canvaswidth="1192,25" localid="-1" snapcsgrid="0" showgrid="0" showops="1" griddotcolor="#d3d3d3" backgroundcolor="#ffffff" autoincrementsequence="1" usefillcolor="1" fillcolor="#ffff00" zoom="80" xmi.id="g5AECpjAhnCt" documentation="" showscope="1" snapgrid="0" showatts="1" type="3">
+       <diagram showopsig="1" linecolor="#ff0000" snapx="25" showattribassocs="1" snapy="25" linewidth="0" showattsig="1" textcolor="#000000" isopen="0" showpackage="1" showpubliconly="1" showstereotype="1" name="diagrama-de-sequencia-gerente-criar-acao" font="Sans Serif,9,-1,0,50,0,0,0,0,0" canvasheight="503" canvaswidth="1192,25" localid="-1" snapcsgrid="0" showgrid="0" showops="1" griddotcolor="#d3d3d3" backgroundcolor="#ffffff" autoincrementsequence="1" usefillcolor="1" fillcolor="#ffff00" zoom="80" xmi.id="g5AECpjAhnCt" documentation="" showscope="1" snapgrid="0" showatts="1" type="3">
         <widgets>
          <objectwidget linecolor="none" usesdiagramfillcolor="1" linewidth="0" textcolor="#000000" usesdiagramusefillcolor="1" x="-1354" decon="0" showstereotype="1" y="80" font="Sans Serif,9,-1,0,50,0,0,0,0,0" localid="lMvd3ixKJsv9" width="66" isinstance="0" multipleinstance="0" usefillcolor="1" fillcolor="none" xmi.id="5eQkTeyfxyR4" height="61" drawasactor="1"/>
          <objectwidget linecolor="none" usesdiagramfillcolor="1" linewidth="0" textcolor="#000000" usesdiagramusefillcolor="1" x="-1076" decon="0" showstereotype="1" y="80" font="Sans Serif,9,-1,0,50,0,0,0,0,0" localid="D5qC9FeqJo4V" width="111" isinstance="0" multipleinstance="0" usefillcolor="1" fillcolor="none" xmi.id="XQTbCOYmS7eW" height="26" drawasactor="0"/>
@@ -828,7 +828,7 @@
   </UML:Model>
  </XMI.content>
  <XMI.extensions xmi.extender="umbrello">
-  <docsettings viewid="98JHAzm4JEiR" uniqueid="qaTZXDsnrQtE" documentation=""/>
+  <docsettings viewid="tdYfV38EnPHQ" uniqueid="qaTZXDsnrQtE" documentation=""/>
   <listview>
    <listitem open="1" type="800" id="Views">
     <listitem open="1" type="821" id="Component View"/>
@@ -896,12 +896,12 @@
       <listitem open="1" type="829" id="B680AaXMWZf0"/>
       <listitem open="1" type="829" id="YzVUH49tuIPL"/>
      </listitem>
-     <listitem open="1" type="803" id="pN5TyzJLHdS6">
+     <listitem open="0" type="803" id="pN5TyzJLHdS6">
       <listitem open="0" type="807" id="98JHAzm4JEiR" label="diagrama-de-classe-aplicacao"/>
       <listitem open="0" type="807" id="8oCPmVzrI4tA" label="diagrama-de-classe-DAOs"/>
       <listitem open="0" type="807" id="tdYfV38EnPHQ" label="diagrama-de-classe-DTOs"/>
      </listitem>
-     <listitem open="1" type="803" id="qaTZXDsnrQtE">
+     <listitem open="0" type="803" id="qaTZXDsnrQtE">
       <listitem open="0" type="810" id="g5AECpjAhnCt" label="diagrama-de-sequencia-gerente-criar-acao"/>
       <listitem open="0" type="810" id="2C4nZ0EG0jWw" label="diagrama-de-sequencia-login"/>
       <listitem open="0" type="810" id="kcq0JKXAbQNd" label="diagrama-de-sequencia-promotor-consulta-acao"/>
